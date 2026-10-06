@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>22NFT build planner</title>
+<style>
+  :root {
+    --bg: #121418;
+    --card: #1b1f27;
+    --line: #2e3542;
+    --text: #e8e4dc;
+    --muted: #9aa3b2;
+    --accent: #e0b07a;
+    --green: #9ddec0;
+    --amber: #f0c27a;
+    --red: #f0a297;
+    --ok: #1c3328;
+    --warn: #3a2e18;
+    --bad: #3a2220;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.45 ui-sans-serif, system-ui, sans-serif; }
+  header, main, footer { padding: 16px; max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: 1.45rem; margin: 0 0 4px; }
+  h2 { font-size: 1.15rem; margin: 0 0 8px; }
+  p { margin: 0 0 10px; }
+  .muted { color: var(--muted); }
+  .stamp { color: #f0c7c0; font-size: 0.85rem; }
+  nav { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; }
+  nav button, button, select, input { font: inherit; color: var(--text); }
+  nav button { background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; white-space: nowrap; }
+  nav button[aria-selected="true"] { background: var(--accent); color: #1b140c; border-color: var(--accent); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 14px; margin: 0 0 12px; }
+  label { display: block; font-size: 0.85rem; color: var(--muted); margin-bottom: 4px; }
+  input, select { width: 100%; background: #12151b; border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; }
+  .grid { display: grid; gap: 12px; }
+  @media (min-width: 800px) {
+    .grid.two { grid-template-columns: 1fr 1fr; }
+    .grid.three { grid-template-columns: 1fr 1fr 1fr; }
+  }
+  .row { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .badge { font-size: 0.75rem; border-radius: 999px; padding: 2px 8px; border: 1px solid var(--line); }
+  .badge.spec { color: var(--green); }
+  .badge.est { color: var(--amber); }
+  .badge.conflict { color: var(--red); }
+  .pill { border-radius: 12px; padding: 12px; }
+  .pill.green { background: var(--ok); color: var(--green); }
+  .pill.amber { background: var(--warn); color: var(--amber); }
+  .pill.red { background: var(--bad); color: var(--red); }
+  .pill.neutral { background: #222733; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  a { color: var(--accent); }
+  .bar { height: 8px; background: #2a3140; border-radius: 99px; overflow: hidden; }
+  .bar span { display: block; height: 100%; background: var(--accent); }
+  .hidden { display: none; }
+  .banner { background: var(--bad); color: var(--red); padding: 10px 14px; border-radius: 10px; margin-bottom: 12px; }
+  button.action { background: var(--accent); color: #1b140c; border: 0; border-radius: 10px; padding: 10px 14px; }
+  img.sheet { width: 100%; height: auto; border-radius: 10px; background: #f6f3ec; }
+  .check { display: flex; gap: 10px; align-items: flex-start; }
+  .check input { width: auto; margin-top: 4px; }
+</style>
+</head>
+<body>
+<header>
+  <p class="stamp">CONCEPT — NOT FOR FABRICATION UNTIL FIELD-MEASURED.</p>
+  <h1>22NFT build planner</h1>
+  <p class="muted">Reads the JSON in <code>/data</code>. Nothing here is a specification until the yellow sticker and a tape measure say so.</p>
+  <div id="banner" class="banner hidden"></div>
+  <nav id="nav" role="tablist"></nav>
+</header>
+<main id="main"></main>
+<footer>
+  <p class="muted">Scores and scenario lever arms are planning judgments. Published weights stay labeled. AWAITING BLUETTI items are not filled in.</p>
+</footer>
+<script>
+const KEY = "n22ft-planner-v1";
+const TABS = [
+  ["weight", "Weight"],
+  ["power", "Electrical"],
+  ["place", "Placement"],
+  ["bom", "BOM"],
+  ["check", "Checklist"]
+];
+let storageOk = true;
+let state = {};
+let data = {};
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" ? parsed : {};
+  } catch (e) {
+    storageOk = false;
+    return {};
+  }
+}
+function saveState() {
+  try {
+    localStorage.setItem(KEY, JSON.stringify(state));
+    return true;
+  } catch (e) {
+    storageOk = false;
+    const b = document.getElementById("banner");
+    b.textContent = "This browser refused to store the planner. Your entries stay on this page until you leave.";
+    b.classList.remove("hidden");
+    return false;
+  }
+}
+function num(v) {
+  if (v === "" || v == null) return null;
+  const n = Number(v);
+  return Number.isFinite(n) ? n : null;
+}
+function esc(s) {
+  return String(s == null ? "" : s)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+async function boot() {
+  state = loadState();
+  if (!storageOk) {
+    const b = document.getElementById("banner");
+    b.textContent = "Local storage is unavailable. The planner still runs; it will not remember this visit.";
+    b.classList.remove("hidden");
+  }
+  const files = ["vehicle.json", "power.json", "budget.json", "placements.json", "bom.json", "checklist.json"];
+  try {
+    const parts = await Promise.all(files.map((f) => fetch("../data/" + f).then((r) => {
+      if (!r.ok) throw new Error(f);
+      return r.json();
+    })));
+    files.forEach((f, i) => { data[f] = parts[i]; });
+  } catch (e) {
+    document.getElementById("main").innerHTML = "<div class='card'><h2>Data files did not load</h2><p>Open this app from the repository root with a static file server, then visit <code>/app/</code>. Example: <code>python3 -m http.server 8765</code> and <code>http://localhost:8765/app/</code>.</p></div>";
+    return;
+  }
+  const nav = document.getElementById("nav");
+  nav.innerHTML = TABS.map(([id, label]) =>
+    `<button role="tab" data-tab="${id}" aria-selected="false">${label}</button>`).join("");
+  nav.addEventListener("click", (ev) => {
+    const btn = ev.target.closest("button");
+    if (!btn) return;
+    state.tab = btn.dataset.tab;
+    saveState();
+    render();
+  });
+  if (!state.tab) state.tab = "weight";
+  render();
+}
+
+function render() {
+  document.querySelectorAll("#nav button").forEach((b) => {
+    b.setAttribute("aria-selected", b.dataset.tab === state.tab ? "true" : "false");
+  });
+  const main = document.getElementById("main");
+  if (state.tab === "weight") main.innerHTML = viewWeight();
+  else if (state.tab === "power") main.innerHTML = viewPower();
+  else if (state.tab === "place") main.innerHTML = viewPlace();
+  else if (state.tab === "bom") main.innerHTML = viewBom();
+  else main.innerHTML = viewCheck();
+  bind();
+}
+
+function viewWeight() {
+  const v = data["vehicle.json"];
+  const items = data["budget.json"].items;
+  const ccc = num(state.ccc);
+  const rows = items.map((item) => weightRow(item)).join("");
+  const total = items.reduce((sum, item) => sum + lineWeight(item), 0);
+  const unknowns = items.filter((item) => lineWeight(item) === 0 && !item.per_gallon && item.weight_lb == null && num(state["w_" + item.id]) == null).length + (num(state.gallons) == null ? 1 : 0);
+  let pill = "neutral";
+  let msg = "Enter the yellow-sticker CCC. The total below is not a pass or a fail until that number exists.";
+  if (ccc == null) {
+    msg = "CCC is blank. The running total is only the lines that have a weight. It is not a remaining-capacity result.";
+  } else if (unknowns > 0) {
+    pill = "amber";
+    msg = "CCC is in, and " + unknowns + " line(s) still have no weight, so the total is incomplete.";
+    if (total > ccc) { pill = "red"; msg = "The known lines already exceed the sticker CCC, and more lines are still blank."; }
+  } else if (total > ccc) {
+    pill = "red";
+    msg = "Known total is over the sticker CCC.";
+  } else if (total > ccc * 0.85) {
+    pill = "amber";
+    msg = "Known total is inside CCC and above 85% of it.";
+  } else {
+    pill = "green";
+    msg = "Known total is inside CCC with margin under the 85% mark. Blank-by-design lines are not in this sentence if you filled them.";
+  }
+  const axle = axleBlock();
+  return `
+    <div class="pill ${pill}">${esc(msg)}</div>
+    <div class="card grid two">
+      <div>
+        <label for="ccc">VIN yellow sticker CCC (lb)</label>
+        <input id="ccc" inputmode="decimal" placeholder="Blank until you read the sticker" value="${esc(state.ccc || "")}" />
+      </div>
+      <div>
+        <label for="panelMode">Callsun panel weight</label>
+        <select id="panelMode">
+          <option value="mfg" ${state.panelMode !== "alt" ? "selected" : ""}>Manufacturer page, 65.65 lb</option>
+          <option value="alt" ${state.panelMode === "alt" ? "selected" : ""}>Conflicting listing, 29.8 lb</option>
+        </select>
+      </div>
+      <div>
+        <label for="axleF">Current front axle (lb, scale or sticker)</label>
+        <input id="axleF" inputmode="decimal" placeholder="Blank" value="${esc(state.axleF || "")}" />
+      </div>
+      <div>
+        <label for="axleR">Current rear axle (lb)</label>
+        <input id="axleR" inputmode="decimal" placeholder="Blank" value="${esc(state.axleR || "")}" />
+      </div>
+      <div>
+        <label for="lever">Lever arm behind the rear axle (in)</label>
+        <input id="lever" inputmode="decimal" placeholder="Field measure. Blank is not zero." value="${esc(state.lever || "")}" />
+      </div>
+      <div>
+        <label for="gallons">Fresh gallons to carry</label>
+        <input id="gallons" inputmode="decimal" placeholder="0 to 35 published" value="${esc(state.gallons || "")}" />
+      </div>
+      <div>
+        <label for="placePick">Placement used for the axle view</label>
+        <select id="placePick">${data["placements.json"].options.map((o) => `<option value="${esc(o.id)}" ${(state.placeId || "b") === o.id ? "selected" : ""}>${esc(o.name)}</option>`).join("")}</select>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Lines</h2>
+      <p class="muted">Type a weight only where the badge says estimate. Spec-sheet lines are locked to the source.</p>
+      ${rows}
+      <div class="row"><strong>Total of lines that have a number</strong><strong>${total.toFixed(1)} lb</strong></div>
+      <div class="row"><span>Sticker CCC</span><span>${ccc == null ? "unknown" : ccc + " lb"}</span></div>
+      <div class="row"><span>Headroom against sticker CCC</span><span>${ccc == null ? "CCC unknown" : (unknowns > 0 || num(state.gallons) == null ? "incomplete — " + (ccc - total).toFixed(1) + " lb on the numbered lines only" : (ccc - total).toFixed(1) + " lb")}</span></div>
+      <p class="muted">Water uses 8.3 lb/gal from the East to West definition. GAWR front ${v.gawr_front_lb.value} lb, rear ${v.gawr_rear_lb.value} lb, GVWR ${v.gvwr_lb.value} lb, wheelbase ${v.wheelbase_in.value} in.</p>
+    </div>
+    ${axle}`;
+}
+
+function lineWeight(item) {
+  if (item.per_gallon) {
+    const g = num(state.gallons);
+    return g == null ? 0 : g * 8.3;
+  }
+  if (item.id === "panels") {
+    const each = state.panelMode === "alt" ? item.weight_lb_alternate : item.weight_lb;
+    return each * item.qty;
+  }
+  if (item.weight_lb != null && item.confidence !== "UNVERIFIED") return item.weight_lb * item.qty;
+  const typed = num(state["w_" + item.id]);
+  return typed == null ? 0 : typed;
+}
+
+function weightRow(item) {
+  const badgeClass = item.confidence === "CONFLICT" ? "conflict" : (item.badge || "").includes("estimate") ? "est" : "spec";
+  let control = "";
+  if (item.per_gallon) {
+    const g = num(state.gallons);
+    control = g == null ? "enter gallons" : (g * 8.3).toFixed(1) + " lb";
+  } else if (item.id === "panels") {
+    control = lineWeight(item).toFixed(1) + " lb";
+  } else if (item.weight_lb != null && item.confidence !== "UNVERIFIED") {
+    control = (item.weight_lb * item.qty).toFixed(1) + " lb";
+  } else {
+    control = `<input data-w="${item.id}" inputmode="decimal" placeholder="lb, or leave blank" value="${esc(state["w_" + item.id] || "")}" />`;
+  }
+  return `<div class="row"><div><strong>${esc(item.label)}</strong> × ${item.qty}<br><span class="badge ${badgeClass}">${esc(item.badge)}</span> <span class="muted">${esc(item.note || "")}</span></div><div style="min-width:140px">${control}</div></div>`;
+}
+
+function axleBlock() {
+  const wb = 178;
+  const x = num(state.lever);
+  const place = (state.placeId || "b");
+  const opt = data["placements.json"].options.find((o) => o.id === place) || data["placements.json"].options[1];
+  const packs = 202.8;
+  const hub = 30.86;
+  let dR, dF, note;
+  if (x == null) {
+    return `<div class="card"><h2>Axle view — ${esc(opt.name)}</h2><p class="muted">Enter a lever arm. A blank arm is not zero, and these rows stay hidden so a guess is not presented as a result.</p><p>Status of this option: ${esc(opt.status)}. ${esc(opt.reason)}</p></div>`;
+  }
+  if (opt.id === "e") {
+    dR = 101.4 * (wb + x) / wb + (101.4 + hub);
+    dF = -101.4 * x / wb;
+    note = "Split formula: one B4810 at the lever arm, the other pack and the hub on the axle.";
+  } else if (opt.id === "d") {
+    dR = packs + hub;
+    dF = 0;
+    note = "Between the rails near the axle is treated as x = 0 for the bank. Your lever arm is ignored for this option.";
+  } else {
+    const W = packs + hub;
+    dR = W * (wb + x) / wb;
+    dF = -W * x / wb;
+    note = "Both packs and the hub at the lever arm you entered.";
+  }
+  const r0 = num(state.axleR);
+  const f0 = num(state.axleF);
+  let verdict = "<p class='muted'>Enter current axle weights to compare with GAWR 4,630 / 7,275.</p>";
+  if (r0 != null && f0 != null) {
+    const r = r0 + dR;
+    const f = f0 + dF;
+    const over = r > 7275 || f > 4630 || f < 0;
+    const close = r > 7275 * 0.9;
+    const klass = over ? "red" : close ? "amber" : "green";
+    verdict = `<div class="pill ${klass}">Front ${f.toFixed(0)} lb vs 4,630. Rear ${r.toFixed(0)} lb vs 7,275.</div>`;
+  }
+  return `<div class="card"><h2>Axle view — ${esc(opt.name)}</h2><p>${esc(note)}</p><div class="row"><span>Rear change</span><span>${dR.toFixed(1)} lb</span></div><div class="row"><span>Front change</span><span>${dF.toFixed(1)} lb</span></div>${verdict}<p class="muted">Enclosure, washer, water, and panels are not in this axle block. Add them only after their stations are measured. CCC effect of the bank is in the total above.</p></div>`;
+}
+
+function viewPower() {
+  const p = data["power.json"];
+  const n1 = num(state.pv1);
+  const n2 = num(state.pv2);
+  const a = n1 == null ? 3 : n1;
+  const b = n2 == null ? 3 : n2;
+  const isc = p.panel.isc_a, voc = p.panel.voc_v, w = p.panel.pmax_w;
+  const flags = [];
+  const seriesNote = (2 * voc > p.rv5.pv_voltage_max_v)
+    ? "Two panels in series would be " + (2 * voc).toFixed(2) + " V at STC, over the " + p.rv5.pv_voltage_max_v + " V port. Series stays out. The colors below are about the parallel groups you entered."
+    : "";
+  [a, b].forEach((n, i) => {
+    if (n <= 0) return;
+    const I = n * isc;
+    const P = n * w;
+    if (I > p.rv5.pv_max_a_each) flags.push("PV" + (i + 1) + " Isc " + I.toFixed(2) + " A exceeds " + p.rv5.pv_max_a_each + " A.");
+    else if (I * 1.25 > p.rv5.pv_max_a_each) flags.push("PV" + (i + 1) + " raw Isc is under 50 A, and 125% of Isc is " + (I * 1.25).toFixed(2) + " A. AWAITING BLUETTI on whether the port rating already includes that factor.");
+    if (P > p.rv5.pv_max_w_each) flags.push("PV" + (i + 1) + " power " + P + " W exceeds " + p.rv5.pv_max_w_each + " W.");
+  });
+  if ((a + b) * w > p.rv5.pv_max_w_combined) flags.push("Combined array power exceeds " + p.rv5.pv_max_w_combined + " W.");
+  const hard = flags.some((f) => f.includes("exceeds"));
+  const flagHtml = (seriesNote ? `<p class="muted">${esc(seriesNote)}</p>` : "") + (flags.length
+    ? `<div class="pill ${hard ? "red" : "amber"}">${flags.map(esc).join("<br>")}</div>`
+    : `<div class="pill green">Both groups are inside the published 50 A, 50 V, and 1,800 W limits on raw STC Isc. The 125% note did not trip.</div>`);
+  const loads = [
+    ["ac", "Variable-speed AC"],
+    ["wash", "Washer-dryer"],
+    ["desk", "Edit workstation"],
+    ["star", "Starlink"],
+    ["fridge", "Fridge"]
+  ];
+  const loadInputs = loads.map(([id, label]) => `
+    <div class="card">
+      <h2>${label}</h2>
+      <div class="grid two">
+        <div><label>Watts</label><input data-load="${id}" data-k="w" inputmode="decimal" placeholder="blank" value="${esc((state.loads && state.loads[id] && state.loads[id].w) || "")}" /></div>
+        <div><label>Hours per day</label><input data-load="${id}" data-k="h" inputmode="decimal" placeholder="blank" value="${esc((state.loads && state.loads[id] && state.loads[id].h) || "")}" /></div>
+      </div>
+    </div>`).join("");
+  let daily = 0;
+  let missing = false;
+  loads.forEach(([id]) => {
+    const row = (state.loads && state.loads[id]) || {};
+    const watts = num(row.w), hours = num(row.h);
+    if (watts == null || hours == null) missing = true;
+    else daily += watts * hours;
+  });
+  const frac = num(state.usable);
+  const sun = num(state.sun);
+  const nameplate = p.b4810.capacity_wh * p.b4810.qty_planned;
+  const usable = frac == null ? nameplate : nameplate * frac;
+  const days = daily > 0 ? usable / daily : null;
+  const sunW = (a + b) * w * (sun == null ? 0 : sun);
+  return `
+    <div class="card grid three">
+      <div><label>Panels on PV1 (parallel)</label><input id="pv1" inputmode="decimal" value="${esc(state.pv1 != null ? state.pv1 : "3")}" /></div>
+      <div><label>Panels on PV2 (parallel)</label><input id="pv2" inputmode="decimal" value="${esc(state.pv2 != null ? state.pv2 : "3")}" /></div>
+      <div><label>Usable fraction of nameplate (0–1)</label><input id="usable" inputmode="decimal" placeholder="blank uses nameplate" value="${esc(state.usable || "")}" /></div>
+      <div><label>Sun hours</label><input id="sun" inputmode="decimal" placeholder="your site" value="${esc(state.sun || "")}" /></div>
+    </div>
+    ${flagHtml}
+    <div class="card">
+      <div class="row"><span>PV1 Isc / Voc / W</span><span>${(a * isc).toFixed(2)} A · ${voc} V · ${a * w} W</span></div>
+      <div class="row"><span>PV2 Isc / Voc / W</span><span>${(b * isc).toFixed(2)} A · ${voc} V · ${b * w} W</span></div>
+      <div class="row"><span>Port limits</span><span>${p.rv5.pv_max_a_each} A · ${p.rv5.pv_voltage_max_v} V · ${p.rv5.pv_max_w_each} W each · ${p.rv5.pv_max_w_combined} W combined</span></div>
+      <p class="muted">Temperature coefficient for the 275 W panel was not published, so cold Voc is not calculated. Panel fuse maximum is 25 A.</p>
+    </div>
+    ${loadInputs}
+    <div class="card">
+      <h2>Day budget</h2>
+      <div class="row"><span>Nameplate, 2× B4810</span><span>${nameplate} Wh</span></div>
+      <div class="row"><span>Daily load entered</span><span>${missing ? "a load is still blank" : daily.toFixed(0) + " Wh"}</span></div>
+      <div class="row"><span>Days on ${frac == null ? "nameplate" : "your fraction"}</span><span>${days == null ? "—" : days.toFixed(2)}</span></div>
+      <div class="row"><span>STC replenishment at the sun hours entered</span><span>${sun == null ? "enter sun hours" : sunW.toFixed(0) + " Wh"}</span></div>
+      <p class="muted">${frac == null ? "Days use nameplate watt-hours, not a derated usable figure." : "Days use your usable fraction."} STC watt-hours are not a field yield. Washer nameplate maximum is 1,300 W if you want a ceiling to type; it is not filled in for you. An older Standard Starlink sheet lists 50–75 W average; the Mini sheet fetched did not.</p>
+    </div>`;
+}
+
+function viewPlace() {
+  const opts = data["placements.json"].options;
+  const current = state.placeId || "b";
+  const cards = opts.map((o) => {
+    const scores = Object.entries(o.scores).map(([k, v]) =>
+      `<div><span class="muted">${esc(k)}</span><div class="bar"><span style="width:${v * 20}%"></span></div></div>`).join("");
+    return `<button class="card" data-place="${esc(o.id)}" style="text-align:left;width:100%;${o.id === current ? "outline:2px solid var(--accent)" : ""}">
+      <h2>${esc(o.name)}</h2>
+      <p><span class="badge ${o.status === "RULED OUT" ? "conflict" : "spec"}">${esc(o.status)}</span></p>
+      <p>${esc(o.reason)}</p>
+      <div class="grid two">${scores}</div>
+    </button>`;
+  }).join("");
+  const opt = opts.find((o) => o.id === current);
+  return `${cards}<div class="card"><h2>Drawing</h2><p class="muted">${esc(opt.drawing)}</p><img class="sheet" alt="${esc(opt.name)}" src="../${esc(opt.drawing)}" /></div>`;
+}
+
+function viewBom() {
+  const rows = data["bom.json"].items.map((item) => {
+    const st = (state.bom && state.bom[item.id]) || item.status;
+    return `<tr>
+      <td>${esc(item.item)}<br><span class="muted">${esc(item.note || "")}</span></td>
+      <td>${esc(item.model)}</td>
+      <td>${item.qty}</td>
+      <td>${item.unit_price_usd == null ? "—" : "$" + item.unit_price_usd}</td>
+      <td>${item.source_url ? `<a href="${esc(item.source_url)}">source</a>` : "—"}</td>
+      <td><select data-bom="${esc(item.id)}">
+        ${["researching", "quoted", "bought"].map((s) => `<option ${s === st ? "selected" : ""}>${s}</option>`).join("")}
+      </select></td>
+    </tr>`;
+  }).join("");
+  return `<div class="card"><h2>Bill of materials</h2><p class="muted">Prices stay blank unless a page published one. The Callsun figure is a list price that was marked unavailable.</p>
+    <div style="overflow-x:auto"><table><thead><tr><th>Item</th><th>Model</th><th>Qty</th><th>Unit price</th><th>Source</th><th>Status</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <p><button class="action" id="csv" type="button">Export CSV</button></p></div>`;
+}
+
+function viewCheck() {
+  const items = data["checklist.json"].items.map((item) => {
+    const row = (state.check && state.check[item.id]) || {};
+    return `<div class="card">
+      <label class="check"><input type="checkbox" data-check="${esc(item.id)}" ${row.done ? "checked" : ""} /><span><strong>${esc(item.label)}</strong><br><span class="muted">${item.drawing ? esc(item.drawing) : ""}</span></span></label>
+      <label for="note-${esc(item.id)}">Note</label>
+      <input id="note-${esc(item.id)}" data-note="${esc(item.id)}" value="${esc(row.note || "")}" placeholder="What you saw on the unit" />
+    </div>`;
+  }).join("");
+  return items;
+}
+
+function bind() {
+  const on = (sel, ev, fn) => document.querySelectorAll(sel).forEach((el) => el.addEventListener(ev, fn));
+  on("#ccc", "change", (e) => { state.ccc = e.target.value; saveState(); render(); });
+  on("#panelMode", "change", (e) => { state.panelMode = e.target.value; saveState(); render(); });
+  on("#axleF", "change", (e) => { state.axleF = e.target.value; saveState(); render(); });
+  on("#axleR", "change", (e) => { state.axleR = e.target.value; saveState(); render(); });
+  on("#lever", "change", (e) => { state.lever = e.target.value; saveState(); render(); });
+  on("#gallons", "change", (e) => { state.gallons = e.target.value; saveState(); render(); });
+  on("#placePick", "change", (e) => { state.placeId = e.target.value; saveState(); render(); });
+  on("[data-w]", "change", (e) => { state["w_" + e.target.dataset.w] = e.target.value; saveState(); render(); });
+  on("#pv1", "change", (e) => { state.pv1 = e.target.value; saveState(); render(); });
+  on("#pv2", "change", (e) => { state.pv2 = e.target.value; saveState(); render(); });
+  on("#usable", "change", (e) => { state.usable = e.target.value; saveState(); render(); });
+  on("#sun", "change", (e) => { state.sun = e.target.value; saveState(); render(); });
+  on("[data-load]", "change", (e) => {
+    state.loads = state.loads || {};
+    const id = e.target.dataset.load;
+    state.loads[id] = state.loads[id] || {};
+    state.loads[id][e.target.dataset.k] = e.target.value;
+    saveState();
+    render();
+  });
+  on("[data-place]", "click", (e) => {
+    const btn = e.target.closest("[data-place]");
+    state.placeId = btn.dataset.place;
+    saveState();
+    render();
+  });
+  on("[data-bom]", "change", (e) => {
+    state.bom = state.bom || {};
+    state.bom[e.target.dataset.bom] = e.target.value;
+    saveState();
+  });
+  on("[data-check]", "change", (e) => {
+    state.check = state.check || {};
+    const id = e.target.dataset.check;
+    state.check[id] = state.check[id] || {};
+    state.check[id].done = e.target.checked;
+    saveState();
+  });
+  on("[data-note]", "change", (e) => {
+    state.check = state.check || {};
+    const id = e.target.dataset.note;
+    state.check[id] = state.check[id] || {};
+    state.check[id].note = e.target.value;
+    saveState();
+  });
+  const csv = document.getElementById("csv");
+  if (csv) csv.addEventListener("click", exportCsv);
+}
+
+function exportCsv() {
+  const headers = ["item", "model", "qty", "unit_price_usd", "source_url", "status"];
+  const lines = [headers.join(",")];
+  data["bom.json"].items.forEach((item) => {
+    const st = (state.bom && state.bom[item.id]) || item.status;
+    const cells = [item.item, item.model, item.qty, item.unit_price_usd == null ? "" : item.unit_price_usd, item.source_url || "", st];
+    lines.push(cells.map((c) => {
+      const s = String(c);
+      return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s;
+    }).join(","));
+  });
+  const blob = new Blob([lines.join("\n")], { type: "text/csv" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "22nft-bom.csv";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+boot();
+</script>
+</body>
+</html>

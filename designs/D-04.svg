@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+  <rect width="100%" height="100%" fill="#f6f3ec"/>
+  <text x="48" y="42" fill="#8c2f2f" font-family="ui-sans-serif,sans-serif" font-size="15" font-weight="700">CONCEPT — NOT FOR FABRICATION UNTIL FIELD-MEASURED.</text>
+  <text x="48" y="68" fill="#3d3832" font-family="ui-sans-serif,sans-serif" font-size="22" font-weight="700">D-04 — Tail battery enclosure</text>
+  
+    <g font-family="ui-sans-serif,sans-serif" font-size="13" fill="#2c2824">
+      <text x="48" y="104">Internal sizes are the published case sizes. Shell size, bolt spacing, and ground clearance are FIELD MEASURE. Box weight unknown.</text>
+      <text x="48" y="140" font-weight="700">Plan — cases only, clearance not included</text>
+      <rect x="48" y="160" width="239" height="150" fill="#d9e6f5" stroke="#2c2824" stroke-width="2"/>
+      <text x="60" y="230">B4810</text>
+      <text x="60" y="248">23.94 × 14.96 in</text>
+      <rect x="300" y="160" width="239" height="150" fill="#d9e6f5" stroke="#2c2824" stroke-width="2"/>
+      <text x="312" y="230">B4810</text>
+      <text x="312" y="248">23.94 × 14.96 in</text>
+      <rect x="560" y="160" width="197" height="177" fill="#f3d39a" stroke="#8a5a12" stroke-width="2"/>
+      <text x="572" y="230">RV5 hub</text>
+      <text x="572" y="248">17.72 × 19.69 in</text>
+      <text x="572" y="266">needs ≥ 7.87 in air</text>
+      <text x="48" y="360">End to end on the long side: 47.88 in.</text>
+      <text x="48" y="380">That is wider than 35.400 in rail CTC.</text>
+      <text x="48" y="400">Short side by side: 29.92 in. Fit is unproven.</text>
+      <text x="48" y="420">Stacked cases only: 11.42 in thick.</text>
+
+      <text x="48" y="460" font-weight="700">Side — concept</text>
+      <rect x="48" y="480" width="520" height="120" fill="#efe8dc" stroke="#2c2824" stroke-width="2"/>
+      <rect x="70" y="520" width="200" height="57" fill="#d9e6f5" stroke="#2c2824"/>
+      <text x="80" y="554">Pack 5.71 in thick</text>
+      <rect x="290" y="505" width="160" height="63" fill="#f3d39a" stroke="#8a5a12"/>
+      <text x="300" y="542">Hub 6.30 in</text>
+      <line x1="48" y1="610" x2="568" y2="610" stroke="#2c2824" stroke-width="4"/>
+      <text x="48" y="640">Lowest point vs departure: UNKNOWN. Skid and drain aft. Do not cover exhaust.</text>
+
+      <text x="820" y="140" font-weight="700">End and door</text>
+      <rect x="820" y="160" width="280" height="220" fill="#efe8dc" stroke="#2c2824" stroke-width="2"/>
+      <rect x="850" y="200" width="220" height="140" fill="none" stroke="#8a5a12" stroke-width="3"/>
+      <text x="900" y="270">Access door</text>
+      <text x="880" y="290">lock, not a slam latch</text>
+      <text x="860" y="420">Vent in high, vent out low,</text>
+      <text x="860" y="440">both baffled against spray.</text>
+      <text x="860" y="470">Drain at the low corner.</text>
+      <text x="860" y="510">Mount: BOLTED to rail or</text>
+      <text x="860" y="530">existing bracket. Weld is a</text>
+      <text x="860" y="550">warranty question, not the default.</text>
+      <text x="860" y="590">Bolt pitch: FIELD MEASURE.</text>
+      <text x="860" y="630">No cut crossmember.</text>
+      <text x="48" y="680">If the hub's 7.87 in air will not fit, packs stay here and the hub moves to a sealed bay (option f). OPEN.</text>
+      <text x="48" y="708">Bare packs in this zone, with no shell, are ruled out. The B4810 manual says not to use the pack in water.</text>
+    </g>
+    
+  
+    <rect x="36" y="1000" width="1528" height="72" fill="#1c1915" />
+    <text x="52" y="1028" fill="#f4efe6" font-family="ui-sans-serif,sans-serif" font-size="16" font-weight="700">22NFT BUILD</text>
+    <text x="52" y="1052" fill="#d9c7a6" font-family="ui-sans-serif,sans-serif" font-size="13">D-04  Tail battery enclosure</text>
+    <text x="760" y="1028" fill="#f4efe6" font-family="ui-sans-serif,sans-serif" font-size="13">Scale: NOT TO SCALE</text>
+    <text x="760" y="1052" fill="#d9c7a6" font-family="ui-sans-serif,sans-serif" font-size="12">Rev A   2026-10-06</text>
+    <text x="1080" y="1028" fill="#f0c7c0" font-family="ui-sans-serif,sans-serif" font-size="11">CONCEPT — NOT FOR FABRICATION UNTIL FIELD-MEASURED.</text>
+    <text x="1080" y="1052" fill="#b7c4c0" font-family="ui-sans-serif,sans-serif" font-size="11">Sources: B4810 manual dimensions; RV5 manual clearance; Kelderman CTC</text>
+    
+</svg>

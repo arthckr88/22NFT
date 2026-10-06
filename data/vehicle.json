@@ -1,0 +1,105 @@
+{
+  "project": "22NFT BUILD",
+  "accessed": "2026-10-06",
+  "subject": "East to West Alita 22NFT (2026 model year) and the 2027 22NF designation",
+  "note": "The VIN-specific yellow sticker overrides every published weight. UVW and CCC were not published. Null values are unknown, not zero.",
+  "wheelbase_in": {
+    "value": 178,
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan"
+  },
+  "gvwr_lb": {
+    "value": 11000,
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan"
+  },
+  "gcwr_lb": {
+    "value": 13500,
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan"
+  },
+  "gawr_front_lb": {
+    "value": 4630,
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan"
+  },
+  "gawr_rear_lb": {
+    "value": 7275,
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan"
+  },
+  "tow_capacity_lb": {
+    "value": 4000,
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan",
+    "note": "Published tow capacity. Not a tongue rating. At a coach loaded to GVWR, GCWR minus GVWR is 2500 lb, which is below this 4000 lb figure."
+  },
+  "fuel_gal": {
+    "value": 25,
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan"
+  },
+  "fresh_gal": {
+    "value": 35,
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan"
+  },
+  "gray_gal": {
+    "value": 30,
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan"
+  },
+  "black_gal": {
+    "value": 30,
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan"
+  },
+  "exterior_length_ft": {
+    "value": 26,
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan"
+  },
+  "exterior_height_label": {
+    "value": "11' 5\"",
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan"
+  },
+  "awning_ft": {
+    "value": 16,
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan"
+  },
+  "water_lb_per_gal": {
+    "value": 8.3,
+    "confidence": "CONFIRMED",
+    "source_id": "etw-22nf-floorplan",
+    "note": "East to West cargo-capacity definition on the 22NF floorplan page."
+  },
+  "uvw_lb": null,
+  "ccc_lb": null,
+  "exterior_width": null,
+  "lp_tank_capacity": null,
+  "rear_overhang_coach_in": null,
+  "ground_clearance_in": null,
+  "departure_angle_deg": null,
+  "tongue_rating_lb": null,
+  "hitch_class": null,
+  "chassis_frame_end_behind_axle_in": {
+    "value": 37.35,
+    "confidence": "CREDIBLE",
+    "source_id": "ford-bemm-2023",
+    "note": "2023 MY Ford Transit BEMM: rear axle to end of frame, not including the frame adapter, listed with the EL-LWB 178 in chassis. This is the chassis frame, not the finished coach body."
+  },
+  "max_frame_extension_el_lwb_in": {
+    "value": 80,
+    "confidence": "CREDIBLE",
+    "source_id": "ford-bemm-2023",
+    "note": "Maximum rear frame extension for the 178 in EL-LWB column in the 2023 BEMM extract."
+  },
+  "frame_ctc_in": {
+    "value": 35.4,
+    "confidence": "CREDIBLE",
+    "source_id": "kelderman-transit-frame",
+    "note": "Kelderman drawing 10005559 labels CTC Frame 35.400 in for a 2014+ Transit 350HD DRW cab chassis and cutaway. Center-to-center, not the inside clear gap. Not confirmed for this coach."
+  }
+}

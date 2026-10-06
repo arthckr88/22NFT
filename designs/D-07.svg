@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+  <rect width="100%" height="100%" fill="#f6f3ec"/>
+  <text x="48" y="42" fill="#8c2f2f" font-family="ui-sans-serif,sans-serif" font-size="15" font-weight="700">CONCEPT — NOT FOR FABRICATION UNTIL FIELD-MEASURED.</text>
+  <text x="48" y="68" fill="#3d3832" font-family="ui-sans-serif,sans-serif" font-size="22" font-weight="700">D-07 — Interior floor plan</text>
+  
+    <g font-family="ui-sans-serif,sans-serif" font-size="13" fill="#2c2824">
+      <text x="48" y="104">Existing plan is the dealer walkthrough sequence plus the manufacturer cabover size. It is not a factory drawing. Proposed plan shows both washer options and does not pick one.</text>
+      <text x="48" y="140" font-weight="700">Existing — NOT TO SCALE</text>
+      <rect x="48" y="160" width="700" height="280" fill="#efe8dc" stroke="#2c2824" stroke-width="2"/>
+      <rect x="60" y="175" width="120" height="250" fill="#e4dccb" stroke="#2c2824"/>
+      <text x="78" y="300">Cab +</text>
+      <text x="78" y="318">60×80</text>
+      <text x="78" y="336">cabover</text>
+      <rect x="200" y="190" width="140" height="100" fill="#d7e3ef" stroke="#2c2824"/>
+      <text x="220" y="245">Dinette</text>
+      <rect x="200" y="310" width="160" height="110" fill="#d7e3ef" stroke="#2c2824"/>
+      <text x="230" y="370">Kitchen</text>
+      <rect x="380" y="190" width="150" height="230" fill="#e7d6d2" stroke="#2c2824"/>
+      <text x="420" y="300">Bath</text>
+      <text x="400" y="318">center?</text>
+      <rect x="550" y="190" width="180" height="230" fill="#e4dccb" stroke="#2c2824"/>
+      <text x="580" y="290">Rear</text>
+      <text x="560" y="308">60×80 lift</text>
+      <text x="560" y="326">CREDIBLE</text>
+      <text x="48" y="460">Slide wall UNKNOWN — not drawn.</text>
+
+      <text x="820" y="140" font-weight="700">Proposed zones — washer still OPEN</text>
+      <rect x="820" y="160" width="700" height="280" fill="#efe8dc" stroke="#2c2824" stroke-width="2"/>
+      <rect x="832" y="175" width="120" height="250" fill="#e4dccb" stroke="#2c2824"/>
+      <text x="850" y="300">Cab stays</text>
+      <rect x="970" y="190" width="140" height="220" fill="#e7d6d2" stroke="#8a5a12" stroke-dasharray="5 3"/>
+      <text x="990" y="290">A washer</text>
+      <text x="990" y="308">in the bath</text>
+      <rect x="1130" y="190" width="160" height="110" fill="#d7e3ef" stroke="#2c2824"/>
+      <text x="1160" y="250">Kitchen stays</text>
+      <rect x="1130" y="320" width="360" height="100" fill="#cfe3d6" stroke="#2f6f4e"/>
+      <text x="1160" y="360">Rear office desk — options 1–3</text>
+      <text x="1160" y="378">B washer shares this zone</text>
+      <text x="48" y="510">Epad: at the desk or inside the entry. Not in the battery box. Hub is underbelly.</text>
+      <text x="48" y="540">Storage: cabover, dinette, and kitchen stay if the washer takes only one of bath-cabinet or rear-cavity. Desk plus washer plus garage storage in the same cavity do not all fit. See interior-layout.md.</text>
+      <text x="48" y="580">Splendide envelope about 23.4 in wide × 33–34 in high × 22–22.6 in deep, 148 lb, floor 280 lb. Model vented vs ventless is OPEN.</text>
+    </g>
+    
+  
+    <rect x="36" y="1000" width="1528" height="72" fill="#1c1915" />
+    <text x="52" y="1028" fill="#f4efe6" font-family="ui-sans-serif,sans-serif" font-size="16" font-weight="700">22NFT BUILD</text>
+    <text x="52" y="1052" fill="#d9c7a6" font-family="ui-sans-serif,sans-serif" font-size="13">D-07  Interior floor plan</text>
+    <text x="760" y="1028" fill="#f4efe6" font-family="ui-sans-serif,sans-serif" font-size="13">Scale: NOT TO SCALE</text>
+    <text x="760" y="1052" fill="#d9c7a6" font-family="ui-sans-serif,sans-serif" font-size="12">Rev A   2026-10-06</text>
+    <text x="1080" y="1028" fill="#f0c7c0" font-family="ui-sans-serif,sans-serif" font-size="11">CONCEPT — NOT FOR FABRICATION UNTIL FIELD-MEASURED.</text>
+    <text x="1080" y="1052" fill="#b7c4c0" font-family="ui-sans-serif,sans-serif" font-size="11">Sources: East to West cabover 60×80; Parris walkthrough; Splendide data sheets</text>
+    
+</svg>

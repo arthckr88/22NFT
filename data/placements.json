@@ -1,0 +1,85 @@
+{
+  "accessed": "2026-10-06",
+  "rubric": "Scores are 1 (poor) to 5 (favorable). They are planning judgments from the research, not measurements.",
+  "wheelbase_in": 178,
+  "mass_lb": {
+    "one_b4810": 101.4,
+    "two_b4810": 202.8,
+    "rv5": 30.86,
+    "packs_plus_hub": 233.66
+  },
+  "options": [
+    {
+      "id": "a",
+      "name": "Tail area beside the spare, as-is",
+      "status": "RULED OUT",
+      "reason": "The B4810 manual says not to use the pack in water and not to reuse it if it gets wet. An open tail and spare-tire area is a road-spray zone. No published dry pocket was found. The space remains the site for a sealed box (option b) or a relocated-spare well (option c).",
+      "drawing": "designs/D-02.svg",
+      "scores": {"weight": 2, "axle": 2, "clearance": 2, "debris": 1, "climate": 2, "service": 4, "theft": 2, "cable": 3, "fabrication": 5, "cost": 5}
+    },
+    {
+      "id": "b",
+      "name": "Fabricated tail enclosure",
+      "status": "CONDITIONAL",
+      "reason": "Meets the out-of-sight and cabin-free requirement if the field gap fits the packs plus ventilation and the yellow sticker still has rear GAWR margin after the lever-arm math. Box weight is unknown.",
+      "drawing": "designs/D-04.svg",
+      "scores": {"weight": 2, "axle": 2, "clearance": 3, "debris": 4, "climate": 3, "service": 4, "theft": 4, "cable": 3, "fabrication": 2, "cost": 2}
+    },
+    {
+      "id": "c",
+      "name": "Relocate the spare and use its well",
+      "status": "CONDITIONAL",
+      "reason": "Well size, mounting method, and distance behind the axle are not published. A hitch-mounted or bumper spare conflicts with the Fiat tow bar and is ruled out. A rear-wall carrier or a well forward of the axle stays open.",
+      "drawing": "designs/D-02.svg",
+      "scores": {"weight": 3, "axle": 3, "clearance": 3, "debris": 3, "climate": 3, "service": 3, "theft": 4, "cable": 3, "fabrication": 2, "cost": 2}
+    },
+    {
+      "id": "d",
+      "name": "Between the frame rails, near the rear axle",
+      "status": "CONDITIONAL",
+      "reason": "Best axle math if the packs sit on the axle. Inside frame width, tanks, exhaust, and the generator are unmeasured. Kelderman lists 35.400 in center-to-center on a Transit cutaway drawing; the clear gap is smaller and unpublished.",
+      "drawing": "designs/D-02.svg",
+      "scores": {"weight": 5, "axle": 5, "clearance": 3, "debris": 3, "climate": 3, "service": 2, "theft": 4, "cable": 4, "fabrication": 2, "cost": 2}
+    },
+    {
+      "id": "e",
+      "name": "Split the packs, one forward and one aft",
+      "status": "CONDITIONAL",
+      "reason": "Cuts the rear-axle moment versus putting both packs at the tail. Two enclosures, a longer harness, and paralleling leads. Still has to clear tanks, exhaust, and the spare.",
+      "drawing": "designs/D-03.svg",
+      "scores": {"weight": 5, "axle": 5, "clearance": 3, "debris": 3, "climate": 3, "service": 3, "theft": 4, "cable": 2, "fabrication": 2, "cost": 2}
+    },
+    {
+      "id": "f",
+      "name": "Convert an existing exterior compartment",
+      "status": "CONDITIONAL",
+      "reason": "A slam-latch rotocast bay is dry-er than the open underbelly and easier to service, but compartment size, location, and depth are unpublished. Using it spends storage the tow kit also needs.",
+      "drawing": "designs/D-09.svg",
+      "scores": {"weight": 4, "axle": 3, "clearance": 4, "debris": 4, "climate": 3, "service": 5, "theft": 3, "cable": 3, "fabrication": 4, "cost": 3}
+    },
+    {
+      "id": "g",
+      "name": "Under the rear lift-bed platform",
+      "status": "CONDITIONAL",
+      "reason": "Dry and serviceable, which is how several van builds mount lithium. It is not underbelly, it spends the rear garage, and a rear bed is still aft of the axle. Kept as a researched alternative, not the brief.",
+      "drawing": "designs/D-07.svg",
+      "scores": {"weight": 2, "axle": 2, "clearance": 5, "debris": 5, "climate": 4, "service": 5, "theft": 5, "cable": 3, "fabrication": 3, "cost": 3}
+    },
+    {
+      "id": "hitch",
+      "name": "Hitch-mounted battery box",
+      "status": "RULED OUT",
+      "reason": "The receiver is reserved for the flat-tow bar of the Fiat 500 Abarth.",
+      "drawing": "designs/D-01.svg",
+      "scores": {"weight": 1, "axle": 1, "clearance": 1, "debris": 2, "climate": 2, "service": 4, "theft": 1, "cable": 2, "fabrication": 3, "cost": 3}
+    },
+    {
+      "id": "roof",
+      "name": "Roof-mounted batteries",
+      "status": "RULED OUT",
+      "reason": "High center of gravity, unknown roof structure, poor service access, and the brief puts the bank underbelly and out of sight.",
+      "drawing": "designs/D-06.svg",
+      "scores": {"weight": 1, "axle": 2, "clearance": 4, "debris": 3, "climate": 2, "service": 1, "theft": 2, "cable": 3, "fabrication": 2, "cost": 2}
+    }
+  ]
+}
