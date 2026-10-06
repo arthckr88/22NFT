@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+  <rect width="100%" height="100%" fill="#f6f3ec"/>
+  <text x="48" y="42" fill="#8c2f2f" font-family="ui-sans-serif,sans-serif" font-size="15" font-weight="700">CONCEPT — NOT FOR FABRICATION UNTIL FIELD-MEASURED.</text>
+  <text x="48" y="68" fill="#3d3832" font-family="ui-sans-serif,sans-serif" font-size="22" font-weight="700">D-05 — Electrical one-line</text>
+  
+    <g font-family="ui-sans-serif,sans-serif" font-size="13" fill="#2c2824">
+      <text x="48" y="104">Parallel only. Two panels in series are 50.52 V at STC, over the RV5 50 V maximum. All six on one port are 82.14 A Isc, over the 50 A port.</text>
+      <rect x="48" y="130" width="220" height="70" fill="#efe8dc" stroke="#2c2824"/>
+      <text x="60" y="160">3× Callsun 275 W</text>
+      <text x="60" y="178">parallel · Isc 41.07 A</text>
+      <rect x="48" y="220" width="220" height="70" fill="#efe8dc" stroke="#2c2824"/>
+      <text x="60" y="250">3× Callsun 275 W</text>
+      <text x="60" y="268">parallel · Isc 41.07 A</text>
+      <text x="280" y="170">fuse each module ≤ 25 A</text>
+      <text x="280" y="188">(panel max series fuse)</text>
+      <text x="280" y="255">1.56 × 13.69 A = 21.4 A</text>
+      <text x="280" y="273">so a 25 A fuse is the band</text>
+      <line x1="268" y1="165" x2="520" y2="165" stroke="#2c2824"/>
+      <line x1="268" y1="255" x2="520" y2="255" stroke="#2c2824"/>
+      <rect x="520" y="140" width="200" height="50" fill="#f3d39a" stroke="#8a5a12"/>
+      <text x="532" y="170">PV breaker — AWAITING</text>
+      <rect x="520" y="230" width="200" height="50" fill="#f3d39a" stroke="#8a5a12"/>
+      <text x="532" y="260">PV breaker — AWAITING</text>
+      <line x1="720" y1="165" x2="860" y2="220" stroke="#2c2824"/>
+      <line x1="720" y1="255" x2="860" y2="250" stroke="#2c2824"/>
+      <rect x="860" y="180" width="240" height="120" fill="#d9e6f5" stroke="#2c2824" stroke-width="2"/>
+      <text x="872" y="210">RV5</text>
+      <text x="872" y="230">PV1 and PV2 solar</text>
+      <text x="872" y="248">each 50 A / 1800 W / 50 V</text>
+      <text x="872" y="266">combined 3600 W</text>
+      <text x="872" y="284">array STC 1650 W total</text>
+
+      <rect x="860" y="340" width="240" height="90" fill="#d9e6f5" stroke="#2c2824"/>
+      <text x="872" y="370">2× B4810 parallel</text>
+      <text x="872" y="388">51.2 V · 100 Ah each</text>
+      <text x="872" y="406">cable &gt; 4 AWG · length FIELD</text>
+      <line x1="980" y1="300" x2="980" y2="340" stroke="#2c2824"/>
+      <text x="990" y="328">150 A terminal max</text>
+
+      <rect x="48" y="360" width="300" height="90" fill="#efe8dc" stroke="#2c2824"/>
+      <text x="60" y="390">Chassis alternator 12 V</text>
+      <text x="60" y="408">amps UNKNOWN</text>
+      <text x="60" y="426">engine-run signal, not 14 V hope</text>
+      <line x1="348" y1="405" x2="470" y2="405" stroke="#2c2824"/>
+      <rect x="470" y="370" width="280" height="80" fill="#efe8dc" stroke="#2c2824"/>
+      <text x="482" y="400">Orion-Tr Smart 12/48-8A</text>
+      <text x="482" y="418">360 W at 40 C · qty OPEN</text>
+      <text x="482" y="436">to the 48 V bank, not via PV2</text>
+
+      <rect x="48" y="500" width="250" height="70" fill="#efe8dc" stroke="#2c2824"/>
+      <text x="60" y="530">Generator ~4000 W</text>
+      <text x="60" y="548">brand UNVERIFIED · 120 V?</text>
+      <rect x="320" y="500" width="220" height="70" fill="#efe8dc" stroke="#2c2824"/>
+      <text x="332" y="530">Shore</text>
+      <text x="332" y="548">30 A or 50 A UNKNOWN</text>
+      <line x1="540" y1="535" x2="860" y2="280" stroke="#2c2824"/>
+      <text x="560" y="500">AC input of RV5 · 120 V · 42 A rated · 5000 W charge</text>
+
+      <rect x="1180" y="180" width="340" height="200" fill="#f6f3ec" stroke="#2c2824"/>
+      <text x="1194" y="210">AC out 120 V 5000 W</text>
+      <text x="1194" y="234">Washer on its own 15 A</text>
+      <text x="1194" y="258">Desk and Starlink on other branches</text>
+      <text x="1194" y="282">DC out 12 V / 24 V to coach loads</text>
+      <text x="1194" y="306">Epad inside, not in the box</text>
+      <text x="1194" y="340">Main disconnect: reachable</text>
+      <text x="1194" y="358">without crawling under. Location OPEN.</text>
+      <text x="48" y="640">3 × 13.69 × 1.25 = 51.3 A. If the 50 A port rating does not already include that factor, three panels per port is also over. AWAITING BLUETTI.</text>
+      <text x="48" y="668">Voltage drop at 150 A, 20 C solid copper, round trip, calculated: 2 AWG is 0.47 V at 10 ft and 0.70 V at 15 ft. Use larger than 4 AWG. Confirm gauge with Bluetti.</text>
+    </g>
+    
+  
+    <rect x="36" y="1000" width="1528" height="72" fill="#1c1915" />
+    <text x="52" y="1028" fill="#f4efe6" font-family="ui-sans-serif,sans-serif" font-size="16" font-weight="700">22NFT BUILD</text>
+    <text x="52" y="1052" fill="#d9c7a6" font-family="ui-sans-serif,sans-serif" font-size="13">D-05  Electrical one-line</text>
+    <text x="760" y="1028" fill="#f4efe6" font-family="ui-sans-serif,sans-serif" font-size="13">Scale: NOT TO SCALE</text>
+    <text x="760" y="1052" fill="#d9c7a6" font-family="ui-sans-serif,sans-serif" font-size="12">Rev A   2026-10-06</text>
+    <text x="1080" y="1028" fill="#f0c7c0" font-family="ui-sans-serif,sans-serif" font-size="11">CONCEPT — NOT FOR FABRICATION UNTIL FIELD-MEASURED.</text>
+    <text x="1080" y="1052" fill="#b7c4c0" font-family="ui-sans-serif,sans-serif" font-size="11">Sources: RV5 manual; B4810 manual; Callsun 275; Victron Orion-Tr</text>
+    
+</svg>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+  <rect width="100%" height="100%" fill="#f6f3ec"/>
+  <text x="48" y="42" fill="#8c2f2f" font-family="ui-sans-serif,sans-serif" font-size="15" font-weight="700">CONCEPT — NOT FOR FABRICATION UNTIL FIELD-MEASURED.</text>
+  <text x="48" y="68" fill="#3d3832" font-family="ui-sans-serif,sans-serif" font-size="22" font-weight="700">D-03 — Weight and balance</text>
+  
+    <g font-family="ui-sans-serif,sans-serif" font-size="14" fill="#2c2824">
+      <text x="48" y="110">Wheelbase 178 in CONFIRMED. GAWR front 4,630 lb. GAWR rear 7,275 lb. GVWR 11,000 lb. As-built axle weights UNKNOWN (yellow sticker).</text>
+      <line x1="200" y1="280" x2="1200" y2="280" stroke="#2c2824" stroke-width="4"/>
+      <circle cx="360" cy="280" r="28" fill="#efe8dc" stroke="#2c2824" stroke-width="3"/>
+      <circle cx="1000" cy="280" r="28" fill="#efe8dc" stroke="#2c2824" stroke-width="3"/>
+      <text x="320" y="250">Front axle</text>
+      <text x="300" y="340">GAWR 4,630</text>
+      <text x="960" y="250">Rear axle</text>
+      <text x="940" y="340">GAWR 7,275</text>
+      <text x="620" y="260">178 in</text>
+      <line x1="1000" y1="220" x2="1280" y2="220" stroke="#8a5a12" stroke-width="2" stroke-dasharray="6 3"/>
+      <text x="1040" y="210">x = field measure, aft</text>
+      <rect x="1220" y="190" width="80" height="40" fill="#f3d39a" stroke="#8a5a12"/>
+      <text x="1232" y="214">W</text>
+
+      <text x="48" y="400" font-weight="700">For W behind the rear axle by x inches</text>
+      <text x="48" y="428">Rear gain = W × (178 + x) / 178</text>
+      <text x="48" y="452">Front change = − W × x / 178</text>
+      <text x="48" y="476">They sum to W. Maximum W at that x = (7275 − rear axle now) × 178 / (178 + x).</text>
+      <text x="48" y="500">Rear axle now is blank, so no maximum box weight is stated.</text>
+
+      <text x="48" y="545" font-weight="700">Worked rows for W = 233.66 lb (two B4810 at 101.4 plus RV5 at 30.86). 12 in and 24 in are scenarios, not measurements. 37.35 in is the Ford chassis frame end.</text>
+      <text x="48" y="580">x = 0 in      rear +233.66 lb    front 0</text>
+      <text x="48" y="604">x = 12 in     rear +249.41 lb    front −15.75 lb     ESTIMATE — VERIFY as a position</text>
+      <text x="48" y="628">x = 24 in     rear +265.16 lb    front −31.50 lb     ESTIMATE — VERIFY as a position</text>
+      <text x="48" y="652">x = 37.35 in  rear +282.69 lb    front −49.03 lb     chassis landmark, not a proven fit</text>
+      <text x="48" y="690">Split, one 101.4 lb pack at 24 in and the other pack plus hub on the axle: rear +247.33 lb, front −13.67 lb.</text>
+      <text x="48" y="714">Same split at 37.35 in: rear +254.94 lb, front −21.28 lb.</text>
+
+      <text x="48" y="760">CCC remaining = sticker CCC − added weight. Sticker CCC is blank.</text>
+      <text x="48" y="784">Partial parts sum, manufacturer panel weight: 779.6 lb before enclosure, desk, Starlink model, cables, tow gear, water, and personal gear.</text>
+      <text x="48" y="808">If the conflicting 29.8 lb panel weight is the true one, that partial sum is 564.5 lb. Water is 8.3 lb/gal extra.</text>
+      <text x="48" y="844">GCWR 13,500 − GVWR 11,000 = 2,500 lb of combined headroom when the coach is at GVWR. Abarth curb weight is about 2,491–2,512 lb. Weigh both.</text>
+    </g>
+    
+  
+    <rect x="36" y="1000" width="1528" height="72" fill="#1c1915" />
+    <text x="52" y="1028" fill="#f4efe6" font-family="ui-sans-serif,sans-serif" font-size="16" font-weight="700">22NFT BUILD</text>
+    <text x="52" y="1052" fill="#d9c7a6" font-family="ui-sans-serif,sans-serif" font-size="13">D-03  Weight and balance</text>
+    <text x="760" y="1028" fill="#f4efe6" font-family="ui-sans-serif,sans-serif" font-size="13">Scale: NOT TO SCALE</text>
+    <text x="760" y="1052" fill="#d9c7a6" font-family="ui-sans-serif,sans-serif" font-size="12">Rev A   2026-10-06</text>
+    <text x="1080" y="1028" fill="#f0c7c0" font-family="ui-sans-serif,sans-serif" font-size="11">CONCEPT — NOT FOR FABRICATION UNTIL FIELD-MEASURED.</text>
+    <text x="1080" y="1052" fill="#b7c4c0" font-family="ui-sans-serif,sans-serif" font-size="11">Sources: East to West GAWR; B4810 and RV5 manuals; Ford BEMM 37.35 in</text>
+    
+</svg>

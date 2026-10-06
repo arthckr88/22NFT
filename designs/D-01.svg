@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100">
+  <rect width="100%" height="100%" fill="#f6f3ec"/>
+  <text x="48" y="42" fill="#8c2f2f" font-family="ui-sans-serif,sans-serif" font-size="15" font-weight="700">CONCEPT — NOT FOR FABRICATION UNTIL FIELD-MEASURED.</text>
+  <text x="48" y="68" fill="#3d3832" font-family="ui-sans-serif,sans-serif" font-size="22" font-weight="700">D-01 — Exterior elevations</text>
+  
+    <text x="48" y="100" fill="#5c564e" font-family="ui-sans-serif,sans-serif" font-size="13">Coach outline uses published 26 ft 0 in length and 11 ft 5 in height. Width is TBD. Compartment count, doors, spare hanger, and generator bay are unpublished. Candidate tail box is a location, not a fit.</text>
+    <g font-family="ui-sans-serif,sans-serif" font-size="12" fill="#2c2824">
+      <text x="48" y="132" font-weight="700">Driver side — NOT TO SCALE</text>
+      <rect x="48" y="148" width="700" height="150" fill="#efe8dc" stroke="#2c2824" stroke-width="2"/>
+      <path d="M48 220 L110 148 L180 148 L180 298 L48 298 Z" fill="#e4dccb" stroke="#2c2824"/>
+      <text x="70" y="250">Cab</text>
+      <rect x="200" y="168" width="70" height="90" fill="none" stroke="#2c2824" stroke-dasharray="4 3"/>
+      <text x="208" y="278">door?</text>
+      <rect x="290" y="250" width="80" height="40" fill="#d7e3ef" stroke="#2c2824"/>
+      <rect x="390" y="250" width="80" height="40" fill="#d7e3ef" stroke="#2c2824"/>
+      <rect x="490" y="250" width="80" height="40" fill="#d7e3ef" stroke="#2c2824"/>
+      <text x="300" y="246">Bays — count UNVERIFIED</text>
+      <rect x="600" y="200" width="130" height="70" fill="#f3d39a" stroke="#8a5a12" stroke-dasharray="6 3"/>
+      <text x="612" y="240">Tail box</text>
+      <text x="612" y="256">candidate b</text>
+      <text x="400" y="320">26 ft 0 in overall (CONFIRMED) — door stations not measured</text>
+
+      <text x="820" y="132" font-weight="700">Curb side — NOT TO SCALE</text>
+      <rect x="820" y="148" width="700" height="150" fill="#efe8dc" stroke="#2c2824" stroke-width="2"/>
+      <path d="M1450 220 L1520 148 L1520 298 L1450 298 Z" fill="#e4dccb" stroke="#2c2824"/>
+      <text x="1460" y="250">Cab</text>
+      <rect x="860" y="175" width="280" height="28" fill="#c9d7c2" stroke="#2c2824"/>
+      <text x="870" y="194">Awning 16 ft (CONFIRMED) — side not stated, drawn curb as a convention</text>
+      <rect x="900" y="230" width="50" height="60" fill="none" stroke="#2c2824"/>
+      <text x="904" y="264">entry</text>
+      <rect x="1000" y="250" width="90" height="40" fill="#d7e3ef" stroke="#2c2824"/>
+      <rect x="1110" y="250" width="90" height="40" fill="#d7e3ef" stroke="#2c2824"/>
+      <text x="1000" y="246">Bays UNVERIFIED</text>
+      <rect x="1240" y="210" width="140" height="60" fill="#f6d4d0" stroke="#8c2f2f" stroke-dasharray="5 3"/>
+      <text x="1252" y="236">Generator</text>
+      <text x="1252" y="252">location UNVERIFIED</text>
+
+      <text x="48" y="380" font-weight="700">Rear — NOT TO SCALE</text>
+      <rect x="48" y="396" width="360" height="280" fill="#efe8dc" stroke="#2c2824" stroke-width="2"/>
+      <circle cx="228" cy="560" r="46" fill="none" stroke="#2c2824" stroke-width="3"/>
+      <text x="188" y="564">Spare</text>
+      <text x="150" y="630">hanger UNVERIFIED</text>
+      <rect x="70" y="430" width="120" height="70" fill="#f3d39a" stroke="#8a5a12" stroke-dasharray="6 3"/>
+      <text x="82" y="460">Box b</text>
+      <text x="82" y="478">if it fits</text>
+      <rect x="250" y="430" width="120" height="50" fill="#f6d4d0" stroke="#8c2f2f"/>
+      <text x="262" y="460">Exhaust</text>
+      <text x="70" y="700">Do not cover dumps, exhaust, or the spare.</text>
+      <text x="70" y="718">Hitch box is RULED OUT (Fiat tow bar).</text>
+
+      <text x="460" y="380" font-weight="700">Legend</text>
+      <rect x="460" y="400" width="28" height="18" fill="#d7e3ef" stroke="#2c2824"/>
+      <text x="498" y="414">Published as existing, size unknown</text>
+      <rect x="460" y="428" width="28" height="18" fill="#f3d39a" stroke="#8a5a12"/>
+      <text x="498" y="442">Candidate battery enclosure</text>
+      <rect x="460" y="456" width="28" height="18" fill="#f6d4d0" stroke="#8c2f2f"/>
+      <text x="498" y="470">Keep clear — location not fixed</text>
+      <text x="460" y="510">Height 11 ft 5 in is CONFIRMED and is not</text>
+      <text x="460" y="528">drawn to the same scale as the length.</text>
+      <text x="460" y="560">Chassis frame ends 37.35 in behind the</text>
+      <text x="460" y="578">rear axle on the 2023 Ford BEMM EL-LWB</text>
+      <text x="460" y="596">column, adapter excluded. The body overhang</text>
+      <text x="460" y="614">past that frame is UNVERIFIED.</text>
+    </g>
+    
+  
+    <rect x="36" y="1000" width="1528" height="72" fill="#1c1915" />
+    <text x="52" y="1028" fill="#f4efe6" font-family="ui-sans-serif,sans-serif" font-size="16" font-weight="700">22NFT BUILD</text>
+    <text x="52" y="1052" fill="#d9c7a6" font-family="ui-sans-serif,sans-serif" font-size="13">D-01  Exterior elevations</text>
+    <text x="760" y="1028" fill="#f4efe6" font-family="ui-sans-serif,sans-serif" font-size="13">Scale: NOT TO SCALE</text>
+    <text x="760" y="1052" fill="#d9c7a6" font-family="ui-sans-serif,sans-serif" font-size="12">Rev A   2026-10-06</text>
+    <text x="1080" y="1028" fill="#f0c7c0" font-family="ui-sans-serif,sans-serif" font-size="11">CONCEPT — NOT FOR FABRICATION UNTIL FIELD-MEASURED.</text>
+    <text x="1080" y="1052" fill="#b7c4c0" font-family="ui-sans-serif,sans-serif" font-size="11">Sources: East to West 22NF floorplan; Ford BEMM 2023</text>
+    
+</svg>
