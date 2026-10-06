@@ -1,0 +1,173 @@
+{
+  "accessed": "2026-10-06",
+  "note": "Only dimensions that appear in a source are filled. Null means not published. Do not treat null as zero.",
+  "items": [
+    {
+      "id": "overall-length",
+      "name": "Exterior length",
+      "dimension": "26 ft 0 in",
+      "location": "overall",
+      "confidence": "CONFIRMED",
+      "source_id": "etw-22nf-floorplan"
+    },
+    {
+      "id": "overall-height",
+      "name": "Exterior height",
+      "dimension": "11 ft 5 in",
+      "location": "overall",
+      "confidence": "CONFIRMED",
+      "source_id": "etw-22nf-floorplan"
+    },
+    {
+      "id": "overall-width",
+      "name": "Exterior width",
+      "dimension": null,
+      "location": "overall",
+      "confidence": "UNVERIFIED",
+      "source_id": "etw-22nf-floorplan",
+      "note": "Manufacturer floorplan page lists Exterior Width as TBD."
+    },
+    {
+      "id": "interior-height",
+      "name": "Interior ceiling height",
+      "dimension": null,
+      "location": "interior",
+      "confidence": "CONFLICT",
+      "source_id": "etw-brochure-2024",
+      "note": "2024 Alita brochure text says 81 in. A later Alita brochure (CDN file dated 2025-08-25) says 7 ft. The 2027 floorplan page does not state it. RV Guide 2026 lists 81 in."
+    },
+    {
+      "id": "cabover",
+      "name": "Cabover bunk",
+      "dimension": "60 in x 80 in",
+      "location": "over cab",
+      "confidence": "CONFIRMED",
+      "source_id": "etw-22nf-floorplan"
+    },
+    {
+      "id": "queen-lift",
+      "name": "Rear queen lift bed",
+      "dimension": "60 in x 80 in",
+      "location": "rear",
+      "confidence": "CREDIBLE",
+      "source_id": "parris-22nf",
+      "note": "Dealer walkthrough copy and the spec row Available Beds: Queen Lift. Not a dimensioned factory floorplan drawing."
+    },
+    {
+      "id": "awning",
+      "name": "Girard legless awning",
+      "dimension": "16 ft",
+      "location": "curb side presumed, side not stated",
+      "confidence": "CONFIRMED",
+      "source_id": "etw-22nf-floorplan"
+    },
+    {
+      "id": "fresh",
+      "name": "Fresh tank",
+      "dimension": "35 gal",
+      "location": null,
+      "confidence": "CONFIRMED",
+      "source_id": "etw-22nf-floorplan"
+    },
+    {
+      "id": "gray",
+      "name": "Gray tank",
+      "dimension": "30 gal",
+      "location": null,
+      "confidence": "CONFIRMED",
+      "source_id": "etw-22nf-floorplan"
+    },
+    {
+      "id": "black",
+      "name": "Black tank",
+      "dimension": "30 gal",
+      "location": null,
+      "confidence": "CONFIRMED",
+      "source_id": "etw-22nf-floorplan"
+    },
+    {
+      "id": "lp",
+      "name": "LP tank",
+      "dimension": null,
+      "location": null,
+      "confidence": "CONFLICT",
+      "source_id": "etw-22nf-floorplan",
+      "note": "Manufacturer: LP Tank Capacity TBD. RV Guide lists 2 tanks and 9.4 gal / 40 lb total. Not used as a confirmed figure."
+    },
+    {
+      "id": "pass-through",
+      "name": "Pass-through storage",
+      "dimension": null,
+      "location": null,
+      "confidence": "CREDIBLE",
+      "source_id": "rvguide-2026",
+      "note": "RV Guide lists Pass-Thru Storage as Standard. No size. The manufacturer feature list says rotocast exterior storage compartments and does not use the words pass-through."
+    },
+    {
+      "id": "rotocast",
+      "name": "Rotocast exterior storage compartments",
+      "dimension": null,
+      "count": null,
+      "door_size": null,
+      "interior_depth": null,
+      "location": null,
+      "confidence": "CONFIRMED",
+      "source_id": "etw-22nf-floorplan",
+      "note": "Named as a standard feature. Count, door size, and depth are not published."
+    },
+    {
+      "id": "generator-bay",
+      "name": "Generator compartment",
+      "dimension": null,
+      "location": null,
+      "confidence": "UNVERIFIED",
+      "source_id": "parris-22nf-murray",
+      "note": "One dealer unit lists Generator: Flex Power 4000. The Flex Power 4000i manual gives the generator's own size, not this coach's bay."
+    },
+    {
+      "id": "spare",
+      "name": "Spare tire",
+      "dimension": null,
+      "location": null,
+      "mount": null,
+      "confidence": "CREDIBLE",
+      "source_id": "rvguide-2026",
+      "note": "RV Guide lists a spare as standard. Mounting method and location are not published. Tire size conflicts between RV Guide years: 195/75R16C (2026 page) and 205/75R16C (2027 page)."
+    },
+    {
+      "id": "slide",
+      "name": "Slide-out",
+      "dimension": null,
+      "location": null,
+      "confidence": "CREDIBLE",
+      "source_id": "etw-22nf-floorplan",
+      "note": "Feature list includes slide box construction and slide-out toppers. Which wall, and the slide size, are not published."
+    },
+    {
+      "id": "step-well-batteries",
+      "name": "Optional house batteries in the step well",
+      "dimension": null,
+      "location": "entry step well",
+      "confidence": "CONFIRMED",
+      "source_id": "etw-22nf-floorplan",
+      "note": "Solar option: two 12 V batteries installed in the step well. That describes the option, not a measured cavity, and not the B4810."
+    },
+    {
+      "id": "frame-gap",
+      "name": "Frame rail center-to-center",
+      "dimension": "35.400 in CTC on a Kelderman Transit cutaway drawing",
+      "location": "chassis",
+      "confidence": "CREDIBLE",
+      "source_id": "kelderman-transit-frame",
+      "note": "Not the inside clear width. Not confirmed on an Alita."
+    },
+    {
+      "id": "chassis-rear-frame",
+      "name": "Chassis rear axle to end of frame",
+      "dimension": "37.35 in, adapter excluded",
+      "location": "chassis, not coach body",
+      "confidence": "CREDIBLE",
+      "source_id": "ford-bemm-2023"
+    }
+  ]
+}

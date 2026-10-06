@@ -1,0 +1,17 @@
+{
+  "accessed": "2026-10-06",
+  "items": [
+    {"id": "rv5", "item": "Power hub", "model": "Bluetti RV5", "qty": 1, "unit_price_usd": null, "source_id": "bluetti-rv5-page", "source_url": "https://www.bluettipower.com/products/rv5-b4810", "status": "researching"},
+    {"id": "b4810", "item": "Battery module", "model": "Bluetti B4810", "qty": 2, "unit_price_usd": null, "source_id": "bluetti-b4810-manual", "source_url": "https://s4.bluettipower.com/bluetti/purchasePageBiz/2025/09/B4810%20User%20Manual%20EU%20EN-FR-DE-1759213001764-45d1.pdf", "status": "researching"},
+    {"id": "epad", "item": "Energy controller", "model": "Bluetti Epad", "qty": 1, "unit_price_usd": null, "source_id": "bluetti-rv5-manual", "source_url": "https://www.bluettipower.com/products/rv5-b4810", "status": "researching"},
+    {"id": "epanel", "item": "Distribution panel", "model": "Bluetti Epanel", "qty": 1, "unit_price_usd": null, "source_id": "bluetti-rv5-manual", "source_url": "https://www.bluettipower.com/products/rv5-b4810", "status": "researching", "note": "Optional in the manual's system diagram. Whether this coach's breaker panel is replaced is OPEN."},
+    {"id": "panel", "item": "Solar panel", "model": "Callsun 275W N-Type bifacial", "qty": 6, "unit_price_usd": 249.99, "source_id": "callsun-275", "source_url": "https://callsunsolar.com/products/275w-n-type-bifacial-solar-panel", "status": "researching", "note": "List price on 2026-10-06 was marked Unavailable."},
+    {"id": "combiner", "item": "Parallel combiner with per-module fusing", "model": "OPEN", "qty": 2, "unit_price_usd": null, "source_id": null, "source_url": null, "status": "researching", "note": "Two combiners if the array is split 3 and 3 across PV1 and PV2."},
+    {"id": "orion", "item": "DC-DC charger", "model": "Victron Orion-Tr Smart 12/48-8A ORI124838120", "qty": 1, "unit_price_usd": null, "source_id": "victron-orion-tr-manual", "source_url": "https://www.victronenergy.com/upload/documents/Orion-Tr_Smart_DC-DC_Charger_-_Isolated/34439-Orion-Tr_Smart_DC-DC_Charger-pdf-en.pdf", "status": "researching", "note": "Quantity OPEN. One unit is 8 A / about 360 W at 40 C."},
+    {"id": "washer", "item": "Washer-dryer", "model": "Splendide WD2100XC or WDC7100XC — OPEN", "qty": 1, "unit_price_usd": null, "source_id": "splendide-wdc7100", "source_url": "https://www.splendide.com/downloads/WDC7100XC_DataSheet.pdf", "status": "researching"},
+    {"id": "starlink", "item": "Starlink terminal", "model": "OPEN — Mini or Standard", "qty": 1, "unit_price_usd": null, "source_id": "starlink-specs", "source_url": "https://starlink.com/public-files/specification_sheet_mini.pdf", "status": "researching"},
+    {"id": "enclosure", "item": "Tail battery enclosure", "model": "Custom, field-measured", "qty": 1, "unit_price_usd": null, "source_id": null, "source_url": null, "status": "researching"},
+    {"id": "desk", "item": "Rear office desk", "model": "OPEN", "qty": 1, "unit_price_usd": null, "source_id": null, "source_url": null, "status": "researching"},
+    {"id": "towbar", "item": "Flat-tow bar, base plate, braking, lighting", "model": "OPEN — manual Fiat 500 Abarth", "qty": 1, "unit_price_usd": null, "source_id": "fiat-500-abarth-tow", "source_url": "https://mans.io/files/viewer/3452646/250", "status": "researching"}
+  ]
+}

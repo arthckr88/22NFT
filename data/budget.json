@@ -1,0 +1,124 @@
+{
+  "accessed": "2026-10-06",
+  "water_lb_per_gal": 8.3,
+  "water_source_id": "etw-22nf-floorplan",
+  "items": [
+    {
+      "id": "rv5",
+      "label": "Bluetti RV5 hub",
+      "qty": 1,
+      "weight_lb": 30.86,
+      "badge": "spec sheet",
+      "confidence": "CONFIRMED",
+      "source_id": "bluetti-rv5-manual",
+      "placement_sensitive": true
+    },
+    {
+      "id": "b4810",
+      "label": "Bluetti B4810",
+      "qty": 2,
+      "weight_lb": 101.4,
+      "badge": "spec sheet",
+      "confidence": "CONFIRMED",
+      "source_id": "bluetti-b4810-manual",
+      "placement_sensitive": true
+    },
+    {
+      "id": "panels",
+      "label": "Callsun 275W panels",
+      "qty": 6,
+      "weight_lb": 65.65,
+      "weight_lb_alternate": 29.8,
+      "badge": "spec sheet",
+      "confidence": "CONFLICT",
+      "source_id": "callsun-275",
+      "note": "Manufacturer page 65.65 lb each. Retailer listing 29.8 lb each. Total uses the manufacturer figure until you pick one. Roof-mounted: axle split unknown.",
+      "placement_sensitive": false
+    },
+    {
+      "id": "panel_mounts",
+      "label": "Panel mounts and roof hardware",
+      "qty": 1,
+      "weight_lb": null,
+      "badge": "estimate — verify",
+      "confidence": "UNVERIFIED",
+      "source_id": null,
+      "placement_sensitive": false
+    },
+    {
+      "id": "orion",
+      "label": "Victron Orion-Tr Smart 12/48-8A",
+      "qty": 1,
+      "weight_lb": 4,
+      "badge": "spec sheet",
+      "confidence": "CONFIRMED",
+      "source_id": "victron-orion-tr-manual",
+      "note": "One unit is the published 360 W / 40 C class. More units are OPEN. Weight is the manual's 4 lb figure for 12 V input models.",
+      "placement_sensitive": true
+    },
+    {
+      "id": "washer",
+      "label": "Splendide washer-dryer",
+      "qty": 1,
+      "weight_lb": 148,
+      "badge": "spec sheet",
+      "confidence": "CONFIRMED",
+      "source_id": "splendide-wdc7100",
+      "note": "148 lb is published for both WD2100XC and WDC7100XC. Model choice is OPEN. Floor must support at least 280 lb.",
+      "placement_sensitive": true
+    },
+    {
+      "id": "starlink",
+      "label": "Starlink",
+      "qty": 1,
+      "weight_lb": null,
+      "badge": "estimate — verify",
+      "confidence": "UNVERIFIED",
+      "source_id": "starlink-specs",
+      "note": "Model OPEN. Mini dish 2.43 lb without kickstand. Standard dish 6.4 lb without cable. Not added until a model is chosen.",
+      "placement_sensitive": false
+    },
+    {
+      "id": "desk",
+      "label": "Rear office desk",
+      "qty": 1,
+      "weight_lb": null,
+      "badge": "estimate — verify",
+      "confidence": "UNVERIFIED",
+      "source_id": null,
+      "placement_sensitive": true
+    },
+    {
+      "id": "enclosure",
+      "label": "Enclosure fabrication",
+      "qty": 1,
+      "weight_lb": null,
+      "badge": "estimate — verify",
+      "confidence": "UNVERIFIED",
+      "source_id": null,
+      "placement_sensitive": true
+    },
+    {
+      "id": "water",
+      "label": "Fresh water",
+      "qty": 1,
+      "weight_lb": null,
+      "badge": "spec sheet",
+      "confidence": "CONFIRMED",
+      "source_id": "etw-22nf-floorplan",
+      "note": "8.3 lb per gallon from the East to West definition. Gallons are an input. Tank size published at 35 gal.",
+      "per_gallon": true,
+      "placement_sensitive": false
+    },
+    {
+      "id": "gear",
+      "label": "Personal gear",
+      "qty": 1,
+      "weight_lb": null,
+      "badge": "estimate — verify",
+      "confidence": "UNVERIFIED",
+      "source_id": null,
+      "placement_sensitive": false
+    }
+  ]
+}

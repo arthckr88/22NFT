@@ -1,0 +1,10 @@
+{
+  "items": [
+    {"id": "tape", "label": "Tape-measure a real unit before any deposit", "drawing": null},
+    {"id": "sticker", "label": "Get the VIN yellow sticker (UVW, CCC, and the as-built axle weights)", "drawing": "designs/D-03.svg"},
+    {"id": "ac", "label": "Confirm the rooftop compressor is variable-speed, not only a soft-start on a single-speed unit", "drawing": "designs/D-06.svg"},
+    {"id": "ducts", "label": "Confirm the ducted ceiling stays", "drawing": "designs/D-07.svg"},
+    {"id": "tow", "label": "Confirm flat-tow gear for the manual Fiat 500 Abarth: tow bar, base plate, supplemental braking, and lighting, and that the receiver is free", "drawing": "designs/D-01.svg"},
+    {"id": "tail", "label": "Measure the spare-tire and tail area and the frame-rail spacing against D-02 and D-04", "drawing": "designs/D-04.svg"}
+  ]
+}
