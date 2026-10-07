@@ -1,0 +1,176 @@
+<title>22NFT Install Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one long drawing sheet — summary, four to-scale views, then the placement schedule. Dark, single-theme (Andrew Rose system). */
+:root{
+  color-scheme: dark;
+  --ink:#0b0b0c; --sheet:#121214; --bone:#F3F1EC; --mute:#8b8a85; --faint:#4a4a48;
+  --line:rgba(243,241,236,.13); --stock:#6e6d69;
+  --pv:#E8A33D; --dc:#5B95F7; --alt:#3FBF8A; --ac:#B094F5; --wash:#4FC3C7; --warn:#F2C94C;
+  --display:'Jost', 'Futura', 'Avenir Next', system-ui, sans-serif;
+  --body:'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono:'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+}
+body{background:var(--ink);color:var(--bone);font:300 15px/1.55 var(--body);}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:20px;padding-block:28px 64px;}
+.eyebrow{font:500 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--mute)}
+h1{font:200 clamp(34px,6vw,58px)/1.02 var(--display);letter-spacing:-.01em;margin:.35em 0 .3em;text-wrap:balance}
+h2{font:300 26px/1.15 var(--display);margin:0 0 .3em;text-wrap:balance}
+h3{font:400 13px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:0 0 14px}
+p{max-width:68ch;margin:0 0 .8em}
+.lede{font-size:17px;color:#d9d7d1;max-width:72ch}
+section{margin-top:56px}
+.summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:28px}
+.summary div{background:var(--ink);padding:18px 18px 16px;min-width:0}
+.summary b{display:block;font:400 12px/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.summary ul{margin:0;padding-left:1.1em}
+.summary li{margin:.2em 0}
+.k-in b{color:var(--dc)} .k-roof b{color:var(--pv)} .k-under b{color:var(--alt)} .k-open b{color:var(--wash)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin:18px 0 0;font:400 12px/1 var(--mono);color:var(--mute)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:16px;height:10px;border-radius:2px;display:inline-block}
+.view{margin-top:22px;background:var(--sheet);border:1px solid var(--line)}
+.view header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;padding:16px 18px 0}
+.view header p{color:var(--mute);margin:0;font-size:13px}
+.scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.scroll svg{display:block;min-width:980px;width:100%;height:auto}
+/* svg */
+svg text{font-family:var(--mono)}
+.shell{fill:none;stroke:#8f8d87;stroke-width:1.4}
+.seam{stroke:var(--faint);stroke-dasharray:4 4}
+.floor{fill:#2a2a2b}
+.wheel{fill:#1c1c1d;stroke:#3d3d3c}
+.frame{fill:#2e2e2f;stroke:#555452;stroke-width:.8}
+.stock{fill:rgba(243,241,236,.03);stroke:var(--stock);stroke-width:1}
+.bedover{fill:none;stroke:var(--stock);stroke-dasharray:5 4}
+.pedestal{fill:none;stroke:var(--dc);stroke-width:1;stroke-dasharray:3 3}
+.door{stroke:var(--ink);stroke-width:4}
+.ghost-dc{fill:rgba(91,149,247,.06);stroke:var(--dc);stroke-dasharray:4 3}
+.ghost-pv{fill:none;stroke:var(--pv);stroke-dasharray:2 2}
+.n-dc{fill:rgba(91,149,247,.32);stroke:var(--dc);stroke-width:1.4}
+.n-pv{fill:rgba(232,163,61,.22);stroke:var(--pv);stroke-width:1.2}
+.n-alt{fill:rgba(63,191,138,.35);stroke:var(--alt);stroke-width:1.4}
+.n-ac{fill:rgba(176,148,245,.28);stroke:var(--ac);stroke-width:1.4}
+.n-wa{fill:rgba(79,195,199,.32);stroke:var(--wash);stroke-width:1.4}
+.n-wb{fill:url(#hatch);stroke:var(--wash);stroke-width:1.4;stroke-dasharray:5 3}
+.pack{fill:rgba(91,149,247,.25);stroke:var(--dc);stroke-width:.8}
+.conflict{fill:rgba(242,201,76,.10);stroke:var(--warn);stroke-width:1;stroke-dasharray:3 2}
+.warn{fill:var(--warn)}
+.run{fill:none;stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.run.thin{stroke-width:1.2;opacity:.8}
+.run.dashed{stroke-dasharray:6 4}
+.run.pv{stroke:var(--pv)} .run.dc{stroke:var(--dc)} .run.alt{stroke:var(--alt)} .run.ac{stroke:var(--ac)}
+.riser{fill:none;stroke-width:2} .riser.dc{stroke:var(--dc)}
+.ground{stroke:#5a5955;stroke-width:1.2}
+.tick{stroke:var(--faint)} .tick-t{fill:var(--mute);font-size:10px}
+.axle{stroke:#3a3a39;stroke-dasharray:2 5}
+.axle-t,.dir{fill:var(--mute);font-size:10px;letter-spacing:.08em}
+.zone-t{fill:#b9b7b1;font-size:11px}
+.small{fill:var(--mute);font-size:9.5px}
+.ghost-t{fill:var(--dc)}
+.alt-t{fill:var(--alt)} .ac-t{fill:var(--ac)}
+.big-t{fill:var(--bone);font-size:16px;font-weight:500}
+.leader{stroke:#cfcdc7;stroke-width:.8}
+.dot{fill:#cfcdc7}
+.pin circle{stroke:var(--ink);stroke-width:2}
+.pin.new circle,.pin.dc circle{fill:var(--dc)}
+.pin.pv circle{fill:var(--pv)} .pin.alt circle{fill:var(--alt)} .pin.ac circle{fill:var(--ac)}
+.pin.wash circle{fill:var(--wash)} .pin.warn circle{fill:var(--warn)}
+.pinnum{fill:var(--ink);font-size:10.5px;font-weight:500}
+/* schedule */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);margin-top:16px}
+table{border-collapse:collapse;width:100%;min-width:1020px;font-size:13px}
+th{font:500 10.5px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute);text-align:left;padding:12px 12px;border-bottom:1px solid var(--line);background:var(--sheet);position:sticky;top:0}
+td{padding:13px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+td strong{font-weight:500;display:block;margin-bottom:4px}
+.where{color:#cfcdc7}
+td.mono{font:400 12px/1.5 var(--mono);color:#cfcdc7;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;min-width:30px;text-align:center;font:500 12px/1 var(--mono);color:var(--ink);padding:6px 6px;border-radius:999px}
+.chip.dc{background:var(--dc)} .chip.pv{background:var(--pv)} .chip.alt{background:var(--alt)} .chip.ac{background:var(--ac)} .chip.wash{background:var(--wash)}
+.checks{margin:14px 0 0;padding-left:1.2em;max-width:80ch}
+.checks li{margin:.55em 0}
+.checks strong{font-weight:500;color:var(--warn)}
+.refs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin-top:16px}
+.refs figure{margin:0;background:var(--sheet);border:1px solid var(--line)}
+.refs img{display:block;width:100%;height:auto}
+.refs figcaption{font:400 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding:10px 12px}
+.note{font-size:13px;color:var(--mute);max-width:80ch}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font:400 11px/1.4 var(--mono);color:var(--mute);letter-spacing:.06em}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="6" height="6" fill="rgba(79,195,199,.10)"/><line x1="0" y1="0" x2="0" y2="6" stroke="rgba(79,195,199,.55)" stroke-width="1.5"/></pattern>
+</defs></svg>
+
+<div class="wrap">
+  <div class="eyebrow">Alita 22NFT · install map · drawn to scale from the 3D model</div>
+  <h1>Where every new part goes</h1>
+  <p class="lede">Four views of the stock coach, with the new hardware placed in it: the floor plan, a side section, the underbody and the roof. Each new part has a number that matches the schedule below, which says where it goes, what it takes the place of, how it mounts and what it connects to. Positions are inches forward of the rear wall. They come from the model and get confirmed with a tape measure.</p>
+
+  <div class="summary">
+    <div class="k-in"><b>Inside the cabin · 3 changes</b><ul><li>RV5 hub, disconnect and PV breakers go in the desk&rsquo;s roadside pedestal (1, 3)</li><li>Epad on the wall at the desk (4)</li><li>Washer cabinet at A or B (13)</li></ul></div>
+    <div class="k-roof"><b>Roof</b><ul><li>Six panels in one crosswise row, split around the AC (6)</li><li>Combiner and cable gland (7, 5)</li><li>Chill Cube swaps into the existing opening (8)</li><li>Starlink Mini beside it (9)</li></ul></div>
+    <div class="k-under"><b>Underneath and cab</b><ul><li>Sealed box with both packs under the tail (2)</li><li>Two Orions under the passenger seat (10)</li><li>Transfer switch and surge protector in the front bench base (11, 12)</li></ul></div>
+    <div class="k-open"><b>Still open</b><ul><li>Washer: A (bath side) or B (rear garage)</li><li>Six fit checks at the walkthrough, listed below</li></ul></div>
+  </div>
+
+  <div class="legend">
+    <span><i style="background:var(--dc)"></i>Bluetti / 48 V DC</span>
+    <span><i style="background:var(--pv)"></i>Solar</span>
+    <span><i style="background:var(--alt)"></i>Alternator charging</span>
+    <span><i style="background:var(--ac)"></i>120 V AC</span>
+    <span><i style="background:var(--wash)"></i>Washer-dryer</span>
+    <span><i style="border:1px solid var(--stock)"></i>Stock coach</span>
+    <span><i style="background:var(--warn)"></i>Fit check</span>
+  </div>
+
+  <section>
+    <h3>View 1</h3>
+    <h2>Floor plan</h2>
+    <div class="view"><header><p>Looking down at the floor. Roadside (driver side) is at the top. Dashed shapes are above the ceiling or below the floor.</p></header><div class="scroll">{{PLAN}}</div></div>
+  </section>
+
+  <section>
+    <h3>View 2</h3>
+    <h2>Side section</h2>
+    <div class="view"><header><p>A cut through the coach seen from the side, showing how high everything sits: roof, cabin and underbody. Washer A and B are both drawn; they sit on opposite sides of the coach.</p></header><div class="scroll">{{SIDE}}</div></div>
+  </section>
+
+  <section>
+    <h3>View 3</h3>
+    <h2>Underbody</h2>
+    <div class="view"><header><p>Looking down through the floor at the chassis: frame rails, tanks, generator, spare and the new battery box. Lines show the main cable runs and their modelled lengths.</p></header><div class="scroll">{{UNDER}}</div></div>
+  </section>
+
+  <section>
+    <h3>View 4</h3>
+    <h2>Roof</h2>
+    <div class="view"><header><p>Six panels running across the roof, three behind the AC and three ahead, onto the cab-over. Yellow outlines mark the existing fans and skylight, which end up under the panels.</p></header><div class="scroll">{{ROOF}}</div></div>
+  </section>
+
+  <section>
+    <h3>Placement schedule</h3>
+    <h2>Every new part, where it goes and what it connects to</h2>
+    <div class="table-wrap"><table>
+      <thead><tr><th>#</th><th>Part · where it goes</th><th>Position</th><th>Takes the place of</th><th>Mount and access</th><th>Connects to</th></tr></thead>
+      <tbody>{{ROWS}}</tbody>
+    </table></div>
+    <p class="note" style="margin-top:12px">Cable lengths are measured along the routes drawn in the 3D model, rounded to the nearest foot.</p>
+  </section>
+
+  <section>
+    <h3>Fit checks</h3>
+    <h2>Six things the tape measure has to confirm</h2>
+    <ol class="checks">{{CHECKS}}</ol>
+  </section>
+
+  <section>
+    <h3>3D reference</h3>
+    <h2>The same layout in the rendered model</h2>
+    <div class="refs">{{REFS}}</div>
+  </section>
+
+  <footer><span>22NFT · install map R1 · October 7, 2026</span><span>Source: scripts/install_map.py · PR #3, arthckr88/22NFT</span></footer>
+</div>
