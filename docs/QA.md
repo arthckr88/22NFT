@@ -44,3 +44,5 @@ Further completed-view checks and browser/PDF validation are recorded below as t
 - PDF-only publication retry also timed out after 300 seconds at the host file-blob route. Direct artifact retention is unavailable in this session; complete files are supplied locally and committed to the requested GitHub branch for durable delivery.
 
 - Later file transfers encountered intermittent exec-server disconnections and one truncated range. Retried with 49 KiB byte ranges, two readers and transport retries, preserving original files and checking Git blob hashes.
+
+- DELIVERY: All 94 local deliverable hashes matched the GitHub tree. Draft PR #2 is open on render/full-3d-build, mergeable and unmerged; main remains at its original commit. Automatic PR attachment returned Transport closed on both initial and retry calls. The direct GitHub URL is supplied instead.

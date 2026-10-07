@@ -8,7 +8,7 @@ Updated 07 October 2026. This record implements the latest overnight-build instr
 - [Print build book](../book/Alita-22NFT-Build-Book.pdf)
 - [Blender source](../model/Alita-22NFT.blend) · [GLB](../model/Alita-22NFT.glb)
 - [Specification register](SPECS.md) · [Decisions](DECISIONS.md) · [Walkthrough checklist](WALKTHROUGH.md)
-- Working branch: [render/full-3d-build](https://github.com/arthckr88/22NFT/tree/render/full-3d-build). Draft PR link added after creation.
+- Working branch: [render/full-3d-build](https://github.com/arthckr88/22NFT/tree/render/full-3d-build). [Draft PR #2](https://github.com/arthckr88/22NFT/pull/2).
 
 ## Confirmed user requirements / latest decisions
 
@@ -37,3 +37,7 @@ Current OEM 2027 22NF: 26 ft long, 11 ft 5 in high, 178 in wheelbase, GVWR 11,00
 3. Both laundry bays through complete lift-bed and door sweep, retained desk/drawer/chair/gear access, floor support, dedicated metal vent and verified hot/cold/gray branch.
 
 Full tape-measure checklist: WALKTHROUGH.md. Close PV/Orion/BMS and AGS interface gates before purchase/installation. Synchronize this accessible record to the original 22NFT room when it becomes available.
+
+## Delivery and verification
+
+All 94 deliverable files are committed on the working branch in draft PR #2. The GitHub tree was read back and every file hash matches the local deliverable; main remains unchanged. PDF and standalone HTML are available from the book links above. Live browser QA remains blocked; actual GLTFLoader/layer/preset checks passed. Direct book publication timed out twice, and automatic PR attachment returned Transport closed twice. The durable GitHub delivery and local files are complete.
