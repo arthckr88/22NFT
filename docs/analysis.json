@@ -1,0 +1,201 @@
+{
+  "wheelbase_in": 178,
+  "tail": {
+    "mass_lb": 288.66,
+    "front_lb": -114.79,
+    "rear_lb": 403.45
+  },
+  "gross_totals": {
+    "A": {
+      "gross_addition_lb": 998.64,
+      "front_lb": -40.0,
+      "rear_lb": 1038.64,
+      "removed_mass": "UNKNOWN: subtract removed stock A/C, replaced cabinets and existing solar after measurement"
+    },
+    "B": {
+      "gross_addition_lb": 998.64,
+      "front_lb": -79.66,
+      "rear_lb": 1078.3,
+      "removed_mass": "UNKNOWN: subtract removed stock A/C, replaced cabinets and existing solar after measurement"
+    }
+  },
+  "components": [
+    {
+      "item": "B4810 pair",
+      "mass_lb": 202.8,
+      "x_from_front_axle_in": 244.68,
+      "front_lb": -75.97,
+      "rear_lb": 278.77,
+      "note": "tail / power"
+    },
+    {
+      "item": "RV5 hub",
+      "mass_lb": 30.86,
+      "x_from_front_axle_in": 266.21,
+      "front_lb": -15.29,
+      "rear_lb": 46.15,
+      "note": "tail / power"
+    },
+    {
+      "item": "Tail enclosure + mounts",
+      "mass_lb": 40,
+      "x_from_front_axle_in": 254.13,
+      "front_lb": -17.11,
+      "rear_lb": 57.11,
+      "note": "ESTIMATE"
+    },
+    {
+      "item": "Tail cables / protection",
+      "mass_lb": 15,
+      "x_from_front_axle_in": 254.13,
+      "front_lb": -6.42,
+      "rear_lb": 21.42,
+      "note": "ESTIMATE"
+    },
+    {
+      "item": "Callsun six panels",
+      "mass_lb": 393.9,
+      "x_from_front_axle_in": 155.27,
+      "front_lb": 50.3,
+      "rear_lb": 343.6,
+      "note": "published mass, verify net"
+    },
+    {
+      "item": "Roof mounting hardware",
+      "mass_lb": 30,
+      "x_from_front_axle_in": 155.31,
+      "front_lb": 3.82,
+      "rear_lb": 26.18,
+      "note": "ESTIMATE"
+    },
+    {
+      "item": "Furrion 18K gross",
+      "mass_lb": 77.16,
+      "x_from_front_axle_in": 155.27,
+      "front_lb": 9.85,
+      "rear_lb": 67.31,
+      "note": "removed factory A/C mass UNKNOWN"
+    },
+    {
+      "item": "Starlink system + mount",
+      "mass_lb": 12.98,
+      "x_from_front_axle_in": 155.27,
+      "front_lb": 1.66,
+      "rear_lb": 11.32,
+      "note": "mount 2 lb ESTIMATE"
+    },
+    {
+      "item": "Orion pair",
+      "mass_lb": 7.94,
+      "x_from_front_axle_in": 63.38,
+      "front_lb": 5.11,
+      "rear_lb": 2.83,
+      "note": "selected model provisional"
+    },
+    {
+      "item": "Other electrical / interior wiring",
+      "mass_lb": 25,
+      "x_from_front_axle_in": 143.1,
+      "front_lb": 4.9,
+      "rear_lb": 20.1,
+      "note": "ESTIMATE"
+    },
+    {
+      "item": "Laundry A",
+      "mass_lb": 148,
+      "x_from_front_axle_in": 178.93,
+      "front_lb": -0.77,
+      "rear_lb": 148.77,
+      "note": "exclusive option A"
+    },
+    {
+      "item": "Laundry B",
+      "mass_lb": 148,
+      "x_from_front_axle_in": 222.24,
+      "front_lb": -36.78,
+      "rear_lb": 184.78,
+      "note": "exclusive option B"
+    },
+    {
+      "item": "Laundry support / lines",
+      "mass_lb": 15,
+      "x_from_front_axle_in": 178.93,
+      "front_lb": -0.08,
+      "rear_lb": 15.08,
+      "note": "ESTIMATE; B center 6.61 instead"
+    }
+  ],
+  "battery_only_old": {
+    "mass_lb": 202.8,
+    "tail_lever_in": 80,
+    "front_lb": -91.14606741573034,
+    "rear_lb": 293.94606741573034
+  },
+  "departure": {
+    "enclosure_ground_in": 10.192913385826772,
+    "rear_lever_in": 98.8759842519685,
+    "angle_deg": 5.885708568068243
+  },
+  "solar": {
+    "nameplate_w": 1650,
+    "imp_A": 77.52,
+    "isc_A": 82.14,
+    "bare_array_in": 180.96,
+    "array_with_5_gaps_in": 185.96,
+    "model_array_plus_ac_band_in": 216.45999999999998,
+    "roof_estimate_in": 220,
+    "edge_to_panel_in": 11.325000000000003
+  },
+  "energy": {
+    "battery_nominal_kwh": 10.24,
+    "soc_operating_window": 0.8,
+    "inverter_efficiency": 0.9,
+    "usable_ac_kwh": 7.3728,
+    "base_daily_kwh": 2.98,
+    "base_loads": {
+      "editing_5h": 0.7,
+      "fridge": 0.8,
+      "cameras_laptop": 0.4,
+      "lights": 0.2,
+      "starlink_8h": 0.68,
+      "pumps_fans": 0.2
+    },
+    "roof_solar_moderate_kwh": 6.8062499999999995,
+    "roof_solar_hot_kwh": 6.929999999999999,
+    "harvest_input_condition": "Full-nameplate harvest assumes an approved input arrangement accepts 1,650 W; the requested parallel connection is not yet verified.",
+    "parallel_single_input_ceiling_kw": 1.0645,
+    "moderate": {
+      "hvac_avg_kw": 0.55,
+      "hours": 8,
+      "total_kwh": 7.380000000000001,
+      "solar_kwh": 6.8062499999999995,
+      "daily_deficit_kwh": 0.5737500000000013,
+      "generator_hours_est": 0.19921875000000044
+    },
+    "hot_100F": {
+      "hvac_avg_kw": 1.2,
+      "hours": 24,
+      "total_kwh": 31.779999999999998,
+      "solar_kwh": 6.929999999999999,
+      "daily_deficit_kwh": 24.849999999999998,
+      "generator_hours_est": 8.62847222222222
+    },
+    "laundry_cycle_kwh_range": [
+      2,
+      4
+    ],
+    "laundry_cycle_water_gal_range": [
+      12,
+      20
+    ],
+    "generator_ac_working_kw": 3.2,
+    "generator_energy_delivery_efficiency": 0.9,
+    "generator_net_battery_recharge_kw": 2.3,
+    "quiet_night": {
+      "moderate_8h_kwh": 5.0,
+      "hot_8h_kwh": 10.2,
+      "hot_estimated_hours": 5.644
+    },
+    "NOTE": "ALL energy, water, climate and generator performance values are scenarios/ESTIMATES, not measured Furrion or Splendide duty cycles. No cooling-load calculation proves 18K capacity at 100F."
+  }
+}

@@ -1,0 +1,2516 @@
+[
+  {
+    "number": 1,
+    "title": "ALITA 22NFT\nSunset Noir.",
+    "kicker": "ANDREW ROSE / MOBILE STUDIO / V01",
+    "type": "cover",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/01.jpg",
+    "lede": "A solo mobile editing office. Preserved desk and lift bed. Tail power. Six-panel solar. Two laundry studies."
+  },
+  {
+    "number": 2,
+    "title": "One current build record.",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "columns",
+    "columns": [
+      [
+        {
+          "kind": "heading",
+          "text": "Confirmed user direction"
+        },
+        {
+          "kind": "body",
+          "text": "Rear desk, drawer pedestal, lift bed and garage remain. Keep the factory kitchen and forward couch where practical. Dry bath and cab-over sleeping are retained."
+        },
+        {
+          "kind": "body",
+          "text": "RV5 + two B4810 packs at the tail underbody; six Callsun 275 W panels parallel; two Victron driving chargers; onboard generator with automatic start; Furrion ducted 18K heat pump; Starlink; vented Splendide with A/B placement."
+        },
+        {
+          "kind": "body",
+          "text": "Quiet work and sleep, camera/luggage storage and economical improvements remain the purpose."
+        }
+      ],
+      [
+        {
+          "kind": "heading",
+          "text": "Three evidence levels"
+        },
+        {
+          "kind": "body",
+          "text": "Confirmed Published manufacturer value for the exact named component or OEM year. This does not verify fit to a selected VIN."
+        },
+        {
+          "kind": "body",
+          "text": "Credible Dealer/historical guide or unresolved published data, including the unusually high panel mass."
+        },
+        {
+          "kind": "body",
+          "text": "ESTIMATE Reconstructed dimensions, positions, routes, costs/energy scenarios and modeling assumptions. Every physical installation coordinate in this book is in this category."
+        },
+        {
+          "kind": "note",
+          "text": "Exact production year, VIN and actual OCCC remain unknown. Current OEM 2027 22NF is the dimensional reference; dealer 22NFT alias is retained in project naming."
+        }
+      ]
+    ],
+    "summary": ""
+  },
+  {
+    "number": 3,
+    "title": "Explore the complete model.",
+    "kicker": "INTERACTIVE / THREE.JS + GLB",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/05-annotated.jpg",
+    "caption": "The interactive HTML edition embeds the full GLB model and Three.js viewer: orbit, zoom, pan and shell/power/solar/laundry A/laundry B/interior toggles. This print edition carries the annotated power view."
+  },
+  {
+    "number": 4,
+    "title": "A mobile office, quietly integrated",
+    "kicker": "RENDER 01 / CYCLES CPU / 1920 × 1080",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/01.jpg",
+    "caption": "Detailed generic coach with rounded cab-over, tinted glazing, framed solar array, compartment doors and neutral hatchback. Production trim/window coordinates and tow setup are ESTIMATE; component envelope dimensions are source-grounded."
+  },
+  {
+    "number": 5,
+    "title": "Driver-side elevation",
+    "kicker": "RENDER 02 / CYCLES CPU / 1920 × 1080",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/02-annotated.jpg",
+    "caption": "26 ft exterior and 178 in wheelbase are current OEM 2027 specifications. Width, fixture locations, ride height, roof curvature and axle placement relative to bumpers are reconstructed. No selected VIN has been verified."
+  },
+  {
+    "number": 6,
+    "title": "Roof: six panels, one tight equipment band",
+    "kicker": "RENDER 03 / CYCLES CPU / 1920 × 1080",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/03.jpg",
+    "caption": "Six 275 W panels provide 1,650 W nameplate. Render uses a measured-size array inside the earlier 220 in roof-length estimate; HVAC, vent and Starlink placement remains unverified. Modeled array plus A/C band is 216.46 in before real service access."
+  },
+  {
+    "number": 7,
+    "title": "Roof: six panels, one tight equipment band / annotated",
+    "kicker": "RENDER 03 / MEASUREMENT & SERVICE STUDY",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/03-annotated.jpg",
+    "caption": "Six 275 W panels provide 1,650 W nameplate. Render uses a measured-size array inside the earlier 220 in roof-length estimate; HVAC, vent and Starlink placement remains unverified. Modeled array plus A/C band is 216.46 in before real service access."
+  },
+  {
+    "number": 8,
+    "title": "Underbody power, beside the spare",
+    "kicker": "RENDER 04 / CYCLES CPU / 1920 × 1080",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/04.jpg",
+    "caption": "Cutaway removes protective enclosure walls/lid to expose equipment. Modeled 45.5 × 37 × 9.5 in enclosure is a bare-envelope packaging study; orientation, cooling, access and chassis mounts unapproved. Ground clearance 10.2 in / departure 5.9° are ESTIMATE."
+  },
+  {
+    "number": 9,
+    "title": "Underbody power, beside the spare / annotated",
+    "kicker": "RENDER 04 / MEASUREMENT & SERVICE STUDY",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/04-annotated.jpg",
+    "caption": "Cutaway removes protective enclosure walls/lid to expose equipment. Modeled 45.5 × 37 × 9.5 in enclosure is a bare-envelope packaging study; orientation, cooling, access and chassis mounts unapproved. Ground clearance 10.2 in / departure 5.9° are ESTIMATE."
+  },
+  {
+    "number": 10,
+    "title": "The full power architecture, with open gates visible",
+    "kicker": "RENDER 05 / CYCLES CPU / 1920 × 1080",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/05.jpg",
+    "caption": "Gold: PV; blue: 48 V battery; cyan: driving alternator/Orions; sage: AC/generator. Routes and lengths are approximate. Six-panel PV current, external 48 V charge/BMS acceptance and generator SOC/start interfaces remain unresolved."
+  },
+  {
+    "number": 11,
+    "title": "The full power architecture, with open gates visible / annotated",
+    "kicker": "RENDER 05 / MEASUREMENT & SERVICE STUDY",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/05-annotated.jpg",
+    "caption": "Gold: PV; blue: 48 V battery; cyan: driving alternator/Orions; sage: AC/generator. Routes and lengths are approximate. Six-panel PV current, external 48 V charge/BMS acceptance and generator SOC/start interfaces remain unresolved."
+  },
+  {
+    "number": 12,
+    "title": "Sunset Noir: cab to rear",
+    "kicker": "RENDER 06 / CYCLES CPU / 1920 × 1080",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/06.jpg",
+    "caption": "Warm oak, honed charcoal surfaces, bronze details, soft woven upholstery and warm practical light. Factory desk, kitchen, forward couch and raised lift-bed relationships retained. Interior cabinetry dimensions and finishes are a design study."
+  },
+  {
+    "number": 13,
+    "title": "The preserved editing desk",
+    "kicker": "RENDER 07 / CYCLES CPU / 1920 × 1080",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/07.jpg",
+    "caption": "Factory desk and storage pedestal remain, with editing equipment and camera storage represented. Bed is shown raised; no assertion of desk/laundry clearance with the bed lowered. Gear dimensions are visual ESTIMATES."
+  },
+  {
+    "number": 14,
+    "title": "Laundry A: adjacent to the dry bath",
+    "kicker": "RENDER 08 / CYCLES CPU / 1920 × 1080",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/08.jpg",
+    "caption": "Studies a proposed bath-adjacent storage bay, preserving the dry bath footprint. Appliance is scaled to manufacturer dimensions. Supply/drain/vent positions, service withdrawal, bath access and open-door aisle remain ESTIMATE."
+  },
+  {
+    "number": 15,
+    "title": "Laundry A: adjacent to the dry bath / annotated",
+    "kicker": "RENDER 08 / MEASUREMENT & SERVICE STUDY",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/08-annotated.jpg",
+    "caption": "Studies a proposed bath-adjacent storage bay, preserving the dry bath footprint. Appliance is scaled to manufacturer dimensions. Supply/drain/vent positions, service withdrawal, bath access and open-door aisle remain ESTIMATE."
+  },
+  {
+    "number": 16,
+    "title": "Laundry B: opposite the rear desk",
+    "kicker": "RENDER 09 / CYCLES CPU / 1920 × 1080",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/09.jpg",
+    "caption": "Passenger-side garage option preserves the desk and drawers; displaces gear staging. Chair cleared from rear bay for laundry; bed shown raised. Full lowered-bed and washer-door swept-volume check is unresolved; no final location selected."
+  },
+  {
+    "number": 17,
+    "title": "Laundry B: opposite the rear desk / annotated",
+    "kicker": "RENDER 09 / MEASUREMENT & SERVICE STUDY",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/09-annotated.jpg",
+    "caption": "Passenger-side garage option preserves the desk and drawers; displaces gear staging. Chair cleared from rear bay for laundry; bed shown raised. Full lowered-bed and washer-door swept-volume check is unresolved; no final location selected."
+  },
+  {
+    "number": 18,
+    "title": "A workspace first, with equipment below",
+    "kicker": "RENDER 10 / CYCLES CPU / 1920 × 1080",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/10.jpg",
+    "caption": "Floorplan cutaway exposes retained couch, kitchen/fridge, dry bath, desk and garage. B is shown; A is exclusive. Lift bed omitted/raised for visibility. Roof equipment and tail system are separate viewer layers."
+  },
+  {
+    "number": 19,
+    "title": "A workspace first, with equipment below / annotated",
+    "kicker": "RENDER 10 / MEASUREMENT & SERVICE STUDY",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/10-annotated.jpg",
+    "caption": "Floorplan cutaway exposes retained couch, kitchen/fridge, dry bath, desk and garage. B is shown; A is exclusive. Lift bed omitted/raised for visibility. Roof equipment and tail system are separate viewer layers."
+  },
+  {
+    "number": 20,
+    "title": "Tail mass changes the axle calculation",
+    "kicker": "RENDER 11 / CYCLES CPU / 1920 × 1080",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/11-annotated.jpg",
+    "caption": "Complete modeled tail assembly 288.66 lb adds +403.45 lb rear / −114.79 lb front at estimated component centers. Old +294/−91 represented battery pair alone near an 80 in lever. Actual remaining payload/axle capacity is unknown."
+  },
+  {
+    "number": 21,
+    "title": "Quiet hours, warm interior light",
+    "kicker": "RENDER 12 / CYCLES CPU / 1920 × 1080",
+    "type": "image",
+    "image": "/Users/andrewrose/Documents/Codex/2026-10-07/new-chat-2/22NFT/renders/12.jpg",
+    "caption": "Night exterior is a lighting study, not a promise of all-night 100°F cooling from the battery. Mild-night HVAC scenario fits an eight-hour quiet window; hot-night scenario exceeds modeled usable energy."
+  },
+  {
+    "number": 22,
+    "title": "What changed in the numbers.",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "table",
+    "rows": [
+      [
+        {
+          "text": "Earlier working figure",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Current finding",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Implication",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "~1,200 W roof",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "6 × 275 W = 1,650 W",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Higher nameplate; current/roof/payload gates remain.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "~15.6 ft for six panels",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "15.50 ft with five 1 in panel gaps; 18.04 ft including modeled 29.5 in A/C band and six gaps",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "15.6 ft is credible for bare panel rows only. Estimated 220 in usable roof leaves ~3.54 in total longitudinal slack before service setbacks.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "+294 rear / −91 front",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Battery pair alone at ~80 in lever reproduces +293.95 / −91.15 lb. Complete tail assembly in current model: +403.45 / −114.79 lb.",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Old pair-only estimate omits RV5, enclosure/mounts and cables; actual CG must be measured.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "48 V DC A/C concept",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Chosen Furrion is AC powered, 77.16 lb gross",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "House inverter supplies HVAC. Factory removed A/C mass unknown.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Roof panel mass unspecified",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Website 65.65 lb each / 393.9 lb for six",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "High-priority net-mass verification; roof and payload engineering may change feasibility.",
+          "span": 1,
+          "url": null
+        }
+      ]
+    ],
+    "blocks": [
+      {
+        "kind": "note",
+        "text": "The calculations implement your chosen components; they do not quietly change hardware to make a diagram fit. If measurements reject a location or electrical interface, that conflict stays open."
+      }
+    ]
+  },
+  {
+    "number": 23,
+    "title": "Electrical compatibility gates.",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "table",
+    "rows": [
+      [
+        {
+          "text": "Path",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Research result",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Required resolution",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Six parallel → RV5",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "21.29 V / 77.52 A operating; 25.26 V / 82.14 A Isc. Published RV5 PV limit is 50 A / 12–50 V.",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "A common six-panel branch exceeds the published input current limit. Confirm independent input ratings and clipping/overcurrent rules; a split 3+3 parallel arrangement is only a proposed alternative.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Series alternative",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Two panels Voc 50.52 V before cold correction",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Already exceeds published 50 V. Do not silently rewire in series.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Orion → house system",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "12/48-8 Smart output 40–60 V; pair 720 W at 40°C.",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Do not feed 50 V-max PV input. External B4810 charge connection needs documented BMS/terminal permission; Ford CCP/current/thermal constraints need current-year guide.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Generator → RV5",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "OEM 4 kW; RV5 charger up to 5 kW",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Limit charging for actual generator rating and concurrent AC loads. Verify transfer, neutral/ground and AGS start connector/SOC integration.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "House → HVAC/laundry",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Furrion AC heat pump and Splendide 120 V / 11 A",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Dedicated appliance circuit, measured HVAC draw, load management and 12 V house distribution verification required.",
+          "span": 1,
+          "url": null
+        }
+      ]
+    ],
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "AGS priority remains solar → battery → generator backup, with quiet-hour inhibit and a reserve set from actual loads. Driving alternator charging is separate; stationary chassis engine auto-start is excluded."
+      }
+    ]
+  },
+  {
+    "number": 24,
+    "title": "Tail load: the actual math.",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "table",
+    "rows": [
+      [
+        {
+          "text": "Tail item",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Mass lb",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "CG aft front axle in",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Δfront lb",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Δrear lb",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "B4810 pair",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "202.80",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "244.68",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "-75.97",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+278.77",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "RV5 hub",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "30.86",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "266.21",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "-15.29",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+46.15",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Tail enclosure + mounts",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "40.00",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "254.13",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "-17.11",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+57.11",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Tail cables / protection",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "15.00",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "254.13",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "-6.42",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+21.42",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Complete modeled tail assembly",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "288.66",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Aggregate ~248.8 / ESTIMATE",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "−114.79",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+403.45",
+          "span": 1,
+          "url": null
+        }
+      ]
+    ],
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "Δrear = mass × distance aft of front axle / 178 in\nΔfront = mass − Δrear"
+      },
+      {
+        "kind": "body",
+        "text": "For a component behind the rear axle, rear load rises by more than its mass and the front axle unloads. The estimate is static, longitudinal and level-ground; it does not model suspension, corner loads, braking or mounting stresses."
+      },
+      {
+        "kind": "note",
+        "text": "The ~45.5 × 37 × 9.5 in envelope has barely enough bare-envelope space; manufacturer cooling, orientation and connector clearances are unknown. Modeled 10.2 in clearance / 5.9° departure angle is a concern to measure, not a qualified design."
+      }
+    ]
+  },
+  {
+    "number": 25,
+    "title": "Gross build weight, not remaining payload.",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "table",
+    "rows": [
+      [
+        {
+          "text": "Component",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Added lb",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Δfront lb",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Δrear lb",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Qualification",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Callsun six panels",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "393.90",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+50.30",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+343.60",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "published mass, verify net",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Roof mounting hardware",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "30.00",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+3.82",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+26.18",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "ESTIMATE",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Furrion 18K gross",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "77.16",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+9.85",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+67.31",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "removed factory A/C mass UNKNOWN",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Starlink system + mount",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "12.98",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+1.66",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+11.32",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "mount 2 lb ESTIMATE",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Orion pair",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "7.94",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+5.11",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+2.83",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "selected model provisional",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Other electrical / interior wiring",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "25.00",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+4.90",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+20.10",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "ESTIMATE",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Laundry A",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "148.00",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "-0.77",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+148.77",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "exclusive option A",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Laundry B",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "148.00",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "-36.78",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+184.78",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "exclusive option B",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Laundry support / lines",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "15.00",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "-0.08",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "+15.08",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "ESTIMATE; B center 6.61 instead",
+          "span": 1,
+          "url": null
+        }
+      ]
+    ],
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "Using only one laundry option and its support allowance, gross additions are 998.64 lb. A: −40.00 front / +1,038.64 rear. B: −79.66 front / +1,078.30 rear. Subtract actual removed stock A/C, cabinets and existing equipment at their measured centers before calling this net load."
+      },
+      {
+        "kind": "body",
+        "text": "Factory GAWR: 4,630 lb front / 7,275 lb rear. GVWR: 11,000 lb. Neither limit proves remaining capacity without actual base axle weights and OCCC. Fuel/water, driver, gear, luggage, scooter and tow hardware must be included separately."
+      }
+    ]
+  },
+  {
+    "number": 26,
+    "title": "Laundry: A versus B.",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "table",
+    "rows": [
+      [
+        {
+          "text": "Comparison",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "A / bath side",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "B / rear garage",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Space displaced",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Bath-adjacent storage; ~3.69 sq ft machine footprint / ~4.52 sq ft proposed bay. Preserve dry shower/toilet.",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Passenger rear gear bay; same footprint/bay. Less room for cases, light stands, luggage/scooter staging.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Loading / service",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Door aisle and bath slider may conflict; ~40.5 in open-depth envelope and pull-out route must be taped.",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Desk chair, drawers, rear hatch and gear route need full door-sweep check. Bed lowered clearance unresolved.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Water / drain",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Estimated 2–3 m hot/cold/drain routing crossing protected floor cavity toward galley gray branch.",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Estimated 2–4 m toward galley branch. No claim either branch accepts 7 gpm discharge.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Dryer vent",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Estimated 0.3–0.8 m dedicated 4 in exterior metal duct, if permitted wall exit exists.",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Estimated 0.3–0.8 m rear-side exit, with case/bed/door and window separation checked.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Weight position",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Appliance 148 lb near rear axle: ~−0.77 front / +148.77 rear.",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Appliance 148 lb farther aft: ~−36.78 front / +184.78 rear. With 15 lb support/lines, B shifts ~39.66 lb more to rear than A.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Desk / sleep noise",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Some distance from desk; structure-borne vibration still reaches bed. Bath-adjacent activity can affect aisle.",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Closest to desk and raised/low bed. Most likely to interfere with quiet editing/sleep; no acoustic test yet.",
+          "span": 1,
+          "url": null
+        }
+      ]
+    ],
+    "blocks": [
+      {
+        "kind": "note",
+        "text": "No laundry location is selected. A keeps rear gear volume but risks bath/aisle fit; B follows the earlier opposite-desk direction but carries greater rear-load and bed/noise conflicts. Render both, measure both."
+      }
+    ]
+  },
+  {
+    "number": 27,
+    "title": "Laundry installation envelope.",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "columns",
+    "columns": [
+      [
+        {
+          "kind": "heading",
+          "text": "Manufacturer requirements"
+        },
+        {
+          "kind": "body",
+          "text": "23.5 W × 22.625 D × 33–33.375 H in; 148 lb. Provide ≥280 lb solid level floor support, proper anchoring and 1 in front/back case clearances (0 side minimum)."
+        },
+        {
+          "kind": "body",
+          "text": "Dedicated 120 V 15 A circuit; rated 11 A / 1,300 W. Vented drying requires a dedicated 4 in exterior metal duct and permitted duct length/bends, plus ≥8 sq in enclosure makeup air."
+        },
+        {
+          "kind": "body",
+          "text": "Drain standpipe ≥1.25 in ID, capacity ≥7 gpm. Standpipe top 25–34 in above appliance bottom; hose outlet/air break per installation manual. Do not seal hose into an unvented drain."
+        }
+      ],
+      [
+        {
+          "kind": "heading",
+          "text": "Proposed plumbing, not verified"
+        },
+        {
+          "kind": "body",
+          "text": "Individual shutoff tees at kitchen hot/cold supplies; protected serviceable hose routes to laundry bay; independent trapped standpipe draining to a verified kitchen gray branch."
+        },
+        {
+          "kind": "body",
+          "text": "Rendered routes are topology. Underfloor penetrations, branch slope/venting, freeze protection, trap cleanout, tank response and exterior dryer outlet need a measured installation plan."
+        },
+        {
+          "kind": "body",
+          "text": "The appliance door-open envelope is ~40.5 in from the datasheet diagram, marked Credible for access planning; verify actual appliance and loading posture."
+        },
+        {
+          "kind": "note",
+          "text": "Shown with lift bed raised. Verify every intermediate and lowered position, not only a static open bay."
+        }
+      ]
+    ],
+    "summary": ""
+  },
+  {
+    "number": 28,
+    "title": "Energy: moderate days versus 100°F.",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "table",
+    "rows": [
+      [
+        {
+          "text": "Scenario / all ESTIMATE",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Moderate-weather workday",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "100°F Las Vegas stress case",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Base daily loads",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "2.98 kWh: editing 0.70; refrigerator 0.80; camera/laptop 0.40; lights 0.20; Starlink 8 h 0.68; pumps/fans 0.20",
+          "span": 2,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "HVAC assumption",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "0.55 kW average × 8 h = 4.40 kWh",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "1.20 kW average × 24 h = 28.80 kWh",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Total demand",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "7.38 kWh/day",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "31.78 kWh/day",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Solar model",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "1.65 kW × 5.5 sun h × 0.75 = 6.81 kWh",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "1.65 kW × 6 sun h × 0.70 = 6.93 kWh",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Daily deficit",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "~0.57 kWh before laundry / driving charge",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "~24.85 kWh before laundry / driving charge",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Generator energy recovery",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "~0.20 h mathematical minimum; practical run scheduling longer",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "~8.6 h/day at 3.2 kW AC × 90% delivered energy; ~8–11 h working range",
+          "span": 1,
+          "url": null
+        }
+      ]
+    ],
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "Harvest above is conditional on an approved input arrangement accepting the full 1,650 W. One published 50 A input at the panel’s 21.29 V operating point has an approximate 1.06 kW ceiling. Actual clipped kWh requires an irradiance profile and verified controller limits; these full-nameplate harvest values are not validated available energy."
+      },
+      {
+        "kind": "body",
+        "text": "These are explicit scenarios, not a measured Furrion duty cycle or a cooling-load calculation. Insulation, windshield solar gain, envelope leakage, humidity, occupancy and setpoint are unknown. 18K capacity and indoor comfort at 100°F must be tested."
+      },
+      {
+        "kind": "note",
+        "text": "1,650 W solar does not support continuous extreme-weather cooling in this stress case. Shade, hotter panels, flat mounting and obstruction can reduce harvest; bifacial gain is not counted."
+      }
+    ]
+  },
+  {
+    "number": 29,
+    "title": "Quiet nights, laundry and recharge.",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "columns",
+    "columns": [
+      [
+        {
+          "kind": "heading",
+          "text": "Battery budget"
+        },
+        {
+          "kind": "body",
+          "text": "10.24 kWh nominal × 80% SOC window × 90% inverter efficiency = 7.37 kWh estimated AC energy. Mild night: 8 h × 0.55 kW + 0.60 kWh base = 5.00 kWh. Hot night: 8 h × 1.20 kW + 0.60 = 10.20 kWh; eight hours is not supported in this scenario."
+        },
+        {
+          "kind": "body",
+          "text": "With 2.3 kW net battery recharge during generator operation, restoring 8.19 kWh DC across the assumed SOC window takes ~3.6 hours before taper/thermal penalties. Charger setting must leave capacity for simultaneous HVAC/other loads."
+        }
+      ],
+      [
+        {
+          "kind": "heading",
+          "text": "Scheduling laundry"
+        },
+        {
+          "kind": "body",
+          "text": "Placeholder wash/dry cycle: 2–4 kWh and 12–20 gal water, both ESTIMATE, not published cycle performance. This can consume ~27–54% of modeled usable AC battery energy and a substantial fraction of the 35 gal fresh/30 gal gray capacity."
+        },
+        {
+          "kind": "body",
+          "text": "Run laundry during surplus solar, driving/generator charge or shore power after measured cycle data. Pairing 1,300 W laundry with HVAC and RV5 charging requires load budgeting."
+        },
+        {
+          "kind": "body",
+          "text": "AGS thresholds and quiet hours must be set from measured demand and reserve, with verified generator interface. A mathematical minimum runtime is not a reliable operational schedule."
+        }
+      ]
+    ],
+    "summary": "7.37 kWh / ESTIMATED USABLE AC ENERGY  |  5.00 kWh / MILD 8 H NIGHT + BASE  |  10.20 kWh / HOT 8 H NIGHT + BASE  |  ~5.6 h / HOT QUIET HVAC WINDOW"
+  },
+  {
+    "number": 30,
+    "title": "Specification register.",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "table",
+    "rows": [
+      [
+        {
+          "text": "Item",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Dimensions / weight",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Evidence",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Source / qualification",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Alita 2027 22NF (dealer alias 22NFT)",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "26 ft L; 11 ft 5 in H; width TBD by OEM; 178 in wheelbase\nGVWR 11,000 lb; GCWR 13,500 lb; GAWR 4,630 front / 7,275 rear",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Confirmed",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\nPublished 2027 specification, not confirmation of Andrew’s selected VIN/year. Height includes roof equipment.",
+          "span": 1,
+          "url": "https://www.easttowestrv.com/alita/22NF/15661"
+        }
+      ],
+      [
+        {
+          "text": "Coach width / interior width",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "91 in exterior / 81 in interior\nActual OCCC unknown",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Credible",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\nEarlier dealer/dossier dimensions. Current OEM width is TBD; verify production unit.",
+          "span": 1,
+          "url": "https://www.couchsrvnation.com/east-to-west/class-c-motorhome/alita/22nft1"
+        }
+      ],
+      [
+        {
+          "text": "Floorplan / roof / spare area",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Rear desk, lift bed, dry bath, cab-over bunk; usable roof 220 × 91 in; tail enclosure 45.5 × 37 × 9.5 in\nFactory generator and removed A/C weights unknown",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "ESTIMATE",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\nFloorplan relationships from OEM and handoff; every cabinet/window/roof fixture coordinate and underbody volume is reconstructed, not measured.",
+          "span": 1,
+          "url": "https://www.easttowestrv.com/alita/22NF/15661"
+        }
+      ],
+      [
+        {
+          "text": "Ford Transit chassis / body mounting",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "178 in WB; rear frame/body extension and spare coordinates VIN-dependent\nUse completed vehicle axle scales and door certification labels",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Credible",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\n2022 Ford North America BEMM historical reference only. Current-year guide required. §5.14.5 ancillary subframe guidance explicitly excludes motorhomes.",
+          "span": 1,
+          "url": "https://madocumentupload.marketingassociates.com/api/Document/GetFile?v1=6853472&v2=021522100026&v3=60&v4=f71741fbb719e84d5ca63d295752152d1a09ad7d2d42658c23f9154a&v5=False"
+        }
+      ]
+    ],
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "Research snapshot 07 Oct 2026. Full clickable source URLs and qualifications are retained in docs/SPECS.md and specs.json. Dimensions refer to the named variant; variant selection and installation fit can remain estimated."
+      }
+    ]
+  },
+  {
+    "number": 31,
+    "title": "Specification register. / continued",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "table",
+    "rows": [
+      [
+        {
+          "text": "Item",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Dimensions / weight",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Evidence",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Source / qualification",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Bluetti RV5",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "17.72 × 19.69 × 6.30 in\n30.86 lb",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Confirmed",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\n120 V 5,000 W AC inverter. Published PV 12–50 V / 50 A / 1,800 W; independent input interpretation and BMS/AGS interface require manual confirmation. No outdoor rating assumed for hub.",
+          "span": 1,
+          "url": "https://www.bluettipower.com/products/rv5-b4810"
+        }
+      ],
+      [
+        {
+          "text": "Bluetti B4810 ×2",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Each 23.94 × 14.96 × 5.71 in\nEach 101.4 lb; pair 202.8 lb",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Confirmed",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\n51.2 V × 100 Ah = 5.12 kWh each, 10.24 kWh nominal total; published IP65 battery rating does not qualify complete tail assembly for road splash/submersion.",
+          "span": 1,
+          "url": "https://www.bluettipower.com/blogs/buying-guide/guide-of-bluetti-rv5-48v-diy-solar-inverter-kit"
+        }
+      ],
+      [
+        {
+          "text": "Callsun 275 W bifacial ×6",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Each 68.35 × 30.16 × 1.38 in\nWebsite lists 65.65 lb EACH; six 393.9 lb",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Credible",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\nPublished mass is unusually high: use conservatively until net panel mass verified. Vmp 21.29 V / Imp 12.92 A; Voc 25.26 V / Isc 13.69 A; max series fuse 25 A. Six parallel: 77.52 A operating / 82.14 A short circuit. Nameplate 1,650 W.",
+          "span": 1,
+          "url": "https://callsunsolar.com/collections/partial-shade/products/275w-n-type-bifacial-solar-panel"
+        }
+      ],
+      [
+        {
+          "text": "Victron Orion-Tr Smart ×2: provisional 12/48-8 (360 W)",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Each 130 × 186 × 80 mm (5.12 × 7.32 × 3.15 in)\nEach 1.8 kg / 3.97 lb",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Confirmed",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\nModel choice ESTIMATE, family required by Andrew. Input 8–17 V; output 40–60 V; 360 W each at 40°C, 430 W at 25°C; 89% efficiency. Never connect 48 V output to RV5 50 V-max PV port. External B4810 charging requires explicit approval.",
+          "span": 1,
+          "url": "https://www.victronenergy.com/media/pg/Orion-Tr_Smart_DC-DC_Charger_-_Isolated/en/specifications.html"
+        }
+      ]
+    ],
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "Research snapshot 07 Oct 2026. Full clickable source URLs and qualifications are retained in docs/SPECS.md and specs.json. Dimensions refer to the named variant; variant selection and installation fit can remain estimated."
+      }
+    ]
+  },
+  {
+    "number": 32,
+    "title": "Specification register. / continued",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "table",
+    "rows": [
+      [
+        {
+          "text": "Item",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Dimensions / weight",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Evidence",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Source / qualification",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Furrion Chill Cube 18K ducted heat pump",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "29.5 L × 29 W × 14.5 H in\n77.16 lb (not 85 lb shipping)",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Confirmed",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\nFACR18HEDA-BL-AM / SKU 2025008215. AC-powered, not the earlier 48 V DC concept. Existing roof opening, duct/ADB/controller adaptation and bed obstruction must be checked against manuals.",
+          "span": 1,
+          "url": "https://www.lippert.com/furrionchill-cube-variable-speed-rv-rooftop-air-conditionerr32with-heat-pump-18kbtu-black-ductedfacr18heda-bl-am-2025008215"
+        }
+      ],
+      [
+        {
+          "text": "Splendide WDV2200XCD",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "23.5 W × 22.625 D × 33–33.375 H in; door-open depth ~40.5 in\n148 lb",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Confirmed",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\n120 V / 11 A / 1,300 W max, dedicated 15 A circuit. 1 in front/back case clearance, 0 side minimum, ≥280 lb floor support. Door sweep is Credible diagram envelope; measure actual. 4 in metal exterior vent; enclosure door ≥8 sq in ventilation. Standpipe ≥1.25 in, 7 gpm; top 25–34 in above bottom, air break.",
+          "span": 1,
+          "url": "https://www.splendide.com/downloads/WDV2200XCD_DataSheet.pdf"
+        }
+      ],
+      [
+        {
+          "text": "Starlink Standard 4X (provisional variant)",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "594 × 383 × 39.7 mm (23.4 × 15.07 × 1.56 in)\nAntenna 6.4 lb; 8.3 lb with kickstand + 15 m cable; router 1.25 lb; PSU 1.43 lb",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Confirmed",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\nVariant/mount choice ESTIMATE. 75–100 W average, 110° field of view. Low fixed mount service/sky clearance not established.",
+          "span": 1,
+          "url": "https://www.starlink.com/public-files/specification_sheet_standard.pdf"
+        }
+      ],
+      [
+        {
+          "text": "Factory onboard generator / AGS",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Existing 4 kW generator; model/fuel/start connector unknown\nExisting mass included in base coach; no replacement mass added",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "ESTIMATE",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\nNo assumption that RVMP 4000eM is installed. Dry-contact relay/start controller pending verified generator connector, safety interlocks and RV5 SOC interface.",
+          "span": 1,
+          "url": "https://www.easttowestrv.com/alita/22NF/15661"
+        }
+      ]
+    ],
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "Research snapshot 07 Oct 2026. Full clickable source URLs and qualifications are retained in docs/SPECS.md and specs.json. Dimensions refer to the named variant; variant selection and installation fit can remain estimated."
+      }
+    ]
+  },
+  {
+    "number": 33,
+    "title": "Specification register. / continued",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "table",
+    "rows": [
+      [
+        {
+          "text": "Item",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Dimensions / weight",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Evidence",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Source / qualification",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Tail enclosure, mounting and runs",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "45.5 × 37 × 9.5 in concept; 10.2 in minimum ground clearance; aggregate tail CG 70.8 in behind axle\n40 lb enclosure/mounting + 15 lb tail cable/protection allowance",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "ESTIMATE",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\nNo steel attachment points, battery stacking, frame drilling, spare relocation, or departure clearance approved. Enclosure horizontal area intersects likely spare volume: rendered split/offset spare position must be measured.",
+          "span": 1,
+          "url": "https://www.fordpro.com/en-us/upfit/publications/"
+        }
+      ],
+      [
+        {
+          "text": "Generic flat-towed hatchback",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "12 ft × 5.4 ft × 4.9 ft visual envelope\n2,500 lb scenario only; actual Abarth year/curb/loading mass unknown",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "ESTIMATE",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Manufacturer / reference source ↗\nNo badges. 2017 factory manual permits manual-transmission flat towing in neutral up to 65 mph; exact selected year still unknown. Flat-tow permission, baseplate, towbar, hitch, brake and GCWR compatibility unresolved. At 11,000 lb coach weight only 2,500 lb GCWR margin remains.",
+          "span": 1,
+          "url": "https://vehicleinfo.mopar.com/assets/publications/en-us/Fiat/2017/500/1973.pdf"
+        }
+      ]
+    ],
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "Research snapshot 07 Oct 2026. Full clickable source URLs and qualifications are retained in docs/SPECS.md and specs.json. Dimensions refer to the named variant; variant selection and installation fit can remain estimated."
+      }
+    ]
+  },
+  {
+    "number": 34,
+    "title": "Component installation review.",
+    "kicker": "PER-COMPONENT / LOCATION · CLEARANCE · SERVICE",
+    "type": "columns",
+    "columns": [
+      [
+        {
+          "kind": "heading",
+          "text": "Solar / roof"
+        },
+        {
+          "kind": "body",
+          "text": "Location / reason. Six landscape Callsun panels, three ahead and three aft of the existing central HVAC band. All six parallel is the requested topology."
+        },
+        {
+          "kind": "body",
+          "text": "Size / mass. 68.35 × 30.16 × 1.38 in each; website 65.65 lb each. 393.9 lb total; mounting allowance 30 lb ESTIMATE."
+        },
+        {
+          "kind": "body",
+          "text": "Clearance / conflicts. Modeled 1 in row gaps and 11.33 in panel-edge side margins; these are not manufacturer service setbacks. Roof attachment pattern, service walkway, shading and real fixtures unknown."
+        },
+        {
+          "kind": "body",
+          "text": "Service / risks. Roof screws, glands and combiner reachable only after measured service plan. Six-panel common branch 77.52 A conflicts with published 50 A input. Split 3+3 parallel banks remain an alternative pending independent-input and PV2 alternator-use confirmation."
+        }
+      ],
+      [
+        {
+          "kind": "heading",
+          "text": "Tail batteries"
+        },
+        {
+          "kind": "body",
+          "text": "Location / reason. Both B4810 packs below the rear floor next to the spare. Horizontal side-by-side study retains all cabin storage."
+        },
+        {
+          "kind": "body",
+          "text": "Size / mass. Each 23.94 × 14.96 × 5.71 in / 101.4 lb. Pair 10.24 kWh / 202.8 lb."
+        },
+        {
+          "kind": "body",
+          "text": "Clearance / conflicts. Orientation/terminal access unapproved. Two packs side by side plus inverter fit only as bare envelopes inside a very tight 45.5 × 37 × 9.5 in enclosure ESTIMATE. No production clearance established."
+        },
+        {
+          "kind": "body",
+          "text": "Service / risks. Removable gasketed service lid, engineered frame tray, restraints and disconnect. Road salt, water, impact, low temperature, suspension travel and spare removal require an engineered installation."
+        }
+      ]
+    ],
+    "summary": ""
+  },
+  {
+    "number": 35,
+    "title": "Component installation review.",
+    "kicker": "PER-COMPONENT / LOCATION · CLEARANCE · SERVICE",
+    "type": "columns",
+    "columns": [
+      [
+        {
+          "kind": "heading",
+          "text": "RV5 hub"
+        },
+        {
+          "kind": "body",
+          "text": "Location / reason. At tail alongside the side-by-side batteries within the protected compartment, out of cabin sight."
+        },
+        {
+          "kind": "body",
+          "text": "Size / mass. 17.72 × 19.69 × 6.30 in / 30.86 lb; 5 kW AC inverter."
+        },
+        {
+          "kind": "body",
+          "text": "Clearance / conflicts. Dry cooling air and service connector space are mandatory design gates; no outdoor rating is assumed for RV5. Modeled enclosure mass 40 lb + 15 lb tail cables/protection ESTIMATE."
+        },
+        {
+          "kind": "body",
+          "text": "Service / risks. Hub face/lid must be reachable with spare installed. PV current limit, generator transfer/grounding, external charger/BMS and automatic generator SOC/start interface unresolved."
+        }
+      ],
+      [
+        {
+          "kind": "heading",
+          "text": "Alternator / Orion ×2"
+        },
+        {
+          "kind": "body",
+          "text": "Location / reason. Forward dry electrical compartment near driver-side chassis connection, keeping the long low-current 48 V route aft. Driving charge only."
+        },
+        {
+          "kind": "body",
+          "text": "Size / mass. Provisional 12/48-8 Smart: each 5.12 × 7.32 × 3.15 in / 3.97 lb. Combined 720 W at 40°C, 860 W at 25°C."
+        },
+        {
+          "kind": "body",
+          "text": "Clearance / conflicts. Ford CCP, wire sizes, fuses, alternator margin, temperature derating and cooling spacing require current-year upfitter guide. No engine auto-start."
+        },
+        {
+          "kind": "body",
+          "text": "Service / risks. Up-to-60 V output must NOT go to 50 V-max RV5 PV. Candidate external battery charge path shown pending written Bluetti permission and appropriate BMS controls."
+        }
+      ]
+    ],
+    "summary": ""
+  },
+  {
+    "number": 36,
+    "title": "Component installation review.",
+    "kicker": "PER-COMPONENT / LOCATION · CLEARANCE · SERVICE",
+    "type": "columns",
+    "columns": [
+      [
+        {
+          "kind": "heading",
+          "text": "Generator / AGS"
+        },
+        {
+          "kind": "body",
+          "text": "Location / reason. Retain OEM onboard generator. AC route to RV5 input/transfer architecture; optional verified start controller in distribution bay."
+        },
+        {
+          "kind": "body",
+          "text": "Size / mass. OEM published 4 kW generator. Actual model, fuel, dimensions, mass and interface UNKNOWN. Existing generator is part of base coach."
+        },
+        {
+          "kind": "body",
+          "text": "Clearance / conflicts. Confirm start power, generator/exhaust access, voltage/frequency, rated output, neutral/ground and shore/generator switching. No replacement generator assumed."
+        },
+        {
+          "kind": "body",
+          "text": "Service / risks. AGS must support SOC thresholds, quiet-hour inhibits and verified safe start/stop control. No claim that RV5 already supports the required generator start connector."
+        }
+      ],
+      [
+        {
+          "kind": "heading",
+          "text": "18K ducted heat pump"
+        },
+        {
+          "kind": "body",
+          "text": "Location / reason. Replace stock rooftop unit at the factory opening, retain existing ceiling distribution where compatible."
+        },
+        {
+          "kind": "body",
+          "text": "Size / mass. 29.5 × 29 × 14.5 in / 77.16 lb gross. Correct ducted heat-pump SKU FACR18HEDA-BL-AM."
+        },
+        {
+          "kind": "body",
+          "text": "Clearance / conflicts. Exact roof opening, duct/ADB/thermostat/controller, return air, condensate and coil service clearance unknown. Factory removed A/C mass not supplied."
+        },
+        {
+          "kind": "body",
+          "text": "Service / risks. AC-powered via RV5. No promise of continuous solar cooling in Las Vegas. Lift-bed/control-head clearance and production versus prototype layout must be checked through full bed travel."
+        }
+      ]
+    ],
+    "summary": ""
+  },
+  {
+    "number": 37,
+    "title": "Component installation review.",
+    "kicker": "PER-COMPONENT / LOCATION · CLEARANCE · SERVICE",
+    "type": "columns",
+    "columns": [
+      [
+        {
+          "kind": "heading",
+          "text": "Laundry A / bath side"
+        },
+        {
+          "kind": "body",
+          "text": "Location / reason. Proposed appliance bay in estimated bath-adjacent storage, aft of the dry bath on the driver side. Keep shower and toilet footprint."
+        },
+        {
+          "kind": "body",
+          "text": "Size / mass. 23.5 × 22.625 × 33.375 in / 148 lb, support/lines allowance 15 lb ESTIMATE."
+        },
+        {
+          "kind": "body",
+          "text": "Clearance / conflicts. About 3.69 sq ft appliance footprint lost from storage, not bath floor. A modeled bay is ~25.5 × 25.5 in (4.52 sq ft). Open door/loading depth ~40.5 in; aisle and bath-door conflict unresolved."
+        },
+        {
+          "kind": "body",
+          "text": "Service / risks. Potentially 2–3 m supply/drain route across protected floor cavity to galley branch, and 0.3–0.8 m 4 in exterior vent (ESTIMATE). Dedicated trapped standpipe, 7 gpm branch capacity and service pull-out required."
+        }
+      ],
+      [
+        {
+          "kind": "heading",
+          "text": "Laundry B / rear garage"
+        },
+        {
+          "kind": "body",
+          "text": "Location / reason. Passenger-side garage opposite preserved rear desk and drawers. Factory rear bed shown raised."
+        },
+        {
+          "kind": "body",
+          "text": "Size / mass. Same 148 lb machine + 15 lb support/lines allowance. Larger rear-axle increment than A."
+        },
+        {
+          "kind": "body",
+          "text": "Clearance / conflicts. Same ~4.52 sq ft proposed bay; displaces case/scooter staging. Full loading aisle, chair motion, rear hatch path and lowered-bed swept volume unresolved."
+        },
+        {
+          "kind": "body",
+          "text": "Service / risks. Approx 2–4 m supply/drain path toward galley and 0.3–0.8 m exterior dryer vent ESTIMATE. Vibration/noise closer to editing desk and sleeping bed; anchor to engineered floor, retain service isolation."
+        }
+      ]
+    ],
+    "summary": ""
+  },
+  {
+    "number": 38,
+    "title": "Component installation review.",
+    "kicker": "PER-COMPONENT / LOCATION · CLEARANCE · SERVICE",
+    "type": "columns",
+    "columns": [
+      [
+        {
+          "kind": "heading",
+          "text": "Starlink / roof"
+        },
+        {
+          "kind": "body",
+          "text": "Location / reason. Provisional Standard 4X low mount in the central equipment band beside A/C, router/PSU inside pantry/electrical service zone."
+        },
+        {
+          "kind": "body",
+          "text": "Size / mass. Antenna 23.4 × 15.07 × 1.56 in; system ~10.98 lb incl 15 m cable/router/PSU, plus 2 lb mount ESTIMATE."
+        },
+        {
+          "kind": "body",
+          "text": "Clearance / conflicts. 110° field of view, actual mount dimensions, A/C shielding, cable length and watertight gland require a roof survey. Variant not finalized by user."
+        },
+        {
+          "kind": "body",
+          "text": "Service / risks. 75–100 W average published. Cable bend radius, router cooling/service and safe cable entry required. No roof drilling approved by visualization."
+        }
+      ],
+      [
+        {
+          "kind": "heading",
+          "text": "Preserved workspace / towing"
+        },
+        {
+          "kind": "body",
+          "text": "Location / reason. Factory desk/drawers/lift bed, kitchen/front couch, dry bath and cab-over sleeping functions retained. Generic hatchback attached visually."
+        },
+        {
+          "kind": "body",
+          "text": "Size / mass. Coach 26 ft /178 in WB per current 2027 OEM; width 91 in reconstructed. Hatchback scenario 2,500 lb ESTIMATE."
+        },
+        {
+          "kind": "body",
+          "text": "Clearance / conflicts. All furniture/cabinet/window positions are reconstructed. Lift-bed and gear loading paths remain a walkthrough gate. Vehicle graphics/badges deliberately omitted."
+        },
+        {
+          "kind": "body",
+          "text": "Service / risks. Actual OCCC and scaled axle loads must govern. At GVWR 11,000 lb, 13,500 lb GCWR leaves only 2,500 lb for the entire towed combination. Exact Abarth manual, baseplate, hitch and brakes required."
+        }
+      ]
+    ],
+    "summary": ""
+  },
+  {
+    "number": 39,
+    "title": "Budget: quotes before complexity.",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "table",
+    "rows": [
+      [
+        {
+          "text": "Cost item",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Budget state",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "What must be priced",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "RV5 + 2 B4810 / solar / Orions",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Current order configuration not finalized",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Exact kit/SKUs, conductors, fusing, approved battery/charger interfaces and installation.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Tail weather compartment",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Custom engineering / unquoted",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Frame load path, corrosion protection, restraint, ventilation/thermal design, spare service and access.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Furrion ducted replacement",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Exact ducted SKU identified; installed quote open",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Roof/duct adaptation, ADB/thermostat/controller, removed equipment credits and water seal.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "Splendide A / B",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "No location selected; quote both",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Cabinet/floor reconstruction, protected water/gray route, dedicated vent, dedicated circuit and mounting.",
+          "span": 1,
+          "url": null
+        }
+      ],
+      [
+        {
+          "text": "AGS / generator integration",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Interface not verified",
+          "span": 1,
+          "url": null
+        },
+        {
+          "text": "Actual generator connector, supported SOC control, transfer and quiet-hour logic. Do not buy speculative integration hardware.",
+          "span": 1,
+          "url": null
+        }
+      ]
+    ],
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "Retain the requested architecture while verifying compatibility before purchasing or adding controllers. The render includes only the selected equipment and explicit protection/service allowances."
+      },
+      {
+        "kind": "body",
+        "text": "No invented installed-cost total. Manufacturer promotions, tax/freight and labor change; final budget needs a dated exact-parts quote after walkthrough. This avoids presenting a low but incomplete equipment-only figure as a build cost."
+      }
+    ]
+  },
+  {
+    "number": 40,
+    "title": "DECISIONS / assumption log.",
+    "kicker": "CURRENT USER DIRECTIONS TAKE PRECEDENCE",
+    "type": "text",
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "D01 Latest user instruction supersedes couch placement: RV5 and both B4810 packs are modeled at the tail, beneath the floor, beside a reconstructed spare. This increases rear axle load and unloading of the front axle; retain the decision while documenting feasibility gates."
+      },
+      {
+        "kind": "body",
+        "text": "D02 Six 275 W Callsun panels replace 1,200 W / six 200 W proposals. All six are parallel. Two provisional junction/protection boxes are represented. A split 3+3 input allocation is only a compatibility alternative, not a change to the requested six-parallel topology; electrical connection to independent RV5 inputs is NOT approved. One six-panel 77.52 A branch exceeds a published 50 A input."
+      },
+      {
+        "kind": "body",
+        "text": "D03 Current OEM 2027 22NF geometry uses 26 ft / 178 in WB. Exact production VIN/year is unknown. Earlier 22 ft 2 in / 156 in concept geometry was rejected because it conflicts with current manufacturer dimensions. 91 in width and 220 in usable roof remain estimates."
+      },
+      {
+        "kind": "body",
+        "text": "D04 Keep factory rear desk, drawers, kitchen, couch and lift bed. No under-desk laundry. A is adjacent to bath in a replaced storage bay; B is opposite desk on kitchen/fridge side of rear garage. Both are mutually exclusive modeled options; neither physical fit is verified."
+      }
+    ]
+  },
+  {
+    "number": 41,
+    "title": "DECISIONS / assumption log.",
+    "kicker": "CURRENT USER DIRECTIONS TAKE PRECEDENCE",
+    "type": "text",
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "D05 Select the ducted heat-pump Furrion FACR18HEDA-BL-AM to implement user selection. It is an AC appliance; earlier DC CountryMod concept is superseded. Factory removed A/C mass and duct adaptation remain unknown."
+      },
+      {
+        "kind": "body",
+        "text": "D06 Orion-Tr Smart 12/48-8 selected provisionally because Ford source is 12 V and house bus is 48 V. The current official table lists this model. Direct B4810 charge acceptance/BMS approval is unresolved; 48 V Orion output is incompatible with a 50 V-max RV5 PV input."
+      },
+      {
+        "kind": "body",
+        "text": "D07 Starlink Standard 4X used for visual dimensions because no variant was specified. Low mount, cable glands and sky view are estimated. No manufacturer logos or wordmarks appear in coach/appliance geometry."
+      },
+      {
+        "kind": "body",
+        "text": "D08 Saved personal style recovered: black #000, bone #f3f1ec, muted #e6e3dd, gold #cdb96a; Jost and IBM Plex Mono, editorial hairlines and small radii. Warm wood/charcoal materials implement Sunset Noir. Saved red status color deliberately excluded under latest instruction."
+      }
+    ]
+  },
+  {
+    "number": 42,
+    "title": "DECISIONS / assumption log.",
+    "kicker": "CURRENT USER DIRECTIONS TAKE PRECEDENCE",
+    "type": "text",
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "D09 All cabinet/window/fixture/chassis locations, roof edge/service clearances, spare position, enclosure and laundry plumbing paths are ESTIMATE. Renders are design visualization with actual component envelopes, not surveyed installation drawings."
+      },
+      {
+        "kind": "body",
+        "text": "D10 Callsun website mass 65.65 lb per panel used conservatively, not quietly replaced with a lighter plausible value. Unresolved net/shipping mass is a high-priority payload gate."
+      },
+      {
+        "kind": "body",
+        "text": "D11 AGS remains a generator requirement with solar → battery → generator priority. No stationary chassis engine auto-start. Diagram shows pending generator controller and RV5 SOC integration rather than asserting a working start interface."
+      },
+      {
+        "kind": "body",
+        "text": "D12 Prior +294 rear / −91 front represents approximately the 202.8 lb battery pair at an 80 in tail lever. It omits RV5, enclosure, brackets and wiring. Current model axle results use explicitly estimated longitudinal centers; actual axle scales govern."
+      }
+    ]
+  },
+  {
+    "number": 43,
+    "title": "DECISIONS / assumption log.",
+    "kicker": "CURRENT USER DIRECTIONS TAKE PRECEDENCE",
+    "type": "text",
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "D13 No complete 22NFT project room document was discoverable in accessible connected records. Maintain docs/PROJECT-22NFT.md as an explicit current project record with book links and walkthrough items; original inaccessible room remains an outstanding synchronization item."
+      },
+      {
+        "kind": "body",
+        "text": "D14 Pip bpy failed because workspace external DNS is blocked. Installed Blender 5.2.2 initially crashed during Metal detection on a headless machine. A local copied executable with a null-safe strstr interpose shim enabled native CPU Cycles. No installed app was modified. Scripts include portable fallback instructions."
+      },
+      {
+        "kind": "body",
+        "text": "D15 Render inspection exposed a reconstructed-frame interference in an early stacked tail study. Packs were changed to horizontal side-by-side in a 45.5 × 37 × 9.5 in enclosure envelope, beneath the rail. This is a modeling correction, not installation approval; bare-envelope margins remain too tight to establish cooling/service fit."
+      },
+      {
+        "kind": "body",
+        "text": "D16 Initial Cycles exterior showed boolean/bevel sidewall artifacts. Mesh normals and modifier application order were corrected and the image rerendered. Sky API renamed in Blender 5.2 was adapted; a failed viewer bundle was retried with a local Three.js alias. Direct image inspection tools timed out; local JPEG bytes were emitted successfully for visual review."
+      }
+    ]
+  },
+  {
+    "number": 44,
+    "title": "DECISIONS / assumption log.",
+    "kicker": "CURRENT USER DIRECTIONS TAKE PRECEDENCE",
+    "type": "text",
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "D17 Detailed washer case depth was corrected to 21.75 in with thin integrated front controls/door/handle inside the 22.625 in overall envelope; generic battery handles were recessed inside the published case envelope. Exported component envelopes are validated, while appliance detail shapes remain generic."
+      },
+      {
+        "kind": "body",
+        "text": "D18 Cable callouts were checked against modeled polylines: PV home run rounded to 5.9 m, Orion aft route 5.6 m, generator AC 5.0 m. These are approximate model paths, not purchase lengths; add verified actual routing, glands and service loops."
+      },
+      {
+        "kind": "body",
+        "text": "D19 Laundry B is shown with the movable editing chair cleared from the rear bay for loading. This is a render staging condition, not a verified chair parking/storage solution or simultaneous editing/laundry access. Bed remains raised and lowered swept volume unresolved."
+      },
+      {
+        "kind": "body",
+        "text": "D20 Reconstructed lining/clear cabin width is about 84 in; an earlier dealer/dossier value was 81 in. Neither confirms this selected production unit. All cabinetry/bay coordinates stay ESTIMATE; measure actual clear width before any fit decision."
+      }
+    ]
+  },
+  {
+    "number": 45,
+    "title": "DECISIONS / assumption log.",
+    "kicker": "CURRENT USER DIRECTIONS TAKE PRECEDENCE",
+    "type": "text",
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "D21 Tail case geometry uses a thin formed shell/lid inside the nominal 45.5 × 37 × 9.5 in envelope, with connected proposed carrier channels and formed mounting angles. Construction material, gauge, fasteners, mounting permission and actual mass are unverified. 40 lb remains an ESTIMATE allowance, not a CAD mass calculation."
+      },
+      {
+        "kind": "body",
+        "text": "D22 Inner rear dual tires are represented provisionally for the 11,000 lb current-reference Transit cutaway. This is generic chassis geometry, not a verified production-unit tire/wheel or suspension specification. Confirm exact chassis designation and running gear at VIN walkthrough."
+      },
+      {
+        "kind": "body",
+        "text": "D23 Browser automation failed through localhost (EPERM), direct debugging pipe and a lighter single-process retry. Use a native CoreText/CoreGraphics PDF authoring fallback. The actual GLTFLoader, embedded gzip model, shared layer behavior, exported envelopes and axle conservation are validated in Node; live browser appearance and interaction remain unverified in this workspace."
+      },
+      {
+        "kind": "body",
+        "text": "D24 Native PDF verification compilation initially failed at an unwritable system Swift module cache. A workspace-local module cache resolved it. All retries and visual render corrections are recorded in QA.md; no approval or user input was requested."
+      }
+    ]
+  },
+  {
+    "number": 46,
+    "title": "DECISIONS / assumption log.",
+    "kicker": "CURRENT USER DIRECTIONS TAKE PRECEDENCE",
+    "type": "text",
+    "blocks": [
+      {
+        "kind": "body",
+        "text": "D25 Large full-resolution PNG transfers exceeded execution-tool output limits and truncated their JSON payloads. Retried with small byte-range chunks and verified file lengths before upload. Original local render quality and dimensions were retained."
+      }
+    ]
+  },
+  {
+    "number": 47,
+    "title": "Verify at walkthrough.",
+    "kicker": "TAPE MEASURE / PHOTOS / LABELS / SCALE TICKETS",
+    "type": "columns",
+    "columns": [
+      [
+        {
+          "kind": "body",
+          "text": "□ 1. Identity, payload and running gear\nConfirm model year, exact floorplan name 22NF/22NFT and VIN. Photograph OEM floorplan, certification label and OCCC label."
+        },
+        {
+          "kind": "body",
+          "text": "□ 1. Identity, payload and running gear\nVerify overall length, exterior width, height with current A/C, mirrors/awning protrusions, front/rear axle centers and 178 in wheelbase."
+        },
+        {
+          "kind": "body",
+          "text": "□ 1. Identity, payload and running gear\nWeigh front and rear axles empty, then with full fuel, intended fresh water, driver, camera equipment, luggage and scooter. Record load on each side if possible."
+        },
+        {
+          "kind": "body",
+          "text": "□ 1. Identity, payload and running gear\nCapture actual factory A/C, solar, cabinetry and battery masses to be removed. Gross additions in this book are not net payload consumption."
+        },
+        {
+          "kind": "body",
+          "text": "□ 1. Identity, payload and running gear\nConfirm hitch rating, coach actual loaded weight, GCWR margin, towbar/baseplate/braking requirements and exact Fiat year/transmission owner-manual flat-tow permission. No generic silhouette establishes towing approval."
+        }
+      ],
+      [
+        {
+          "kind": "body",
+          "text": "□ 2. Roof: highest priority\nMeasure usable roof from cab-over transition to rear cap, full width at panel mounting height, crown curvature and roof structural attachment locations."
+        },
+        {
+          "kind": "body",
+          "text": "□ 2. Roof: highest priority\nMark every A/C opening, vent, plumbing cap, antenna and cable gland in a scaled coordinate grid. Confirm actual opening and existing duct routes."
+        },
+        {
+          "kind": "body",
+          "text": "□ 2. Roof: highest priority\nPlace six 68.35 × 30.16 in panel templates with mounting feet and roof-edge setback; test existing fixture positions before considering relocation."
+        },
+        {
+          "kind": "body",
+          "text": "□ 2. Roof: highest priority\nCheck service clearance around 29.5 × 29 in heat pump, coil intake/exhaust, fasteners, return plenum and maintenance walkway. The modeled equipment band uses almost all estimated roof length."
+        },
+        {
+          "kind": "body",
+          "text": "□ 2. Roof: highest priority\nVerify panel NET mass from an individual panel and package label. Website 65.65 lb each is unresolved; check roof concentrated load and mounting engineering."
+        }
+      ]
+    ],
+    "summary": ""
+  },
+  {
+    "number": 48,
+    "title": "Verify at walkthrough.",
+    "kicker": "TAPE MEASURE / PHOTOS / LABELS / SCALE TICKETS",
+    "type": "columns",
+    "columns": [
+      [
+        {
+          "kind": "body",
+          "text": "□ 2. Roof: highest priority\nVerify electrical label, cold Voc, fuse/conductor requirements, parallel branch routing and RV5 independent PV input limits. Six parallel produces 77.52 A operating / 82.14 A Isc."
+        },
+        {
+          "kind": "body",
+          "text": "□ 2. Roof: highest priority\nConfirm Starlink variant, mount size, 110° clear sky view, A/C shading, roof wire path and waterproof gland. Check lift-bed travel beneath ceiling controls."
+        },
+        {
+          "kind": "body",
+          "text": "□ 3. Tail enclosure: highest priority\nMeasure spare center/diameter/width, carrier travel and access; frame rails, crossmembers, tanks, drain valves, exhaust, generator, hitch, driveshaft and brake/fuel/water lines."
+        },
+        {
+          "kind": "body",
+          "text": "□ 3. Tail enclosure: highest priority\nSurvey actual available L/W/H beside spare, using 45.5 × 37 × 9.5 in as a packaging TEST, not an approved target."
+        },
+        {
+          "kind": "body",
+          "text": "□ 3. Tail enclosure: highest priority\nCheck ground clearance and rear overhang at loaded ride height, suspension compression, axle articulation and curb/ramp departure. Model 10.2 in / 5.9° is only a calculated estimate."
+        }
+      ],
+      [
+        {
+          "kind": "body",
+          "text": "□ 3. Tail enclosure: highest priority\nObtain manufacturer permission for B4810 mounting orientation/stacking and restraint. Check accessible terminal zones and minimum cooling/service clearances for RV5."
+        },
+        {
+          "kind": "body",
+          "text": "□ 3. Tail enclosure: highest priority\nIdentify engineered frame attachment points and load paths; do not treat historical Ford generic subframe section as a motorhome approval."
+        },
+        {
+          "kind": "body",
+          "text": "□ 3. Tail enclosure: highest priority\nDesign dry weatherproof ventilation, splash/stone protection, road-salt drainage, thermal management, cable strain relief, disconnect access and removable lid."
+        },
+        {
+          "kind": "body",
+          "text": "□ 3. Tail enclosure: highest priority\nMeasure actual component CG positions and enclosure/bracket weights. Recalculate axle increments and front-axle loading after installation."
+        },
+        {
+          "kind": "body",
+          "text": "□ 4. Laundry A versus B: highest priority\nMeasure actual interior clear width and rear bay length; model lining suggests ~84 in while an older dealer/dossier value was 81 in. Do not use model aisle width as verified fit."
+        }
+      ]
+    ],
+    "summary": ""
+  },
+  {
+    "number": 49,
+    "title": "Verify at walkthrough.",
+    "kicker": "TAPE MEASURE / PHOTOS / LABELS / SCALE TICKETS",
+    "type": "columns",
+    "columns": [
+      [
+        {
+          "kind": "body",
+          "text": "□ 4. Laundry A versus B: highest priority\nSurvey bath-adjacent storage bay A and opposite-desk garage bay B in all three dimensions, including wall protrusions/baseboard and floor strength."
+        },
+        {
+          "kind": "body",
+          "text": "□ 4. Laundry A versus B: highest priority\nMock appliance 23.5 × 22.625 × 33.375 in with 1 in front/back case clearances, hose connections, service removal route and ~40.5 in door-open depth."
+        },
+        {
+          "kind": "body",
+          "text": "□ 4. Laundry A versus B: highest priority\nTrace the entire lift-bed swept volume with bed fully raised, lowered and partially lowered; verify neither appliance/door/vent nor gear blocks travel or emergency egress."
+        },
+        {
+          "kind": "body",
+          "text": "□ 4. Laundry A versus B: highest priority\nCheck retained desk drawer opening, chair workspace, camera-case/light-stand/luggage/scooter paths and rear garage access door."
+        },
+        {
+          "kind": "body",
+          "text": "□ 4. Laundry A versus B: highest priority\nConfirm floor can support ≥280 lb dynamic appliance requirement with proper anchoring and vibration isolation; do not count this rating as the machine mass."
+        }
+      ],
+      [
+        {
+          "kind": "body",
+          "text": "□ 4. Laundry A versus B: highest priority\nMeasure hot/cold tee access with individual shutoffs, hose serviceability and actual gray-branch size/slope/venting. Verify tank/branch can accept a 7 gpm pump discharge."
+        },
+        {
+          "kind": "body",
+          "text": "□ 4. Laundry A versus B: highest priority\nLocate dedicated trapped standpipe ≥1.25 in ID, 25–34 in above appliance bottom, air break and trap service access. The book’s routes are topology, not an approved plumbing drawing."
+        },
+        {
+          "kind": "body",
+          "text": "□ 4. Laundry A versus B: highest priority\nMeasure dedicated 4 in metal dryer vent to exterior with permitted bends/length, weather hood, downslope where specified and clearance from exhaust/windows/combustibles. No common bathroom/roof duct."
+        },
+        {
+          "kind": "body",
+          "text": "□ 4. Laundry A versus B: highest priority\nVerify enclosure makeup air ≥8 sq in and actual access door/grille. Confirm dedicated 120 V 15 A branch, 11 A/1,300 W peak, startup and simultaneous load budget."
+        },
+        {
+          "kind": "body",
+          "text": "□ 4. Laundry A versus B: highest priority\nRun an actual wash/dry cycle to measure water use, kWh, drying duration, vibration/noise at the desk and lift bed. Scenario water/energy figures are estimates."
+        }
+      ]
+    ],
+    "summary": ""
+  },
+  {
+    "number": 50,
+    "title": "Verify at walkthrough.",
+    "kicker": "TAPE MEASURE / PHOTOS / LABELS / SCALE TICKETS",
+    "type": "columns",
+    "columns": [
+      [
+        {
+          "kind": "body",
+          "text": "□ 5. Charging, HVAC and quiet hours\nConfirm Ford CCP rating, alternator options, running detection, wiring/fusing and current-year upfitter restrictions with the VIN."
+        },
+        {
+          "kind": "body",
+          "text": "□ 5. Charging, HVAC and quiet hours\nConfirm Orion-Tr Smart exact model, thermal spacing, forward dry mounting/service access and Bluetti permission for external 48 V charging/BMS integration. Never route up-to-60 V Orion output into a 50 V-max PV input."
+        },
+        {
+          "kind": "body",
+          "text": "□ 5. Charging, HVAC and quiet hours\nIdentify generator make/model/fuel/start/stop connector and rated usable output. Confirm safe AGS controller/relay interface, SOC trigger, quiet-hour inhibit and battery-sufficient start supply; no stationary chassis-engine auto-start."
+        },
+        {
+          "kind": "body",
+          "text": "□ 5. Charging, HVAC and quiet hours\nConfirm RV5 transfer/neutral-ground behavior and generator AC input compatibility, 12 V house distribution and HVAC/laundry branch capacities."
+        }
+      ],
+      [
+        {
+          "kind": "body",
+          "text": "□ 5. Charging, HVAC and quiet hours\nVerify heat-pump ducted SKU, thermostat/ADB/controller compatibility, return opening, condensate path, roof loading and lift-bed/head interference."
+        },
+        {
+          "kind": "body",
+          "text": "□ 5. Charging, HVAC and quiet hours\nMeasure actual 100°F cooling demand, indoor temperature/humidity and compressor draw over time; sustained cooling is not established by solar wattage alone."
+        },
+        {
+          "kind": "body",
+          "text": "□ 5. Charging, HVAC and quiet hours\nLog editing, refrigerator, Starlink and overnight loads to set real SOC reserve and AGS thresholds."
+        }
+      ]
+    ],
+    "summary": ""
+  },
+  {
+    "number": 51,
+    "title": "Next concrete work.",
+    "kicker": "22NFT / BUILD STUDY",
+    "type": "columns",
+    "columns": [
+      [
+        {
+          "kind": "heading",
+          "text": "1 / Survey the production unit"
+        },
+        {
+          "kind": "body",
+          "text": "Record VIN/year and actual OCCC/axle weights. Tape the roof into a fixture grid; confirm panel net mass. Measure the tail/spare/hitch volume at loaded ride height. Template both laundry bays through the entire bed and door sweep."
+        },
+        {
+          "kind": "heading",
+          "text": "2 / Close interface gates"
+        },
+        {
+          "kind": "body",
+          "text": "Obtain supported RV5 PV/BMS/Orion and generator/AGS wiring. Confirm ducted HVAC adapters and appliance plumbing/vent requirements. Establish an engineered frame mount and protected cooling/service enclosure."
+        }
+      ],
+      [
+        {
+          "kind": "heading",
+          "text": "3 / Revise the model from measurements"
+        },
+        {
+          "kind": "body",
+          "text": "Edit source inputs rather than eyeballing renders. Recalculate load centers and net additions after removals. Test HVAC, Starlink and laundry cycle energy/water/noise before setting quiet-hour SOC policy."
+        },
+        {
+          "kind": "heading",
+          "text": "Reproducibility"
+        },
+        {
+          "kind": "body",
+          "text": "Source .blend, GLB, Python scripts, native PNG/JPEG renders, annotation scripts, specs and calculation JSON are included. CPU Cycles samples are budgeted to complete every view; reviewed defects are logged in QA.md."
+        },
+        {
+          "kind": "body",
+          "text": "Project record: docs/PROJECT-22NFT.md. Draft branch: render/full-3d-build. Original separate 22NFT room was not accessible; its synchronization remains open rather than falsely reported complete."
+        }
+      ]
+    ],
+    "summary": ""
+  }
+]

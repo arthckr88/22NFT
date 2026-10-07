@@ -1,0 +1,114 @@
+[
+  {
+    "item": "Alita 2027 22NF (dealer alias 22NFT)",
+    "dimension": "26 ft L; 11 ft 5 in H; width TBD by OEM; 178 in wheelbase",
+    "weight": "GVWR 11,000 lb; GCWR 13,500 lb; GAWR 4,630 front / 7,275 rear",
+    "status": "Confirmed",
+    "source": "https://www.easttowestrv.com/alita/22NF/15661",
+    "note": "Published 2027 specification, not confirmation of Andrew\u2019s selected VIN/year. Height includes roof equipment."
+  },
+  {
+    "item": "Coach width / interior width",
+    "dimension": "91 in exterior / 81 in interior",
+    "weight": "Actual OCCC unknown",
+    "status": "Credible",
+    "source": "https://www.couchsrvnation.com/east-to-west/class-c-motorhome/alita/22nft1",
+    "note": "Earlier dealer/dossier dimensions. Current OEM width is TBD; verify production unit."
+  },
+  {
+    "item": "Floorplan / roof / spare area",
+    "dimension": "Rear desk, lift bed, dry bath, cab-over bunk; usable roof 220 \u00d7 91 in; tail enclosure 45.5 \u00d7 37 \u00d7 9.5 in",
+    "weight": "Factory generator and removed A/C weights unknown",
+    "status": "ESTIMATE",
+    "source": "https://www.easttowestrv.com/alita/22NF/15661",
+    "note": "Floorplan relationships from OEM and handoff; every cabinet/window/roof fixture coordinate and underbody volume is reconstructed, not measured."
+  },
+  {
+    "item": "Ford Transit chassis / body mounting",
+    "dimension": "178 in WB; rear frame/body extension and spare coordinates VIN-dependent",
+    "weight": "Use completed vehicle axle scales and door certification labels",
+    "status": "Credible",
+    "source": "https://madocumentupload.marketingassociates.com/api/Document/GetFile?v1=6853472&v2=021522100026&v3=60&v4=f71741fbb719e84d5ca63d295752152d1a09ad7d2d42658c23f9154a&v5=False",
+    "note": "2022 Ford North America BEMM historical reference only. Current-year guide required. \u00a75.14.5 ancillary subframe guidance explicitly excludes motorhomes."
+  },
+  {
+    "item": "Bluetti RV5",
+    "dimension": "17.72 \u00d7 19.69 \u00d7 6.30 in",
+    "weight": "30.86 lb",
+    "status": "Confirmed",
+    "source": "https://www.bluettipower.com/products/rv5-b4810",
+    "note": "120 V 5,000 W AC inverter. Published PV 12\u201350 V / 50 A / 1,800 W; independent input interpretation and BMS/AGS interface require manual confirmation. No outdoor rating assumed for hub."
+  },
+  {
+    "item": "Bluetti B4810 \u00d72",
+    "dimension": "Each 23.94 \u00d7 14.96 \u00d7 5.71 in",
+    "weight": "Each 101.4 lb; pair 202.8 lb",
+    "status": "Confirmed",
+    "source": "https://www.bluettipower.com/blogs/buying-guide/guide-of-bluetti-rv5-48v-diy-solar-inverter-kit",
+    "note": "51.2 V \u00d7 100 Ah = 5.12 kWh each, 10.24 kWh nominal total; published IP65 battery rating does not qualify complete tail assembly for road splash/submersion."
+  },
+  {
+    "item": "Callsun 275 W bifacial \u00d76",
+    "dimension": "Each 68.35 \u00d7 30.16 \u00d7 1.38 in",
+    "weight": "Website lists 65.65 lb EACH; six 393.9 lb",
+    "status": "Credible",
+    "source": "https://callsunsolar.com/collections/partial-shade/products/275w-n-type-bifacial-solar-panel",
+    "note": "Published mass is unusually high: use conservatively until net panel mass verified. Vmp 21.29 V / Imp 12.92 A; Voc 25.26 V / Isc 13.69 A; max series fuse 25 A. Six parallel: 77.52 A operating / 82.14 A short circuit. Nameplate 1,650 W."
+  },
+  {
+    "item": "Victron Orion-Tr Smart \u00d72: provisional 12/48-8 (360 W)",
+    "dimension": "Each 130 \u00d7 186 \u00d7 80 mm (5.12 \u00d7 7.32 \u00d7 3.15 in)",
+    "weight": "Each 1.8 kg / 3.97 lb",
+    "status": "Confirmed",
+    "source": "https://www.victronenergy.com/media/pg/Orion-Tr_Smart_DC-DC_Charger_-_Isolated/en/specifications.html",
+    "note": "Model choice ESTIMATE, family required by Andrew. Input 8\u201317 V; output 40\u201360 V; 360 W each at 40\u00b0C, 430 W at 25\u00b0C; 89% efficiency. Never connect 48 V output to RV5 50 V-max PV port. External B4810 charging requires explicit approval."
+  },
+  {
+    "item": "Furrion Chill Cube 18K ducted heat pump",
+    "dimension": "29.5 L \u00d7 29 W \u00d7 14.5 H in",
+    "weight": "77.16 lb (not 85 lb shipping)",
+    "status": "Confirmed",
+    "source": "https://www.lippert.com/furrionchill-cube-variable-speed-rv-rooftop-air-conditionerr32with-heat-pump-18kbtu-black-ductedfacr18heda-bl-am-2025008215",
+    "note": "FACR18HEDA-BL-AM / SKU 2025008215. AC-powered, not the earlier 48 V DC concept. Existing roof opening, duct/ADB/controller adaptation and bed obstruction must be checked against manuals."
+  },
+  {
+    "item": "Splendide WDV2200XCD",
+    "dimension": "23.5 W \u00d7 22.625 D \u00d7 33\u201333.375 H in; door-open depth ~40.5 in",
+    "weight": "148 lb",
+    "status": "Confirmed",
+    "source": "https://www.splendide.com/downloads/WDV2200XCD_DataSheet.pdf",
+    "note": "120 V / 11 A / 1,300 W max, dedicated 15 A circuit. 1 in front/back case clearance, 0 side minimum, \u2265280 lb floor support. Door sweep is Credible diagram envelope; measure actual. 4 in metal exterior vent; enclosure door \u22658 sq in ventilation. Standpipe \u22651.25 in, 7 gpm; top 25\u201334 in above bottom, air break."
+  },
+  {
+    "item": "Starlink Standard 4X (provisional variant)",
+    "dimension": "594 \u00d7 383 \u00d7 39.7 mm (23.4 \u00d7 15.07 \u00d7 1.56 in)",
+    "weight": "Antenna 6.4 lb; 8.3 lb with kickstand + 15 m cable; router 1.25 lb; PSU 1.43 lb",
+    "status": "Confirmed",
+    "source": "https://www.starlink.com/public-files/specification_sheet_standard.pdf",
+    "note": "Variant/mount choice ESTIMATE. 75\u2013100 W average, 110\u00b0 field of view. Low fixed mount service/sky clearance not established."
+  },
+  {
+    "item": "Factory onboard generator / AGS",
+    "dimension": "Existing 4 kW generator; model/fuel/start connector unknown",
+    "weight": "Existing mass included in base coach; no replacement mass added",
+    "status": "ESTIMATE",
+    "source": "https://www.easttowestrv.com/alita/22NF/15661",
+    "note": "No assumption that RVMP 4000eM is installed. Dry-contact relay/start controller pending verified generator connector, safety interlocks and RV5 SOC interface."
+  },
+  {
+    "item": "Tail enclosure, mounting and runs",
+    "dimension": "45.5 \u00d7 37 \u00d7 9.5 in concept; 10.2 in minimum ground clearance; aggregate tail CG 70.8 in behind axle",
+    "weight": "40 lb enclosure/mounting + 15 lb tail cable/protection allowance",
+    "status": "ESTIMATE",
+    "source": "https://www.fordpro.com/en-us/upfit/publications/",
+    "note": "No steel attachment points, battery stacking, frame drilling, spare relocation, or departure clearance approved. Enclosure horizontal area intersects likely spare volume: rendered split/offset spare position must be measured."
+  },
+  {
+    "item": "Generic flat-towed hatchback",
+    "dimension": "12 ft \u00d7 5.4 ft \u00d7 4.9 ft visual envelope",
+    "weight": "2,500 lb scenario only; actual Abarth year/curb/loading mass unknown",
+    "status": "ESTIMATE",
+    "source": "https://vehicleinfo.mopar.com/assets/publications/en-us/Fiat/2017/500/1973.pdf",
+    "note": "No badges. 2017 factory manual permits manual-transmission flat towing in neutral up to 65 mph; exact selected year still unknown. Flat-tow permission, baseplate, towbar, hitch, brake and GCWR compatibility unresolved. At 11,000 lb coach weight only 2,500 lb GCWR margin remains."
+  }
+]
