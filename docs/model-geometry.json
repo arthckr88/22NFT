@@ -1,0 +1,20 @@
+{
+  "units": "metres",
+  "all_placements": "ESTIMATE",
+  "roof_centers": [
+    2.543032,
+    3.334496,
+    4.12596,
+    5.692124000000001,
+    6.483588000000001,
+    7.2750520000000005
+  ],
+  "ac_center": 4.909042,
+  "front_axle_x": 0.9652,
+  "rear_axle_x": 5.4864,
+  "tail_cg_x": 7.284207094852074,
+  "tail_ground_clearance_m": 0.2589,
+  "wheelbase_m": 4.5212,
+  "coach_length_m": 7.9248,
+  "coach_width_m": 2.3114
+}

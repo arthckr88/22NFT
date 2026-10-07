@@ -1,0 +1,19 @@
+import {setLayer,setServiceCase,applyViewPreset} from './layers.js';
+import * as THREE from '../book/vendor/build/three.module.js';
+import {OrbitControls} from '../book/vendor/examples/jsm/controls/OrbitControls.js';
+import {GLTFLoader} from '../book/vendor/examples/jsm/loaders/GLTFLoader.js';
+const host=document.getElementById('viewer');
+const status=document.getElementById('viewer-status');
+const renderer=new THREE.WebGLRenderer({antialias:true,alpha:false});renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));renderer.setClearColor(0x171a1a);renderer.outputColorSpace=THREE.SRGBColorSpace;renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.25;host.appendChild(renderer.domElement);
+const scene=new THREE.Scene();scene.add(new THREE.HemisphereLight(0xece9df,0x555145,2.2));
+for(const [pos,power] of [[[0,9,8],3.6],[[11,6,-8],2.0]]){const l=new THREE.DirectionalLight(0xfff1d7,power);l.position.set(...pos);scene.add(l);}
+const camera=new THREE.PerspectiveCamera(45,1,.02,200);camera.position.set(-8,7,11);
+const controls=new OrbitControls(camera,renderer.domElement);controls.target.set(5,1.3,0);controls.enableDamping=true;controls.maxDistance=35;controls.minDistance=.6;controls.update();
+const plane=new THREE.Mesh(new THREE.PlaneGeometry(70,70),new THREE.MeshStandardMaterial({color:0x292c2b,roughness:.95}));plane.rotation.x=-Math.PI/2;plane.position.y=-.025;scene.add(plane);
+const layers={},caseObjects=[];let model;
+function resize(){const w=host.clientWidth,h=host.clientHeight;renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();}new ResizeObserver(resize).observe(host);resize();
+const bytes=Uint8Array.from(atob(document.getElementById('modeldata').textContent.trim()),c=>c.charCodeAt(0));
+new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'))).arrayBuffer().then(buffer=>new GLTFLoader().parse(buffer,'',g=>{model=g.scene;scene.add(model);model.traverse(o=>{if(o.name.startsWith('LAYER_'))layers[o.name.slice(6)]=o;const n=o.name.replace(/[^a-z0-9]/gi,'').toLowerCase();if(n==='tailweatherenclosureestimate'||n==='removablegasketedenclosurelidestimate')caseObjects.push(o);});
+if(layers.laundry_A)layers.laundry_A.visible=false;status.textContent='MODEL READY · all physical placements ESTIMATE';document.querySelectorAll('[data-layer]').forEach(el=>{el.checked=el.dataset.layer!=='laundry_A';el.addEventListener('change',()=>{const key=el.dataset.layer;setLayer(layers,key,el.checked);if(el.checked&&key==='laundry_A'){layers.laundry_B.visible=false;document.querySelector('[data-layer="laundry_B"]').checked=false;}if(el.checked&&key==='laundry_B'){layers.laundry_A.visible=false;document.querySelector('[data-layer="laundry_A"]').checked=false;}});});document.querySelector('[data-case]').addEventListener('change',e=>setServiceCase(caseObjects,e.target.checked));window.__viewerReady=true;window.__viewerLayers=layers;},e=>{status.textContent='3D viewer could not initialize: '+e.message;window.__viewerError=String(e);})).catch(e=>{status.textContent='Model decompression unavailable: '+e.message;window.__viewerError=String(e);});
+document.querySelectorAll('[data-camera]').forEach(el=>el.addEventListener('click',()=>{const key=el.dataset.camera;const settings={exterior:[[-8,7,11],[5,1.3,0]],roof:[[4.9,12,.001],[4.9,1.2,0]],interior:[[2.16,2.12,.79],[6.8,1.83,-.45]],power:[[10,4,7],[6,1,0]],rear:[[9.1,.20,3.2],[7.4,.4,.05]]};const [p,t]=settings[key];camera.position.set(...p);controls.target.set(...t);applyViewPreset(layers,key,caseObjects);document.querySelectorAll('[data-layer]').forEach(c=>c.checked=!!layers[c.dataset.layer]?.visible);document.querySelector('[data-case]').checked=caseObjects.every(o=>o.visible);controls.update();}));
+function frame(){requestAnimationFrame(frame);controls.update();renderer.render(scene,camera);}frame();

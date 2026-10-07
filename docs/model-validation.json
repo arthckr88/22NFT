@@ -1,0 +1,83 @@
+{
+  "glbBytes": 9905592,
+  "sha256": "f3195d4d339ba9f8846ea6c971ce5a8b965e88cdad595b47d7de20c6f91f2e74",
+  "parsedMeshes": 1467,
+  "layers": [
+    "chassis",
+    "interior",
+    "laundry_A",
+    "laundry_B",
+    "power",
+    "shell",
+    "solar",
+    "tow_car"
+  ],
+  "layerToggleTests": "PASS (actual shared production function)",
+  "viewPresetTests": "PASS: power cutaway, exterior restoration, case toggle",
+  "embeddedGzipModel": "PASS using DecompressionStream API",
+  "axleConservation": "PASS",
+  "sceneBounds_m": {
+    "x": 12.68332551792264,
+    "y": 3.427999969120968,
+    "z": 2.894999995827675
+  },
+  "checks": [
+    {
+      "component": "Panel 1 275W aluminum frame",
+      "exported_m": [
+        0.7660639882087708,
+        0.03505200147628784,
+        1.7360899448394775
+      ],
+      "source_envelope_m": [
+        0.766064,
+        0.035052,
+        1.73609
+      ],
+      "result": "PASS"
+    },
+    {
+      "component": "B4810 5.12kWh pack 1",
+      "exported_m": [
+        0.6079999804496765,
+        0.14499999582767487,
+        0.3799999952316284
+      ],
+      "source_envelope_m": [
+        0.608,
+        0.145,
+        0.38
+      ],
+      "result": "PASS"
+    },
+    {
+      "component": "RV5 hub 48V inverter",
+      "exported_m": [
+        0.4500879943370819,
+        0.1598999947309494,
+        0.5001260042190552
+      ],
+      "source_envelope_m": [
+        0.450088,
+        0.1599,
+        0.500126
+      ],
+      "result": "PASS"
+    },
+    {
+      "component": "A washer cabinet",
+      "exported_m": [
+        0.5968999862670898,
+        0.847724974155426,
+        0.5524500012397766
+      ],
+      "source_envelope_m": [
+        0.5969,
+        0.847725,
+        0.55245
+      ],
+      "result": "PASS"
+    }
+  ],
+  "browserVisualValidation": "BLOCKED: native browser automation exited; no live-browser pass claimed"
+}
