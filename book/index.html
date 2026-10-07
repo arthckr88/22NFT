@@ -1,0 +1,467 @@
+<title>Alita 22NFT Build Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Andrew Rose design system: black-first, bone type, hairlines, colour only from imagery.
+   Layout: one centred 1120px column; the hero and the 3D viewer run full width. Single dark look by choice. */
+:root {
+  --ink: #000000; --bone: #f3f1ec; --copy: #cfcbc2; --mute: #8a8a8a; --faint: #4a4a4a;
+  --panel: #0c0c0d; --line: rgba(243, 241, 236, 0.12); --line-soft: rgba(243, 241, 236, 0.07);
+  --pv: #ffaa3c; --dc: #5a96ff; --alt: #50dc96; --ac: #af8cff;
+  --f-display: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  --f-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--ink); scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); }
+body { margin: 0; background: var(--ink); color: var(--bone); font: 300 15.5px/1.6 var(--f-body); -webkit-font-smoothing: antialiased; }
+a { color: var(--bone); text-decoration-color: var(--faint); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--bone); }
+:focus-visible { outline: 1px solid var(--bone); outline-offset: 3px; }
+.mono { font: 400 11px/1.4 var(--f-mono); letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: clamp(16px, 5vw, 56px); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 300; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; max-width: 62ch; }
+
+/* top bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(0,0,0,0.88); border-bottom: 1px solid var(--line-soft); }
+.bar .wrap { display: flex; align-items: center; gap: 22px; height: 56px; overflow-x: auto; scrollbar-width: none; }
+.bar .wrap::-webkit-scrollbar { display: none; }
+.bar .id { font: 400 15px var(--f-display); letter-spacing: 0.04em; white-space: nowrap; margin-right: auto; }
+.bar a { font: 400 10.5px var(--f-mono); letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); text-decoration: none; white-space: nowrap; }
+.bar a:hover { color: var(--bone); }
+
+/* hero with letterbox bars and a lower third */
+.hero { position: relative; background: var(--ink); }
+.hero .frame { position: relative; aspect-ratio: 16 / 9; max-height: 82vh; width: 100%; overflow: hidden; margin-inline: auto; }
+.hero img { display: block; width: 100%; height: 100%; object-fit: cover; animation: settle 2.4s var(--ease) both; }
+@keyframes settle { from { opacity: 0.35; transform: scale(1.03); } to { opacity: 1; transform: none; } }
+.hero .lb { position: absolute; inset-inline: 0; height: 5.5%; background: var(--ink); }
+.hero .lb.t { top: 0; } .hero .lb.b { bottom: 0; }
+.hero .third { position: absolute; left: 0; right: 0; bottom: 5.5%; padding: 64px clamp(16px, 5vw, 56px) 28px; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.78)); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 40px; }
+.hero h1 { font-weight: 200; font-size: clamp(40px, 7vw, 84px); line-height: 1; }
+.hero .third p { color: var(--copy); font-size: 16px; max-width: 46ch; }
+@media (max-width: 640px) { .hero .frame { aspect-ratio: 4 / 5; } .hero .third { padding-top: 40px; } }
+
+/* slab section header: label, rule, index */
+section { padding-block: clamp(48px, 7vh, 90px); border-top: 1px solid var(--line-soft); }
+.slab { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+.slab .rule { flex: 1; height: 1px; background: var(--line); }
+.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 48px; align-items: end; margin-bottom: 36px; }
+.head h2 { font-size: clamp(26px, 3.4vw, 40px); line-height: 1.1; }
+.head p { color: var(--copy); }
+@media (max-width: 760px) { .head { grid-template-columns: 1fr; } }
+
+/* facts */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px 32px; }
+.fact { border-left: 1px solid var(--line); padding-left: 16px; display: grid; gap: 6px; }
+.fact b { font: 300 30px/1.1 var(--f-display); font-variant-numeric: tabular-nums; }
+.fact span:last-child { color: var(--copy); font-size: 14px; }
+.lede { font-size: 18px; color: var(--copy); max-width: 62ch; }
+.verdict { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 44px; }
+.verdict h3 { font-size: 22px; margin-bottom: 12px; }
+.verdict ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; color: var(--copy); }
+.verdict li::marker { color: var(--faint); }
+
+/* gallery tiles: grayscale at rest, colour on reveal */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 28px 20px; }
+.tile { margin: 0; display: grid; gap: 10px; }
+.tile-btn { padding: 0; border: 1px solid var(--line-soft); border-radius: 4px; background: var(--panel); overflow: hidden; cursor: zoom-in; aspect-ratio: 16 / 9; max-width: 100%; }
+.tile-btn img { display: block; width: 100%; height: 100%; object-fit: cover; transition: filter 0.4s ease, transform 0.8s var(--ease); }
+@media (hover: hover) {
+  .tile-btn img { filter: grayscale(0.8) brightness(0.72); }
+  .tile-btn:hover img, .tile-btn:focus-visible img { filter: none; transform: scale(1.02); }
+}
+.tile figcaption { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.tile .cap { font: 300 17px var(--f-display); color: var(--bone); text-align: right; }
+
+/* lightbox: film cut */
+.lightbox { position: fixed; inset: 0; z-index: 50; background: var(--ink); display: grid; grid-template-rows: auto minmax(0, 1fr) auto; padding: calc(env(safe-area-inset-top, 0px) + 12px) clamp(12px, 3vw, 32px) calc(env(safe-area-inset-bottom, 0px) + 16px); }
+.lightbox.cut img { animation: fadeup 0.5s var(--ease) both; }
+@keyframes fadeup { from { opacity: 0; } to { opacity: 1; } }
+.lb-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding-bottom: 10px; }
+.lb-img { min-height: 0; display: grid; place-items: center; }
+.lb-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.lb-bottom { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding-top: 12px; }
+.lb-bottom p { color: var(--copy); }
+.btn { font: 400 10.5px var(--f-mono); letter-spacing: 0.22em; text-transform: uppercase; color: var(--bone); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 10px 16px; min-height: 40px; cursor: pointer; }
+.btn:hover { border-color: var(--bone); }
+.btn[aria-pressed="true"] { background: var(--bone); color: var(--ink); border-color: var(--bone); }
+.btn:active { opacity: 0.6; }
+.btns { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* 3D viewer */
+.viewer { position: relative; border: 1px solid var(--line-soft); border-radius: 4px; overflow: hidden; background: #050506; aspect-ratio: 16 / 9; max-height: 72vh; width: 100%; }
+.viewer canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.viewer .status { position: absolute; left: 16px; bottom: 14px; }
+.viewer .hint { position: absolute; right: 16px; bottom: 14px; }
+@media (max-width: 640px) { .viewer { aspect-ratio: 4 / 5; } .viewer .hint { display: none; } }
+.layers { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; align-items: center; }
+.layers .mono { margin-right: 8px; }
+.sw { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; background: currentColor; }
+
+/* tables */
+.tbl { overflow-x: auto; border-top: 1px solid var(--line); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 12px 14px 12px 0; border-bottom: 1px solid var(--line-soft); }
+thead th { font: 400 10.5px var(--f-mono); letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); }
+tbody th { font-weight: 400; color: var(--bone); }
+td { color: var(--copy); }
+td.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.src { font-size: 12.5px; white-space: nowrap; }
+tr.total td { color: var(--bone); border-top: 1px solid var(--line); font-weight: 400; }
+.spec table { min-width: 760px; }
+.pill { display: inline-block; font: 500 9.5px var(--f-mono); letter-spacing: 0.18em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.pill-c { background: var(--bone); color: var(--ink); }
+.pill-r { border: 1px solid var(--copy); color: var(--copy); }
+.pill-e { border: 1px dashed var(--mute); color: var(--mute); }
+.pill-w1 { background: var(--bone); color: var(--ink); }
+.pill-w2 { border: 1px solid var(--copy); color: var(--copy); }
+.pill-w3 { border: 1px dashed var(--mute); color: var(--mute); }
+.swatch { display: inline-block; width: 18px; height: 3px; margin-right: 10px; vertical-align: 3px; }
+.sw-pv { background: var(--pv); } .sw-dc { background: var(--dc); } .sw-alt { background: var(--alt); } .sw-ac { background: var(--ac); }
+
+/* components */
+.comps { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 20px; }
+.comp { border: 1px solid var(--line); border-radius: 4px; padding: 20px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.comp h3 { font-size: 21px; }
+.comp dl { margin: 0; display: grid; gap: 10px; }
+.comp dl div { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; }
+.comp dt { font: 400 10px/1.9 var(--f-mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--mute); }
+.comp dd { margin: 0; color: var(--copy); font-size: 14px; }
+
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; }
+.two > * { min-width: 0; }
+.callout { border-left: 1px solid var(--line); padding-left: 16px; color: var(--copy); display: grid; gap: 8px; }
+.callout b { color: var(--bone); font-weight: 400; }
+
+.decs { margin: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.dec { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 8px 32px; padding-block: 14px; border-bottom: 1px solid var(--line-soft); }
+.dec dt { font: 400 17px var(--f-display); }
+.dec dd { margin: 0; color: var(--copy); font-size: 14.5px; }
+@media (max-width: 640px) { .dec { grid-template-columns: 1fr; } }
+
+.walklist { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
+.walk { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding-block: 14px; border-bottom: 1px solid var(--line-soft); align-items: start; }
+.walk strong { font: 400 17px var(--f-display); display: block; margin-bottom: 2px; }
+.walk p { color: var(--copy); font-size: 14.5px; }
+@media (max-width: 520px) { .walk { grid-template-columns: 1fr; gap: 6px; } }
+
+footer { border-top: 1px solid var(--line-soft); padding-block: 40px 64px; color: var(--mute); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<nav class="bar" aria-label="Sections">
+  <div class="wrap">
+    <span class="id">Alita 22NFT</span>
+    <a href="#audit">Audit</a><a href="#renders">Renders</a><a href="#model">3D</a><a href="#specs">Specs</a>
+    <a href="#components">Components</a><a href="#laundry">Laundry</a><a href="#weight">Weight</a>
+    <a href="#power">Power</a><a href="#decisions">Decisions</a><a href="#walkthrough">Walkthrough</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="frame">
+    <img src="img/01_exterior.jpg" alt="The finished Alita 22NFT, curbside three-quarter view, with the Abarth flat-towed behind." width="1920" height="1080">
+    <div class="lb t"></div><div class="lb b"></div>
+    <div class="third">
+      <div style="display:grid;gap:12px">
+        <span class="mono">Build book · 3D model R1 · October 7, 2026</span>
+        <h1>Alita 22NFT</h1>
+      </div>
+      <p>A solo, full-time rolling edit suite on the AWD Transit. 10.24 kWh under the tail, 1,650 W on the roof, a variable-speed heat pump and a vented washer-dryer.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="audit">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Audit</span><span class="rule"></span><span class="mono">01</span></div>
+    <div class="head"><h2>Everything fits on paper. Three numbers decide it on the lot.</h2>
+      <p>Modelled from published specs where they exist and labelled estimates where they don't. The build adds about 699 lb, and nearly all of it lands on the rear axle.</p></div>
+    <div class="facts">
+      <div class="fact"><span class="mono">Roof needed</span><b>233 in</b><span>of about 234 in flat roof (estimate)</span></div>
+      <div class="fact"><span class="mono">Rear axle</span><b>+704 lb</b><span>Laundry A · +796 lb with B</span></div>
+      <div class="fact"><span class="mono">Departure</span><b>9.3°</b><span>at the box · 9.1° at the hitch</span></div>
+      <div class="fact"><span class="mono">Storage</span><b>10.24 kWh</b><span>2 × B4810 at 48V</span></div>
+    </div>
+    <div class="verdict">
+      <div><h3>Holds</h3><ul>
+        <li>Six panels crosswise: 186.8 in in one row (15.6 ft), confirmed by the panel spec. Split around a mid-roof AC they take about 233 in of roof.</li>
+        <li>Parallel wiring: 3 × 13.69 A = 41.1 A per RV5 input, under the 50 A limit.</li>
+        <li>The battery box does not set the departure angle; the hitch receiver still bottoms first.</li>
+        <li>RV5 sits inside the desk pedestal, directly above the packs, with the kneehole open.</li>
+      </ul></div>
+      <div><h3>Changed</h3><ul>
+        <li>Tail battery axle shift: the earlier +294 lb rear / -91 lb front assumed the packs 80 in behind the axle. The modelled spot is 64 in behind it: +276 rear / -73 front for the 203 lb of packs.</li>
+        <li>Whole build: -6 lb front / +704 lb rear with laundry A, -97 / +796 with laundry B.</li>
+        <li>Starlink modelled as the Mini (40–50 W) beside the AC.</li>
+      </ul></div>
+      <div><h3>Measure first</h3><ul>
+        <li>Flat roof length and where the 14×14 AC opening sits.</li>
+        <li>Tail space: frame height, spare position, receiver height.</li>
+        <li>Per-axle weight of the loaded coach.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="renders">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Renders</span><span class="rule"></span><span class="mono">02</span></div>
+    <div class="head"><h2>Thirteen views, nine with labels and dimensions.</h2>
+      <p>Cycles, 1920 × 1080. Open any view for full size; annotated views switch between the clean render and the labelled one. Proportions follow published dimensions; positions marked estimate are modelled.</p></div>
+    <div class="grid"><figure class="tile"><button class="tile-btn" type="button" data-i="0" aria-label="Open Exterior"><img src="img/01_exterior_t.jpg" alt="Exterior. Three-quarter front, curbside. Abarth flat-towed behind." loading="lazy" width="720" height="405"></button><figcaption><span class="mono">01</span><span class="cap">Exterior</span></figcaption></figure><figure class="tile"><button class="tile-btn" type="button" data-i="1" aria-label="Open Driver-side elevation"><img src="img/02_elevation_t.jpg" alt="Driver-side elevation. Dimensioned. Front to the left." loading="lazy" width="720" height="405"></button><figcaption><span class="mono">02 / ANNOTATED</span><span class="cap">Driver-side elevation</span></figcaption></figure><figure class="tile"><button class="tile-btn" type="button" data-i="2" aria-label="Open Roof plan"><img src="img/03_roof_t.jpg" alt="Roof plan. Six panels, Chill Cube, Starlink Mini, vents, clearances." loading="lazy" width="720" height="405"></button><figcaption><span class="mono">03 / ANNOTATED</span><span class="cap">Roof plan</span></figcaption></figure><figure class="tile"><button class="tile-btn" type="button" data-i="3" aria-label="Open Underbelly"><img src="img/04_underbelly_t.jpg" alt="Underbelly. Battery enclosure at the tail, from below and behind." loading="lazy" width="720" height="405"></button><figcaption><span class="mono">04 / ANNOTATED</span><span class="cap">Underbelly</span></figcaption></figure><figure class="tile"><button class="tile-btn" type="button" data-i="4" aria-label="Open Tail section"><img src="img/04b_tail_section_t.jpg" alt="Tail section. Ground clearance and departure angle." loading="lazy" width="720" height="405"></button><figcaption><span class="mono">04b / ANNOTATED</span><span class="cap">Tail section</span></figcaption></figure><figure class="tile"><button class="tile-btn" type="button" data-i="5" aria-label="Open Power system"><img src="img/05_xray_t.jpg" alt="Power system. Ghosted coach, color-coded runs with approximate lengths." loading="lazy" width="720" height="405"></button><figcaption><span class="mono">05 / ANNOTATED</span><span class="cap">Power system</span></figcaption></figure><figure class="tile"><button class="tile-btn" type="button" data-i="6" aria-label="Open Interior"><img src="img/06_interior_t.jpg" alt="Interior. From the cab looking to the rear office." loading="lazy" width="720" height="405"></button><figcaption><span class="mono">06</span><span class="cap">Interior</span></figcaption></figure><figure class="tile"><button class="tile-btn" type="button" data-i="7" aria-label="Open Rear office"><img src="img/07_desk_t.jpg" alt="Rear office. Desk at 29.5 in, kneehole open, RV5 in the pedestal." loading="lazy" width="720" height="405"></button><figcaption><span class="mono">07</span><span class="cap">Rear office</span></figcaption></figure><figure class="tile"><button class="tile-btn" type="button" data-i="8" aria-label="Open Laundry A"><img src="img/08_laundry_A_t.jpg" alt="Laundry A. Bath side, in place of the drawer stack." loading="lazy" width="720" height="405"></button><figcaption><span class="mono">08 / ANNOTATED</span><span class="cap">Laundry A</span></figcaption></figure><figure class="tile"><button class="tile-btn" type="button" data-i="9" aria-label="Open Laundry B"><img src="img/09_laundry_B_t.jpg" alt="Laundry B. Rear garage, curbside corner under the lift bed." loading="lazy" width="720" height="405"></button><figcaption><span class="mono">09 / ANNOTATED</span><span class="cap">Laundry B</span></figcaption></figure><figure class="tile"><button class="tile-btn" type="button" data-i="10" aria-label="Open Floorplan"><img src="img/10_floorplan_t.jpg" alt="Floorplan. Cut at 50 in. Both laundry options shown." loading="lazy" width="720" height="405"></button><figcaption><span class="mono">10 / ANNOTATED</span><span class="cap">Floorplan</span></figcaption></figure><figure class="tile"><button class="tile-btn" type="button" data-i="11" aria-label="Open Weight on the chassis"><img src="img/11_axles_t.jpg" alt="Weight on the chassis. Component masses and axle load shift." loading="lazy" width="720" height="405"></button><figcaption><span class="mono">11 / ANNOTATED</span><span class="cap">Weight on the chassis</span></figcaption></figure><figure class="tile"><button class="tile-btn" type="button" data-i="12" aria-label="Open Night"><img src="img/12_night_t.jpg" alt="Night. Lights on, awning strip lit, Abarth attached." loading="lazy" width="720" height="405"></button><figcaption><span class="mono">12</span><span class="cap">Night</span></figcaption></figure></div>
+  </div>
+</section>
+
+<section id="model">
+  <div class="wrap">
+    <div class="slab"><span class="mono">3D model</span><span class="rule"></span><span class="mono">03</span></div>
+    <div class="head"><h2>Orbit the build.</h2><p>Drag to orbit, scroll or pinch to zoom, right-drag to pan. Switch layers off to see inside; laundry A and B are alternatives.</p></div>
+    <div class="viewer" id="viewer">
+      <canvas id="gl" aria-label="Interactive 3D model of the coach"></canvas>
+      <span class="status mono" id="vstatus">Loading model</span>
+      <span class="hint mono">Drag · zoom · pan</span>
+    </div>
+    <div class="layers" role="group" aria-label="Layers">
+      <span class="mono">Layers</span>
+      <button class="btn" type="button" id="L-shell" data-layer="shell" aria-pressed="true">Shell</button>
+      <button class="btn" type="button" id="L-interior" data-layer="interior" aria-pressed="true">Interior</button>
+      <button class="btn" type="button" id="L-solar" data-layer="solar" aria-pressed="true"><span class="sw" style="color:var(--pv)"></span>Solar</button>
+      <button class="btn" type="button" id="L-power" data-layer="power" aria-pressed="true"><span class="sw" style="color:var(--dc)"></span>Power</button>
+      <button class="btn" type="button" id="L-laundryA" data-layer="laundryA" aria-pressed="true">Laundry A</button>
+      <button class="btn" type="button" id="L-laundryB" data-layer="laundryB" aria-pressed="false">Laundry B</button>
+      <button class="btn" type="button" id="L-tow" data-layer="tow" aria-pressed="true">Tow car</button>
+      <button class="btn" type="button" id="L-reset">Reset view</button>
+    </div>
+  </div>
+</section>
+
+<section id="specs">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Specs</span><span class="rule"></span><span class="mono">04</span></div>
+    <div class="head"><h2>What's published, and what's modelled.</h2><p>Confirmed comes from the manufacturer or a spec sheet. Credible comes from a dealer, retailer or owner. Estimate is a modelled value to verify on a real unit.</p></div>
+    <div class="tbl spec"><table>
+      <thead><tr><th>Item</th><th>Value</th><th>Status</th><th>Source</th></tr></thead>
+      <tbody><tr><td>Coach overall length</td><td>26 ft 0 in (312 in)</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://easttowestrv.com/alita/22NF/13304" target="_blank" rel="noopener">easttowestrv.com</a></td></tr><tr><td>Coach overall height</td><td>11 ft 5 in (137 in)</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.fraserway.com/product-east-to-west/alita-motor-home-class-c/22nf" target="_blank" rel="noopener">www.fraserway.com</a></td></tr><tr><td>Coach body width</td><td>91 in modelled</td><td><span class="pill pill-e">Estimate</span></td><td class="src">Not published by East to West</td></tr><tr><td>Interior height</td><td>81 in</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.rvguide.com/specs/east-to-west/class-c/2026/alita/22nf.html" target="_blank" rel="noopener">www.rvguide.com</a></td></tr><tr><td>Wheelbase</td><td>178 in</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://easttowestrv.com/alita/22NF/13304" target="_blank" rel="noopener">easttowestrv.com</a></td></tr><tr><td>Front overhang (bumper to front axle)</td><td>40 in modelled</td><td><span class="pill pill-e">Estimate</span></td><td class="src">Transit cab geometry; not published for 22NFT</td></tr><tr><td>Rear overhang (rear axle to rear wall)</td><td>94 in (312 - 178 - 40)</td><td><span class="pill pill-e">Estimate</span></td><td class="src">Derived from the two values above</td></tr><tr><td>GVWR / GCWR</td><td>11,000 / 13,500 lb</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.fraserway.com/product-east-to-west/alita-motor-home-class-c/22nf" target="_blank" rel="noopener">www.fraserway.com</a></td></tr><tr><td>Axle ratings</td><td>Front 4,630 lb, rear 7,275 lb</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.fraserway.com/product-east-to-west/alita-motor-home-class-c/22nf" target="_blank" rel="noopener">www.fraserway.com</a></td></tr><tr><td>Dealer-listed weight (2027 unit)</td><td>9,031 lb, about 1,969 lb CCC</td><td><span class="pill pill-r">Credible</span></td><td class="src"><a href="https://www.couchsrvnation.com/east-to-west/class-c-motorhome/alita/22nft1" target="_blank" rel="noopener">www.couchsrvnation.com</a></td></tr><tr><td>Tanks</td><td>35 fresh / 30 grey / 30 black / 25 fuel gal</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.fraserway.com/product-east-to-west/alita-motor-home-class-c/22nf" target="_blank" rel="noopener">www.fraserway.com</a></td></tr><tr><td>Propane</td><td>2 tanks, 9.4 gal total</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.rvguide.com/specs/east-to-west/class-c/2026/alita/22nf.html" target="_blank" rel="noopener">www.rvguide.com</a></td></tr><tr><td>Generator</td><td>4,000 W, gasoline</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.fraserway.com/product-east-to-west/alita-motor-home-class-c/22nf" target="_blank" rel="noopener">www.fraserway.com</a></td></tr><tr><td>Awning</td><td>16 ft Girard legless, LED strip</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.fraserway.com/product-east-to-west/alita-motor-home-class-c/22nf" target="_blank" rel="noopener">www.fraserway.com</a></td></tr><tr><td>Beds</td><td>Rear queen lift bed 60 x 80, cabover 60 x 80</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.fraserway.com/product-east-to-west/alita-motor-home-class-c/22nf" target="_blank" rel="noopener">www.fraserway.com</a></td></tr><tr><td>Floorplan order</td><td>Front dinette, galley curbside, bath across, rear office + lift bed + garage</td><td><span class="pill pill-r">Credible</span></td><td class="src"><a href="https://www.autoevolution.com/news/the-2026-alita-22nft-is-a-compact-motorhome-with-a-very-surprising-layout-259965.html" target="_blank" rel="noopener">www.autoevolution.com</a></td></tr><tr><td>Exact cabinet positions, door location</td><td>Modelled from the floorplan order above</td><td><span class="pill pill-e">Estimate</span></td><td class="src">No dimensioned floorplan published</td></tr><tr><td>Flat roof length (cabover seam to rear cap)</td><td>234 in modelled</td><td><span class="pill pill-e">Estimate</span></td><td class="src">Not published</td></tr><tr><td>Existing roof fixtures</td><td>1 AC, 2 fans, 1 shower skylight, 12V panel modelled</td><td><span class="pill pill-e">Estimate</span></td><td class="src">Not published; typical Class C</td></tr><tr><td>Floor height above ground</td><td>36 in modelled</td><td><span class="pill pill-e">Estimate</span></td><td class="src">Not published</td></tr><tr><td>Frame rail bottom above ground at tail</td><td>19 in modelled</td><td><span class="pill pill-e">Estimate</span></td><td class="src">Not published for this chassis</td></tr><tr><td>Transit cutaway alternator</td><td>250 A</td><td><span class="pill pill-r">Credible</span></td><td class="src"><a href="https://specs2.auto123.com/en/specs/ford/transit-cutaway/ford-transit-cutaway-2024-t-350-rwd-156-9500-gvwr-srw-449769" target="_blank" rel="noopener">specs2.auto123.com</a></td></tr><tr><td>Rear wheels</td><td>Dual rear wheels, 27.5 in tire diameter modelled</td><td><span class="pill pill-e">Estimate</span></td><td class="src">Implied by 7,275 lb rear axle rating</td></tr><tr><td>Bluetti B4810 (each)</td><td>23.9 x 15.0 x 5.7 in, 101 lb</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://solarpowersupply.eu/bluetti-b4810-battery" target="_blank" rel="noopener">solarpowersupply.eu</a></td></tr><tr><td>Bluetti RV5 hub</td><td>17.7 x 19.7 x 6.3 in, 30.9 lb</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://bestecosolar.com/product/bluetti-rv5-power-hub/" target="_blank" rel="noopener">bestecosolar.com</a></td></tr><tr><td>Callsun 275W panel (each)</td><td>68.35 x 30.3 x 1.38 in, 29.8 lb</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://callsunsolar.com/products/275w-n-type-bifacial-solar-panel" target="_blank" rel="noopener">callsunsolar.com</a></td></tr><tr><td>Victron Orion-Tr Smart 12/48-8A (each)</td><td>186 x 130 x 80 mm, 1.8 kg (4.0 lb)</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.akkuman.de/shop/Victron-Orion-Tr-Smart-12-48-8A-DC-DC-Ladegeraet-48V" target="_blank" rel="noopener">www.akkuman.de</a></td></tr><tr><td>Furrion Chill Cube 18K ducted</td><td>29.5 x 29 x 14.5 in, 72.4 lb</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://elkhartrvparts.com/products/furrion-chill-cube-variable-speed-rv-rooftop-air-conditioner-18k-btu-heat-pump-black-ducted-2025008215" target="_blank" rel="noopener">elkhartrvparts.com</a></td></tr><tr><td>Splendide WDV2200XCD</td><td>23.5 W x 33.1 H x 22.6 D in, 148 lb</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.fisheriessupply.com/splendide-wdv2200xcd-vented-combo-washer-and-dryer/wdv2200xcd" target="_blank" rel="noopener">www.fisheriessupply.com</a></td></tr><tr><td>Starlink Mini</td><td>11.4 x 9.8 x 1.4 in, 2.4 lb, 40-50 W typical</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.usmobile.com/blog/starlink-mini-vs-standard/" target="_blank" rel="noopener">www.usmobile.com</a></td></tr><tr><td>Starlink Standard (alternative)</td><td>23.4 x 13.4 x 1.6 in, 7.05 lb, 75-100 W typical</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.usmobile.com/blog/starlink-mini-vs-standard/" target="_blank" rel="noopener">www.usmobile.com</a></td></tr><tr><td>Fiat 500 Abarth (manual)</td><td>144.4 L x 64.1 W x 58.7 H in, 90.6 in WB, 2,512 lb</td><td><span class="pill pill-c">Confirmed</span></td><td class="src"><a href="https://www.fiat500usa.com/2018/02/2018-fiat-500-and-500-abarth-specs.html" target="_blank" rel="noopener">www.fiat500usa.com</a></td></tr><tr><td>Battery box</td><td>52 x 18 x 7.5 in, about 25 lb empty, bottom 12 in above ground</td><td><span class="pill pill-e">Estimate</span></td><td class="src">Sized around two B4810s</td></tr><tr><td>Lift bed lowered underside</td><td>38 in above floor modelled</td><td><span class="pill pill-e">Estimate</span></td><td class="src">Not published</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<section id="components">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Components</span><span class="rule"></span><span class="mono">05</span></div>
+    <div class="head"><h2>Where each unit goes, and why.</h2><p>Location, dimensions, clearance, weight, how you reach it for service, and what could go wrong.</p></div>
+    <div class="comps"><article class="comp"><h3>Bluetti B4810 x2</h3><dl><div><dt>Location</dt><dd>Underbelly at the tail, between the spare tire and the hitch</dd></div><div><dt>Why there</dt><dd>Out of sight, frees cabin storage, weight on the higher-rated rear axle</dd></div><div><dt>Dimensions</dt><dd>23.9 x 15.0 x 5.7 in each, side by side in a 52 x 18 x 7.5 in box</dd></div><div><dt>Clearances</dt><dd>12 in ground clearance (estimate)</dd></div><div><dt>Weight</dt><dd>202 lb packs + about 25 lb box</dd></div><div><dt>Service access</dt><dd>Drop the box lid from below; disconnect at the box</dd></div><div><dt>Risks</dt><dd>Departure angle 9.3 deg at the box vs 9.1 deg at the hitch; road spray; cold-weather self-heating needs incoming power (Bluetti to confirm)</dd></div></dl></article><article class="comp"><h3>Bluetti RV5 hub</h3><dl><div><dt>Location</dt><dd>Roadside desk pedestal, on the side wall</dd></div><div><dt>Why there</dt><dd>Directly above the batteries, keeps the kneehole open</dd></div><div><dt>Dimensions</dt><dd>17.7 x 19.7 x 6.3 in</dd></div><div><dt>Clearances</dt><dd>Pedestal is 18 in wide x 24 in deep</dd></div><div><dt>Weight</dt><dd>30.9 lb</dd></div><div><dt>Service access</dt><dd>Pedestal door; display faces into the cabinet</dd></div><div><dt>Risks</dt><dd>Needs airflow: vent the pedestal toe-kick and back</dd></div></dl></article><article class="comp"><h3>Callsun 275W x6</h3><dl><div><dt>Location</dt><dd>Roof, 3 behind the AC and 3 ahead of it, crosswise</dd></div><div><dt>Why there</dt><dd>Six is the RV5&#x27;s limit in parallel (41.1A of 50A per input)</dd></div><div><dt>Dimensions</dt><dd>68.35 x 30.3 x 1.38 in each</dd></div><div><dt>Clearances</dt><dd>About 11.3 in each side to the roof edge; 2.5 in over vents</dd></div><div><dt>Weight</dt><dd>29.8 lb each, 179 lb total</dd></div><div><dt>Service access</dt><dd>Walkable roof edges both sides</dd></div><div><dt>Risks</dt><dd>Flat roof length is the open question; vents under panels</dd></div></dl></article><article class="comp"><h3>Roof combiner</h3><dl><div><dt>Location</dt><dd>Between the rear panel group and the AC</dd></div><div><dt>Why there</dt><dd>Shortest panel leads</dd></div><div><dt>Dimensions</dt><dd>6.5 x 10 x 4 in modelled</dd></div><div><dt>Clearances</dt><dd>-</dd></div><div><dt>Weight</dt><dd>In the 60 lb mounts/cable allowance</dd></div><div><dt>Service access</dt><dd>Lid on the roof</dd></div><div><dt>Risks</dt><dd>Seal the roof entry gland</dd></div></dl></article><article class="comp"><h3>Victron Orion-Tr 12/48-8A x2</h3><dl><div><dt>Location</dt><dd>Under the passenger seat</dd></div><div><dt>Why there</dt><dd>Close to the starter battery; 48V carries the long run</dd></div><div><dt>Dimensions</dt><dd>186 x 130 x 80 mm each</dd></div><div><dt>Clearances</dt><dd>-</dd></div><div><dt>Weight</dt><dd>1.8 kg each</dd></div><div><dt>Service access</dt><dd>Seat base panel</dd></div><div><dt>Risks</dt><dd>Wire the remote to ignition; fuse at the starter battery</dd></div></dl></article><article class="comp"><h3>Furrion Chill Cube 18K</h3><dl><div><dt>Location</dt><dd>Existing 14x14 opening, mid-roof</dd></div><div><dt>Why there</dt><dd>Variable speed, heat pump, keeps the ducted ceiling</dd></div><div><dt>Dimensions</dt><dd>29.5 x 29 x 14.5 in</dd></div><div><dt>Clearances</dt><dd>Starlink and a walkway beside it</dd></div><div><dt>Weight</dt><dd>72.4 lb</dd></div><div><dt>Service access</dt><dd>Shroud off on the roof</dd></div><div><dt>Risks</dt><dd>Ducted air box has to meet East to West&#x27;s duct runs</dd></div></dl></article><article class="comp"><h3>Starlink Mini</h3><dl><div><dt>Location</dt><dd>Roadside margin beside the AC</dd></div><div><dt>Why there</dt><dd>Lowest draw and smallest footprint</dd></div><div><dt>Dimensions</dt><dd>11.4 x 9.8 x 1.4 in</dd></div><div><dt>Clearances</dt><dd>Clear sky view over the panels</dd></div><div><dt>Weight</dt><dd>2.4 lb + mount</dd></div><div><dt>Service access</dt><dd>Bolt-down flat mount</dd></div><div><dt>Risks</dt><dd>Cable entry shares the combiner gland</dd></div></dl></article><article class="comp"><h3>Splendide WDV2200XCD</h3><dl><div><dt>Location</dt><dd>Option A bath side, or option B rear garage</dd></div><div><dt>Why there</dt><dd>Vented: no tank water to dry</dd></div><div><dt>Dimensions</dt><dd>23.5 W x 33.1 H x 22.6 D in</dd></div><div><dt>Clearances</dt><dd>Needs about 24 in of width</dd></div><div><dt>Weight</dt><dd>148 lb</dd></div><div><dt>Service access</dt><dd>Front service; slide out on rails</dd></div><div><dt>Risks</dt><dd>Vent hole in the wall; B needs bed-down clearance</dd></div></dl></article><article class="comp"><h3>Transfer switch</h3><dl><div><dt>Location</dt><dd>Under the curbside bench</dd></div><div><dt>Why there</dt><dd>Joins generator and shore before the RV5</dd></div><div><dt>Dimensions</dt><dd>6 x 6 x 8 in modelled</dd></div><div><dt>Clearances</dt><dd>-</dd></div><div><dt>Weight</dt><dd>small</dd></div><div><dt>Service access</dt><dd>Bench lid</dd></div><div><dt>Risks</dt><dd>Confirm the coach&#x27;s existing switch can be reused</dd></div></dl></article></div>
+  </div>
+</section>
+
+<section id="laundry">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Laundry</span><span class="rule"></span><span class="mono">06</span></div>
+    <div class="head"><h2>Option A or option B.</h2><p>The same vented Splendide WDV2200XCD in two places. A is simpler to plumb and keeps noise away from the desk and bed; B keeps the bath-side drawers.</p></div>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>A · bath side</th><th>B · rear garage</th></tr></thead>
+      <tbody><tr><th scope="row">Space lost</th><td>The drawer stack beside the bath (about 24 in of base storage)</td><td>The curbside rear corner of the garage, about 24 x 24 in of floor</td></tr><tr><th scope="row">Water run</th><td>About 2 ft from the bath manifold</td><td>About 13 ft from the bath manifold, under the floor</td></tr><tr><th scope="row">Drain</th><td>Short drop into the grey tank area</td><td>About 8 ft to the grey tank; the washer&#x27;s pump has to lift it</td></tr><tr><th scope="row">Vent run</th><td>About 1 ft through the roadside wall</td><td>About 1 ft through the rear wall</td></tr><tr><th scope="row">Weight position</th><td>124 in from the rear wall: front axle +25 lb, rear +123 lb</td><td>14 in from the rear wall: front axle -67 lb, rear +215 lb</td></tr><tr><th scope="row">Noise near the desk</th><td>About 7 ft from the desk chair</td><td>About 2 ft from the desk chair</td></tr><tr><th scope="row">Noise near the bed</th><td>Away from the bed</td><td>Directly under the lowered bed</td></tr><tr><th scope="row">Counter</th><td>Raised fold-and-charge counter fits on top</td><td>No counter: the bed comes down above it</td></tr><tr><th scope="row">Access</th><td>Load from the aisle, any time</td><td>Bed has to be up to load it</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<section id="weight">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Weight</span><span class="rule"></span><span class="mono">07</span></div>
+    <div class="head"><h2>Axle math.</h2><p>Front share = weight × (x − 94) ÷ 178, where x is inches from the rear wall and 94 in is the rear axle. Anything behind the rear axle lifts the front.</p></div>
+    <div class="two">
+      <div class="tbl"><table>
+        <thead><tr><th>Item · laundry A</th><th class="n">lb</th><th class="n">x in</th><th class="n">Front</th><th class="n">Rear</th></tr></thead>
+        <tbody><tr><td>2 x B4810 batteries</td><td class="n">202</td><td class="n">30</td><td class="n">-73</td><td class="n">+275</td></tr><tr><td>Battery box + mounts</td><td class="n">25</td><td class="n">30</td><td class="n">-9</td><td class="n">+34</td></tr><tr><td>RV5 hub</td><td class="n">31</td><td class="n">13</td><td class="n">-14</td><td class="n">+45</td></tr><tr><td>Solar, rear 3 panels</td><td class="n">89</td><td class="n">58</td><td class="n">-18</td><td class="n">+107</td></tr><tr><td>Solar, front 3 panels</td><td class="n">89</td><td class="n">198</td><td class="n">+52</td><td class="n">+37</td></tr><tr><td>Panel mounts, combiner, cable</td><td class="n">60</td><td class="n">128</td><td class="n">+12</td><td class="n">+48</td></tr><tr><td>2 x Orion-Tr</td><td class="n">8</td><td class="n">266</td><td class="n">+8</td><td class="n">+0</td></tr><tr><td>48V and AC cable runs</td><td class="n">40</td><td class="n">140</td><td class="n">+10</td><td class="n">+30</td></tr><tr><td>Starlink Mini + mount</td><td class="n">6</td><td class="n">130</td><td class="n">+1</td><td class="n">+5</td></tr><tr><td>Washer-dryer (A)</td><td class="n">148</td><td class="n">124</td><td class="n">+25</td><td class="n">+123</td></tr><tr class="total"><td>Total</td><td class="n">699</td><td></td><td class="n">-6</td><td class="n">+704</td></tr></tbody></table></div>
+      <div style="display:grid;gap:24px;align-content:start">
+        <div class="callout"><span class="mono">With laundry B</span><b>Front -97 lb · rear +796 lb</b><span>The washer moves to 14 in from the rear wall, 80 in behind the rear axle.</span></div>
+        <div class="callout"><span class="mono">Earlier figure, rechecked</span><b>203 lb at 80 in behind the axle: +294 rear / -91 front</b><span>Correct arithmetic, but the modelled box sits 64 in behind the axle: +276 rear / -73 front. Rear-heavy either way.</span></div>
+        <div class="callout"><span class="mono">What decides it</span><b>Rear axle rated 7,275 lb</b><span>Weigh the loaded coach per axle. The tail placement stands if the rear has at least 800 lb of headroom with laundry B, or 700 lb with A.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="power">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Power</span><span class="rule"></span><span class="mono">08</span></div>
+    <div class="head"><h2>Cable runs, measured off the model.</h2><p>Lengths follow the routed paths in the model, rounded. Add 10–15% for drops and service loops when ordering.</p></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Run</th><th class="n">Length</th></tr></thead>
+      <tbody><tr><td><span class="swatch sw-pv" aria-hidden="true"></span>Panel leads to combiner (6)</td><td class="n">48 ft</td></tr><tr><td><span class="swatch sw-pv" aria-hidden="true"></span>PV trunk, combiner to RV5 (x2 runs)</td><td class="n">14 ft</td></tr><tr><td><span class="swatch sw-dc" aria-hidden="true"></span>48V, RV5 to batteries</td><td class="n">3 ft</td></tr><tr><td><span class="swatch sw-alt" aria-hidden="true"></span>12V, starter battery to Orions</td><td class="n">3 ft</td></tr><tr><td><span class="swatch sw-alt" aria-hidden="true"></span>48V, Orions to batteries</td><td class="n">20 ft</td></tr><tr><td><span class="swatch sw-ac" aria-hidden="true"></span>120V, generator to transfer switch</td><td class="n">1 ft</td></tr><tr><td><span class="swatch sw-ac" aria-hidden="true"></span>120V, transfer switch to RV5 AC in</td><td class="n">20 ft</td></tr><tr><td><span class="swatch sw-ac" aria-hidden="true"></span>120V, shore inlet to transfer switch</td><td class="n">18 ft</td></tr><tr><td><span class="swatch sw-ac" aria-hidden="true"></span>120V, RV5 AC out to main panel</td><td class="n">15 ft</td></tr></tbody></table></div>
+  </div>
+</section>
+
+<section id="decisions">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Decisions</span><span class="rule"></span><span class="mono">09</span></div>
+    <div class="head"><h2>Calls made overnight.</h2><p>Where nothing was published or the plan was silent, these are the choices the model uses.</p></div>
+    <dl class="decs"><div class="dec"><dt>Coach length</dt><dd>Used East to West&#x27;s 26 ft. One review quotes 24 ft; the manufacturer page wins.</dd></div><div class="dec"><dt>Body width</dt><dd>East to West does not publish it. Modelled at 91 in, the same figure used earlier in this thread. ESTIMATE.</dd></div><div class="dec"><dt>Front overhang</dt><dd>Modelled at 40 in from the Transit cab shape, which puts the rear overhang at 94 in. ESTIMATE.</dd></div><div class="dec"><dt>Floor and roof heights</dt><dd>Floor 36 in above ground and roof 121 in, so 81 in interior height (confirmed) and 137 in overall with the AC (confirmed) both hold.</dd></div><div class="dec"><dt>Rear wheels</dt><dd>Modelled as dual rear wheels, implied by the 7,275 lb rear axle rating. ESTIMATE.</dd></div><div class="dec"><dt>Floorplan positions</dt><dd>No dimensioned floorplan is published. The order of rooms follows East to West and dealer descriptions; exact cabinet positions are modelled. ESTIMATE.</dd></div><div class="dec"><dt>Entry door</dt><dd>Curbside, behind the cab, opening into the dinette area. ESTIMATE.</dd></div><div class="dec"><dt>AC position</dt><dd>The Chill Cube stays in the existing 14x14 opening, modelled mid-roof at 130 in from the rear wall. Panels split into a rear group of 3 and a front group of 3 around it. ESTIMATE until the opening is measured.</dd></div><div class="dec"><dt>Panel orientation</dt><dd>All six panels run crosswise (68.35 in across the roof) because roof length is the scarce dimension.</dd></div><div class="dec"><dt>Roof vents</dt><dd>The bath fan, galley fan, cabover fan and shower skylight end up under panels. Modelled with low-profile covers on taller Z-brackets (2.5 in clearance). Swap any tall dome cover for a low-profile one.</dd></div><div class="dec"><dt>Starlink</dt><dd>You said Starlink, not which dish. Modelled the Starlink Mini on a flat mount beside the AC: 40-50 W typical against 75-100 W for the Standard, and it fits the side margin. The Standard (23.4 x 13.4 in) would also fit there.</dd></div><div class="dec"><dt>Combiner</dt><dd>One roof combiner between the rear panel group and the AC, feeding PV1 and PV2 as two trunk runs down a rear-corner chase.</dd></div><div class="dec"><dt>RV5 location</dt><dd>Inside the roadside desk pedestal, on the side wall, directly above the battery box. Keeps the kneehole open and the 48V run to the packs short.</dd></div><div class="dec"><dt>Battery box position</dt><dd>Centred 30 in from the rear wall (64 in behind the rear axle), between the spare tire and the hitch, hung from the frame rails with its bottom 12 in above ground. ESTIMATE.</dd></div><div class="dec"><dt>Spare tire</dt><dd>Kept in place under the frame, ahead of the battery box.</dd></div><div class="dec"><dt>Exhaust</dt><dd>Routed to exit curbside ahead of the battery box so the box is not in the exhaust stream.</dd></div><div class="dec"><dt>Orion-Tr chargers</dt><dd>Under the passenger seat near the starter battery: a short 12V lead, then one 48V run back along the curbside frame rail. Lower current over the long run than placing them at the tail.</dd></div><div class="dec"><dt>Generator tie-in</dt><dd>Generator and shore power meet at a transfer switch under the curbside bench, then one 120V run under the floor to the RV5 AC input. Run the RV5 in Standard or Silent charge mode on the generator.</dd></div><div class="dec"><dt>Laundry A</dt><dd>Bath side, between the bath wall and the fridge, replacing the drawer stack. Fridge moved one slot forward in the model to make the adjacency work. ESTIMATE.</dd></div><div class="dec"><dt>Laundry B</dt><dd>Rear garage, curbside rear corner under the lift bed, vented through the rear wall. The load hatch is modelled on the curbside wall ahead of it.</dd></div><div class="dec"><dt>Lift bed</dt><dd>Shown raised (office mode) in every render. Lowered underside modelled at 38 in above the floor. ESTIMATE.</dd></div><div class="dec"><dt>Tail lamps</dt><dd>Rendered as smoked lenses so no red tones appear anywhere; the real coach keeps its legal red lamps.</dd></div><div class="dec"><dt>Tow car</dt><dd>Generic small hatch built to Abarth dimensions (144.4 x 64.1 x 58.7 in, 90.6 in wheelbase), no badges.</dd></div><div class="dec"><dt>Interior palette</dt><dd>Charcoal walls, walnut cabinetry and desk, dark oak floor, graphite upholstery, brass pulls, warm 2700K-look lighting. No red or oxblood.</dd></div><div class="dec"><dt>GitHub</dt><dd>The repo cloned, but this session&#x27;s GitHub link has no push access to arthckr88/22NFT. Everything was committed on branch render/full-3d-build locally and delivered as files here.</dd></div></dl>
+  </div>
+</section>
+
+<section id="walkthrough">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Walkthrough</span><span class="rule"></span><span class="mono">10</span></div>
+    <div class="head"><h2>Verify at walkthrough.</h2><p>Every estimate that changes the build, in the order to measure it. Bring a tape, a camera, and the per-axle scale ticket.</p></div>
+    <ol class="walklist"><li class="walk t1"><span class="pill pill-w1">Measure first</span><div><strong>Flat roof length</strong><p>From the cabover seam to the rear cap. The build needs about 233 in; the model assumes 234 in.</p></div></li><li class="walk t1"><span class="pill pill-w1">Measure first</span><div><strong>14x14 AC opening position</strong><p>Distance from the rear wall. It decides how the panels split.</p></div></li><li class="walk t1"><span class="pill pill-w1">Measure first</span><div><strong>Tail space and heights</strong><p>Ground to frame bottom at the tail, spare tire position, receiver height. The box needs about 52 x 18 x 7.5 in with its bottom at 12 in or higher.</p></div></li><li class="walk t2"><span class="pill pill-w2">Measure</span><div><strong>Rear axle weight</strong><p>Weigh the loaded coach per axle. The build adds 700-800 lb almost all on the rear axle (7,275 lb rated).</p></div></li><li class="walk t2"><span class="pill pill-w2">Measure</span><div><strong>Body width</strong><p>Outside and inside, at the roof and at the floor.</p></div></li><li class="walk t2"><span class="pill pill-w2">Measure</span><div><strong>Roof fixtures</strong><p>Positions and heights of the fans, skylight and antenna.</p></div></li><li class="walk t2"><span class="pill pill-w2">Measure</span><div><strong>Drawer stack width</strong><p>Bath side: the washer needs about 24 in.</p></div></li><li class="walk t2"><span class="pill pill-w2">Measure</span><div><strong>Lift bed lowered height</strong><p>Underside height above the floor when down; option B needs 34 in or more.</p></div></li><li class="walk t3"><span class="pill pill-w3">Check</span><div><strong>Desk pedestal</strong><p>Inside width and depth for the RV5 (17.7 x 19.7 x 6.3 in).</p></div></li><li class="walk t3"><span class="pill pill-w3">Check</span><div><strong>Ducted air box fit</strong><p>Photograph the stock ceiling assembly and duct openings for the Chill Cube box.</p></div></li><li class="walk t3"><span class="pill pill-w3">Check</span><div><strong>Grey tank</strong><p>Location and inlet height, for both laundry drains.</p></div></li><li class="walk t3"><span class="pill pill-w3">Check</span><div><strong>Generator and transfer switch</strong><p>Make, model, and where the existing transfer switch sits.</p></div></li><li class="walk t3"><span class="pill pill-w3">Check</span><div><strong>Floor height</strong><p>Ground to the floor at the door.</p></div></li><li class="walk t3"><span class="pill pill-w3">Check</span><div><strong>Alternator</strong><p>Single or dual 250A from the build sheet.</p></div></li><li class="walk t3"><span class="pill pill-w3">Check</span><div><strong>Model year</strong><p>2026 or 2027.</p></div></li></ol>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span class="mono">Andrew Rose · 22NFT build · model R1</span><span class="mono">Scripts, .blend, renders and model delivered as files (GitHub push refused)</span></div></footer>
+
+<div class="lightbox" id="lb" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <div class="lb-top"><span class="mono" id="lb-idx"></span>
+    <div class="btns">
+      <button class="btn" type="button" id="lb-ann" aria-pressed="false">Annotated</button>
+      <button class="btn" type="button" id="lb-prev" aria-label="Previous view">Prev</button>
+      <button class="btn" type="button" id="lb-next" aria-label="Next view">Next</button>
+      <button class="btn" type="button" id="lb-close">Close</button>
+    </div></div>
+  <div class="lb-img"><img id="lb-img" alt=""></div>
+  <div class="lb-bottom"><h2 id="lb-title" style="font-size:24px"></h2><p id="lb-cap"></p></div>
+</div>
+
+<script>
+(function () {
+  var SHOTS = [{"src": "img/01_exterior.jpg", "ann": null, "title": "Exterior", "cap": "Three-quarter front, curbside. Abarth flat-towed behind.", "idx": "01"}, {"src": "img/02_elevation.jpg", "ann": "img/02_elevation_ann.jpg", "title": "Driver-side elevation", "cap": "Dimensioned. Front to the left.", "idx": "02"}, {"src": "img/03_roof.jpg", "ann": "img/03_roof_ann.jpg", "title": "Roof plan", "cap": "Six panels, Chill Cube, Starlink Mini, vents, clearances.", "idx": "03"}, {"src": "img/04_underbelly.jpg", "ann": "img/04_underbelly_ann.jpg", "title": "Underbelly", "cap": "Battery enclosure at the tail, from below and behind.", "idx": "04"}, {"src": "img/04b_tail_section.jpg", "ann": "img/04b_tail_section_ann.jpg", "title": "Tail section", "cap": "Ground clearance and departure angle.", "idx": "04b"}, {"src": "img/05_xray.jpg", "ann": "img/05_xray_ann.jpg", "title": "Power system", "cap": "Ghosted coach, color-coded runs with approximate lengths.", "idx": "05"}, {"src": "img/06_interior.jpg", "ann": null, "title": "Interior", "cap": "From the cab looking to the rear office.", "idx": "06"}, {"src": "img/07_desk.jpg", "ann": null, "title": "Rear office", "cap": "Desk at 29.5 in, kneehole open, RV5 in the pedestal.", "idx": "07"}, {"src": "img/08_laundry_A.jpg", "ann": "img/08_laundry_A_ann.jpg", "title": "Laundry A", "cap": "Bath side, in place of the drawer stack.", "idx": "08"}, {"src": "img/09_laundry_B.jpg", "ann": "img/09_laundry_B_ann.jpg", "title": "Laundry B", "cap": "Rear garage, curbside corner under the lift bed.", "idx": "09"}, {"src": "img/10_floorplan.jpg", "ann": "img/10_floorplan_ann.jpg", "title": "Floorplan", "cap": "Cut at 50 in. Both laundry options shown.", "idx": "10"}, {"src": "img/11_axles.jpg", "ann": "img/11_axles_ann.jpg", "title": "Weight on the chassis", "cap": "Component masses and axle load shift.", "idx": "11"}, {"src": "img/12_night.jpg", "ann": null, "title": "Night", "cap": "Lights on, awning strip lit, Abarth attached.", "idx": "12"}];
+  var lb = document.getElementById('lb'), img = document.getElementById('lb-img');
+  var annBtn = document.getElementById('lb-ann'), cur = 0, ann = false, last = null;
+  function show(i) {
+    cur = (i + SHOTS.length) % SHOTS.length;
+    var s = SHOTS[cur];
+    if (!s.ann) ann = false;
+    annBtn.hidden = !s.ann;
+    annBtn.setAttribute('aria-pressed', ann ? 'true' : 'false');
+    lb.classList.remove('cut'); void lb.offsetWidth; lb.classList.add('cut');
+    img.src = ann && s.ann ? s.ann : s.src;
+    img.alt = s.title + '. ' + s.cap;
+    document.getElementById('lb-idx').textContent = s.idx + ' / ' + SHOTS.length;
+    document.getElementById('lb-title').textContent = s.title;
+    document.getElementById('lb-cap').textContent = s.cap;
+  }
+  function open(i) { last = document.activeElement; ann = !!SHOTS[i].ann; lb.hidden = false; document.body.style.overflow = 'hidden'; show(i); document.getElementById('lb-close').focus(); }
+  function close() { lb.hidden = true; document.body.style.overflow = ''; if (last) last.focus(); }
+  document.querySelectorAll('.tile-btn').forEach(function (b) { b.addEventListener('click', function () { open(+b.dataset.i); }); });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-prev').addEventListener('click', function () { show(cur - 1); });
+  document.getElementById('lb-next').addEventListener('click', function () { show(cur + 1); });
+  annBtn.addEventListener('click', function () { ann = !ann; show(cur); });
+  lb.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') show(cur + 1);
+    if (e.key === 'ArrowLeft') show(cur - 1);
+  });
+})();
+</script>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const box = document.getElementById('viewer');
+const canvas = document.getElementById('gl');
+const status = document.getElementById('vstatus');
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+} catch (e) {
+  status.textContent = 'This browser could not start 3D. The renders above show every view.';
+  throw e;
+}
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x050506);
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+const camera = new THREE.PerspectiveCamera(35, 16 / 9, 0.05, 200);
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.maxPolarAngle = Math.PI * 0.495;
+scene.add(new THREE.HemisphereLight(0xf3f1ec, 0x202024, 0.7));
+const sun = new THREE.DirectionalLight(0xffffff, 1.6);
+sun.position.set(6, 10, 8);
+scene.add(sun);
+const grid = new THREE.GridHelper(40, 80, 0x2a2a2c, 0x161618);
+scene.add(grid);
+
+const layers = { shell: [], interior: [], solar: [], power: [], laundryA: [], laundryB: [], tow: [] };
+let home = null;
+
+function size() {
+  const r = box.getBoundingClientRect();
+  renderer.setSize(r.width, r.height, false);
+  camera.aspect = r.width / Math.max(1, r.height);
+  camera.updateProjectionMatrix();
+}
+new ResizeObserver(size).observe(box);
+size();
+
+function layerOf(o) {
+  for (let n = o; n; n = n.parent) {
+    const m = /^([A-Za-z]+)__/.exec(n.name || '');
+    if (m && layers[m[1]]) return m[1];
+  }
+  return null;
+}
+
+new GLTFLoader().load('model/22nft.gltf.json', (g) => {
+  const root = g.scene;
+  root.traverse((o) => {
+    if (o.isMesh) {
+      const l = layerOf(o);
+      if (l) layers[l].push(o);
+      if (o.material && o.material.transparent) o.material.depthWrite = false;
+    }
+  });
+  const b = new THREE.Box3().setFromObject(root);
+  const c = b.getCenter(new THREE.Vector3());
+  root.position.sub(new THREE.Vector3(c.x, b.min.y, c.z));
+  scene.add(root);
+  const L = b.getSize(new THREE.Vector3()).length();
+  home = { pos: new THREE.Vector3(L * 0.55, L * 0.32, L * 0.55), target: new THREE.Vector3(0, 1.3, 0) };
+  reset();
+  layers.laundryB.forEach((m) => (m.visible = false));
+  status.textContent = 'Model R1 · ' + Object.values(layers).reduce((a, v) => a + v.length, 0) + ' parts';
+}, undefined, () => { status.textContent = 'The model file did not load. The renders above show every view.'; });
+
+function reset() {
+  if (!home) return;
+  camera.position.copy(home.pos);
+  controls.target.copy(home.target);
+  controls.update();
+}
+document.querySelectorAll('[data-layer]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const on = btn.getAttribute('aria-pressed') !== 'true';
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    layers[btn.dataset.layer].forEach((m) => (m.visible = on));
+  });
+});
+document.getElementById('L-reset').addEventListener('click', reset);
+
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+renderer.setAnimationLoop(() => {
+  controls.update();
+  renderer.render(scene, camera);
+});
+</script>
