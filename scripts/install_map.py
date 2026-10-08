@@ -369,13 +369,34 @@ SCHED = [
 ]
 
 CHECKS = [
-    ('Roof fans and skylight under the panels', 'The model shows the roof fans and the bath skylight under panels on 2.5 in brackets. A MaxxFan with a built-in hood stands taller than that and its lid needs to open. If that’s what the coach has, either raise the panels on taller rails or move one panel off the fan. Measure fan positions with the roof length.'),
-    ('Roof length and AC position', 'The row of six needs about 233 in, and the model estimates about 234 in of roof. The AC opening’s real position decides where the split falls.'),
+    ('Roof fans and skylight under the panels', 'The panels sit 2.5 in off the roof, and the model puts two roof fans and the bath skylight under them. A MaxxFan Deluxe with rain dome is 23.2 × 16.6 in and stands 5.0 in tall closed and 9.1 in with the lid open (retailer spec, overall unit height). It cannot sit under a panel on 2.5 in brackets. See the roof fallback section.'),
+    ('Roof length and AC position', 'The row of six spans 233 in from the first panel edge to the last (x 12 to 245). The model treats the roof as flat from the rear cap over the cab-over to about x 300. Measure the flat roof length, whether the cab-over roof is flat and walkable, and the AC opening’s distance from the rear cap.'),
     ('Tail box vs. hitch and spare', 'In the model the box starts right where the receiver tube ends. Measure the gap from the hitch crossmember to the spare, frame-extension height and bolt points, and exhaust-tip position.'),
     ('Desk pedestal size', 'The RV5 is 17.7 × 19.7 × 6.3 in and wants 7.87 in of air at its vents. Measure the desk base on the roadside to confirm it can be opened up into a vented pedestal.'),
     ('Shore inlet location', 'The model guesses the inlet is at the rear roadside. If it’s forward, the shore run to the transfer switch gets shorter.'),
     ('Washer A width', 'Location A needs the bath-side drawer stack to be at least 24 in wide.'),
 ]
+
+
+def axle_section():
+    WB = 178.0
+
+    def sp(w, x):
+        f = w * (x - 94) / WB
+        return f, w - f
+    base = {'A': (-5.5, 704.1), 'B': (-96.9, 795.5)}
+    heavy = [sp(107.7, 58.5), sp(107.7, 198.5)]
+    hv = (sum(a for a, b in heavy), sum(b for a, b in heavy))
+    common = [sp(290.5, 138), sp(40, -6), sp(200, 250), sp(350, 130)]
+    rows = ''
+    for wash in ('A', 'B'):
+        for pan, extra in (('29.8 lb', (0, 0)), ('65.7 lb', hv)):
+            f = base[wash][0] + extra[0] + sum(c[0] for c in common)
+            r = base[wash][1] + extra[1] + sum(c[1] for c in common)
+            rows += ('<tr><td>Washer %s · panels %s each</td><td class="mono">%+.0f lb</td><td class="mono">%+.0f lb</td>'
+                     '<td class="mono"><strong>%s lb</strong></td><td class="mono">%s lb</td></tr>' % (
+                         wash, pan, f, r, format(round(7275 - r), ','), format(round(4630 - f), ',')))
+    return rows
 
 
 def page():
@@ -386,11 +407,11 @@ def page():
         rows += ('<tr><td><span class="chip %s">%s</span></td><td><strong>%s</strong><span class="where">%s</span></td>'
                  '<td class="mono">%s</td><td>%s</td><td>%s</td><td>%s</td></tr>' % (sys, n, part, where, pos, disp, mount, conn))
     checks = ''.join('<li><strong>%s.</strong> %s</li>' % c for c in CHECKS)
-    refs = ''.join('<figure><img src="%s" alt="%s" loading="lazy"><figcaption>%s</figcaption></figure>' % (p, a, a) for p, a in imgs)
+    refs = ''.join('<figure><img src="%s" alt="%s"><figcaption>%s</figcaption></figure>' % (p, a, a) for p, a in imgs)
     tpl = open(os.path.join(HERE, 'install_template.html')).read()
     return (tpl.replace('{{PLAN}}', view_plan()).replace('{{SIDE}}', view_side())
             .replace('{{UNDER}}', view_under()).replace('{{ROOF}}', view_roof())
-            .replace('{{ROWS}}', rows).replace('{{CHECKS}}', checks).replace('{{REFS}}', refs))
+            .replace('{{ROWS}}', rows).replace('{{CHECKS}}', checks).replace('{{REFS}}', refs).replace('{{AXLE}}', axle_section()))
 
 
 def main():

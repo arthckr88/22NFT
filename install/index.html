@@ -97,6 +97,27 @@ td.mono{font:400 12px/1.5 var(--mono);color:#cfcdc7;font-variant-numeric:tabular
 .refs img{display:block;width:100%;height:auto}
 .refs figcaption{font:400 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);padding:10px 12px}
 .note{font-size:13px;color:var(--mute);max-width:80ch}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);margin-top:14px}
+.facts div{background:var(--sheet);padding:16px;min-width:0}
+.facts b{display:block;font:500 10.5px/1.2 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.facts span{display:block;font:300 26px/1.2 var(--display);margin:6px 0 8px}
+.facts p{font-size:13px;color:#cfcdc7;margin:0}
+.warn-t{color:var(--warn)}
+.checks.plain strong{color:var(--bone)}
+.axle-table{min-width:760px}
+@media print{
+  @page{size:17in 11in;margin:.4in}
+  body{font-size:11px}
+  .wrap{max-width:none;padding:0}
+  .scroll,.table-wrap{overflow:visible}
+  .scroll svg{min-width:0;width:100%}
+  table{min-width:0;font-size:9.5px;table-layout:auto}
+  th{position:static}
+  section{margin-top:28px}
+  .view,.refs figure,tr,.facts div{break-inside:avoid}
+  h2{break-after:avoid}
+  .refs{grid-template-columns:repeat(3,1fr)}
+}
 footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;font:400 11px/1.4 var(--mono);color:var(--mute);letter-spacing:.06em}
 </style>
 
@@ -160,16 +181,55 @@ footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);display
     <p class="note" style="margin-top:12px">Cable lengths are measured along the routes drawn in the 3D model, rounded to the nearest foot.</p>
   </section>
 
+
+  <section>
+    <h3>Roof fit</h3>
+    <h2>What the six-panel row needs, and what to do if it doesn&rsquo;t fit</h2>
+    <div class="facts">
+      <div><b>Length the row needs</b><span class="mono">233 in</span><p>Six panels at 30.3 in, 1 in gaps, 10.5 in for the combiner before the AC, 29 in of AC, and 7.5 in after it. In the model it runs from x 12 to x 245.</p></div>
+      <div><b>Roof the model used</b><span class="mono">~300 in, estimate</span><p>The model treats the roof as flat from the rear cap over the cab-over. The row starts 12 in from the rear cap and ends 11 in past the house-to-cab-over seam (x 234). The 1 in margin quoted earlier compared the row with the house section alone. Measure both sections.</p></div>
+      <div><b>MaxxFan under a panel</b><span class="mono warn-t">No</span><p>A MaxxFan Deluxe with rain dome stands 5.0 in tall closed and 9.1 in open. Panels on 2.5 in brackets can&rsquo;t pass over it.</p></div>
+    </div>
+    <h3 style="margin-top:22px">Fallbacks, in order</h3>
+    <ol class="checks plain">
+      <li><strong>Tall rails over the fans.</strong> Raise the panels so their underside sits about 10 in off the roof, clearing an open MaxxFan. Panel tops end up about 11.4 in high, still under the Chill Cube&rsquo;s 14.5 in, so the coach&rsquo;s overall height doesn&rsquo;t change. The cost is a heavier rack and more wind load.</li>
+      <li><strong>Leave a fan open.</strong> Shift the row so a fan falls in a gap. Each uncovered fan costs one panel slot, leaving five panels: 1,375 W wired 3 + 2. Two panels in parallel need no per-panel fuses.</li>
+      <li><strong>Short roof.</strong> Drop the front panel: five panels need about 202 in. Four panels (2 + 2, 1,100 W) need about 171 in.</li>
+      <li><strong>Tighten the gaps.</strong> Move the combiner off the row to the roof edge to save about 6 in.</li>
+    </ol>
+  </section>
+
+  <section>
+    <h3>Rear axle check</h3>
+    <h2>Axle loads added by the build, against the Transit 350 ratings</h2>
+    <p>The coach&rsquo;s empty axle weights aren&rsquo;t published, so the table works backwards. It totals everything the build and a loaded trip add to each axle, then shows the heaviest the <em>empty</em> axle can weigh and still stay under its rating (front 4,630 lb, rear 7,275 lb). Included: the build at its modelled positions, a full fresh tank (290.5 lb at the tank), a 40 lb tow bar on the receiver, a 200 lb driver, and 350 lb of gear spread midship.</p>
+    <div class="table-wrap"><table class="axle-table">
+      <thead><tr><th>Scenario</th><th>Added to front axle</th><th>Added to rear axle</th><th>Empty rear axle can be at most</th><th>Empty front axle can be at most</th></tr></thead>
+      <tbody><tr><td>Washer A · panels 29.8 lb each</td><td class="mono">+290 lb</td><td class="mono">+1289 lb</td><td class="mono"><strong>5,986 lb</strong></td><td class="mono">4,340 lb</td></tr><tr><td>Washer A · panels 65.7 lb each</td><td class="mono">+332 lb</td><td class="mono">+1463 lb</td><td class="mono"><strong>5,812 lb</strong></td><td class="mono">4,298 lb</td></tr><tr><td>Washer B · panels 29.8 lb each</td><td class="mono">+199 lb</td><td class="mono">+1381 lb</td><td class="mono"><strong>5,894 lb</strong></td><td class="mono">4,431 lb</td></tr><tr><td>Washer B · panels 65.7 lb each</td><td class="mono">+240 lb</td><td class="mono">+1554 lb</td><td class="mono"><strong>5,721 lb</strong></td><td class="mono">4,390 lb</td></tr></tbody>
+    </table></div>
+    <ul class="checks plain" style="margin-top:14px">
+      <li><strong>What it means.</strong> With an empty coach around 9,000 lb, the rear axle stays legal if the empty rear axle weighs no more than about 5,550&ndash;5,990 lb, or roughly 62&ndash;67% of the empty weight on the rear. The front axle has room in every case. A CAT scale reading of the empty coach answers it.</li>
+      <li><strong>Gear placement matters as much as the box.</strong> Putting the 350 lb of gear in the rear garage instead of midship adds another 177 lb to the rear axle. Every 100 lb moved from the garage to midship takes about 50 lb off the rear.</li>
+      <li><strong>Should the box move forward?</strong> Moving the packs from 64 in behind the axle to directly over it takes 82 lb off the rear axle. In the model, the space between the rails at the axle is taken by the tanks. Keep the tail box unless the scale shows the empty rear axle above about 5,500 lb. If it does, move gear forward first, then look at the box.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Battery cable</h3>
+    <h2>The 48 V run from the packs to the RV5 is about 3 ft</h2>
+    <p>The box sits under the rear floor, and the RV5 sits in the desk pedestal right above it and slightly behind. The modelled run goes down through the pedestal floor and into the box: 37 in, about 3 ft. The 10&ndash;15 ft guess came from earlier layouts with the hub further forward. The longest 48 V run is now the alternator line from the Orions: about 20 ft at about 16 A, so a small cable. The pack fuse stays at the pack terminals inside the box.</p>
+  </section>
+
   <section>
     <h3>Fit checks</h3>
     <h2>Six things the tape measure has to confirm</h2>
-    <ol class="checks"><li><strong>Roof fans and skylight under the panels.</strong> The model shows the roof fans and the bath skylight under panels on 2.5 in brackets. A MaxxFan with a built-in hood stands taller than that and its lid needs to open. If that’s what the coach has, either raise the panels on taller rails or move one panel off the fan. Measure fan positions with the roof length.</li><li><strong>Roof length and AC position.</strong> The row of six needs about 233 in, and the model estimates about 234 in of roof. The AC opening’s real position decides where the split falls.</li><li><strong>Tail box vs. hitch and spare.</strong> In the model the box starts right where the receiver tube ends. Measure the gap from the hitch crossmember to the spare, frame-extension height and bolt points, and exhaust-tip position.</li><li><strong>Desk pedestal size.</strong> The RV5 is 17.7 × 19.7 × 6.3 in and wants 7.87 in of air at its vents. Measure the desk base on the roadside to confirm it can be opened up into a vented pedestal.</li><li><strong>Shore inlet location.</strong> The model guesses the inlet is at the rear roadside. If it’s forward, the shore run to the transfer switch gets shorter.</li><li><strong>Washer A width.</strong> Location A needs the bath-side drawer stack to be at least 24 in wide.</li></ol>
+    <ol class="checks"><li><strong>Roof fans and skylight under the panels.</strong> The panels sit 2.5 in off the roof, and the model puts two roof fans and the bath skylight under them. A MaxxFan Deluxe with rain dome is 23.2 × 16.6 in and stands 5.0 in tall closed and 9.1 in with the lid open (retailer spec, overall unit height). It cannot sit under a panel on 2.5 in brackets. See the roof fallback section.</li><li><strong>Roof length and AC position.</strong> The row of six spans 233 in from the first panel edge to the last (x 12 to 245). The model treats the roof as flat from the rear cap over the cab-over to about x 300. Measure the flat roof length, whether the cab-over roof is flat and walkable, and the AC opening’s distance from the rear cap.</li><li><strong>Tail box vs. hitch and spare.</strong> In the model the box starts right where the receiver tube ends. Measure the gap from the hitch crossmember to the spare, frame-extension height and bolt points, and exhaust-tip position.</li><li><strong>Desk pedestal size.</strong> The RV5 is 17.7 × 19.7 × 6.3 in and wants 7.87 in of air at its vents. Measure the desk base on the roadside to confirm it can be opened up into a vented pedestal.</li><li><strong>Shore inlet location.</strong> The model guesses the inlet is at the rear roadside. If it’s forward, the shore run to the transfer switch gets shorter.</li><li><strong>Washer A width.</strong> Location A needs the bath-side drawer stack to be at least 24 in wide.</li></ol>
   </section>
 
   <section>
     <h3>3D reference</h3>
     <h2>The same layout in the rendered model</h2>
-    <div class="refs"><figure><img src="img/10_floorplan_ann.jpg" alt="Floor plan render" loading="lazy"><figcaption>Floor plan render</figcaption></figure><figure><img src="img/05_xray_ann.jpg" alt="Power system X-ray" loading="lazy"><figcaption>Power system X-ray</figcaption></figure><figure><img src="img/04b_tail_section_ann.jpg" alt="Tail section" loading="lazy"><figcaption>Tail section</figcaption></figure></div>
+    <div class="refs"><figure><img src="img/10_floorplan_ann.jpg" alt="Floor plan render"><figcaption>Floor plan render</figcaption></figure><figure><img src="img/05_xray_ann.jpg" alt="Power system X-ray"><figcaption>Power system X-ray</figcaption></figure><figure><img src="img/04b_tail_section_ann.jpg" alt="Tail section"><figcaption>Tail section</figcaption></figure></div>
   </section>
 
   <footer><span>22NFT · install map R1 · October 7, 2026</span><span>Source: scripts/install_map.py · PR #3, arthckr88/22NFT</span></footer>
