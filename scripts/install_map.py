@@ -116,6 +116,11 @@ def view_plan():
     # ghosts: below the floor and above the ceiling
     s += rect(21, 39, -26, 26, fy, 'ghost-dc')
     s += rect(8, 13, 36, 41, fy, 'ghost-pv', rx=1)
+    # the factory desk under the lift bed, roadside, rear wall to the shower: how it splits
+    s += rect(1, 72.4, 13, 43.5, fy, 'desk-out', rx=1)
+    s += rect(22.5, 47.5, 13, 43.5, fy, 'knee', rx=0)
+    s += text(X(35), fy(9) + 4, 'kneehole 25 in', 'small dark', 'middle')
+    s += text(X(35), fy(4) + 4, 'desktop stays', 'small dark', 'middle')
     # new hardware
     s += rect(4, 21.7, 37.15, 43.45, fy, 'n-dc')                       # RV5 in the desk base
     s += rect(48, 72, 19, 43.3, fy, 'n-wa')                           # washer A
@@ -289,8 +294,8 @@ def view_roof():
 # ---------------------------------------------------------------- schedule
 SCHED = [
     # n, sys, part, where, position, displaces, mount/access, connects
-    ('1', 'dc', 'Bluetti RV5 hub', 'In the base of the factory desk (“desk below”), roadside rear corner under the lift bed, on the floor against the roadside wall.',
-     'x 4–22 in from rear wall · roadside wall · floor level', 'Storage space in the desk base.',
+    ('1', 'dc', 'Bluetti RV5 hub', 'In the rear-end pedestal of the factory desk (“desk below”), roadside rear corner under the lift bed, on the floor against the roadside wall.',
+     'x 1–22 in from rear wall · roadside wall · floor level', 'The rear-end desk pedestal’s storage. With the washer at A, the desk keeps no drawer stack.',
      'Bolted to the floor through its mounting holes. Pedestal needs a vented front panel so the RV5 keeps 7.87 in of open air at its vents. Front panel removable for service.',
      '48 V down through the floor to the packs (%s) · PV trunks from the roof gland straight above (%s each) · 120 V in from the transfer switch in the pantry base (about 9 ft) · 120 V out to the factory breaker panel (location to find) · 12 V out to the coach 12 V panel.' % (
          ft('48V, RV5 to batteries'), ft('PV trunk, combiner to RV5 (x2 runs)'))),
@@ -334,8 +339,8 @@ SCHED = [
     ('12', 'ac', 'Surge protector / EMS (hardwired)', 'Beside the transfer switch in the pantry base.',
      'x 79–85 in · curbside', 'The bottom shelf of the pantry.', 'Screwed to the floor next to #11.',
      'Shore inlet in (inlet location unverified) · out to #11.'),
-    ('13A', 'wash', 'Splendide WDV2200XCD, location A', 'Rear office, roadside: replaces the bath-side drawer stack at the forward end of the lift-bed area, backed against the shower wall (owner’s October 5 plan).',
-     'x 48–72 in · roadside, behind the shower', 'The bath-side drawer stack under the lift bed.',
+    ('13A', 'wash', 'Splendide WDV2200XCD, location A', 'The bath end of the factory desk: replaces the desk’s bath-side drawer stack, backed against the shower wall. The desktop and kneehole stay (owner’s October 5 plan).',
+     'x 48–72 in · roadside, desk’s forward end', 'The desk’s bath-side drawer stack. The desk splits into RV5 pedestal (x 1–22), kneehole (x 22–48), washer cabinet (x 48–72).',
      'Own cabinet, kept separate from the desk. Vent straight out the roadside wall. Water from the shower plumbing on the other side of the wall; drain to the grey tank.',
      'Own 15 A circuit from the main panel.'),
     ('13B', 'wash', 'Splendide WDV2200XCD, location B', 'Rear garage: curbside rear corner under the lift bed, across from the desk.',
