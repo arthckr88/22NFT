@@ -103,67 +103,44 @@ def body_plan(fy, cab=True):
 
 # ---------------------------------------------------------------- VIEW 1: floor plan
 def view_plan():
+    """Factory floorplan as the underlay, scaled to 26 ft: image px -> x = (px - 90) / 4.9 in from the rear wall,
+    walls at py 50 (roadside, y +43.5) and py 520 (curbside, y -43.5)."""
     fy = Yp
-    s = body_plan(fy)
-    s += text(X(275), fy(0) + 4, 'CAB', 'zone-t', 'middle')
-    # wheels (reference)
-    for ax in AXLES:
-        for side in (-1, 1):
-            s += rect(ax - 14, ax + 14, side * 46.5, side * 39, fy, 'wheel', rx=3)
-    # stock coach, outlined
-    stock = [
-        (2, 62, -43.5, 43.5, 'bedover', '', None),
-        (63, 113, 7, 43.5, 'stock', 'Dry bath', (88, 26)),
-        (137, 160, 20, 43.5, 'stock', 'Fridge', (148.5, 32)),
-        (63, 141, -43.5, -19.5, 'stock', 'Galley · induction · sink', (102, -32)),
-        (164, 230, 10, 43.5, 'stock', 'Dinette', (197, 27)),
-        (196, 230, -43.5, -22.5, 'stock', 'Front bench', (213, -30)),
-        (240, 258, 8, 28, 'stock', 'Driver', (249, 18)),
-        (240, 258, -28, -8, 'stock', 'Passenger', (249, -18)),
-        (150, 158, -42.5, -39.5, 'stock', '', None),
-    ]
-    for x0, x1, y0, y1, cls, lab, at in stock:
-        s += rect(x0, x1, y0, y1, fy, cls)
-        if at:
-            s += text(X(at[0]), fy(at[1]) + 4, lab, 'zone-t', 'middle')
-    s += text(X(154), fy(-36), 'main 120 V panel', 'small', 'middle')
-    # desk + pedestal
-    s += rect(2, 26, -20, 43.5, fy, 'stock')
-    s += text(X(14), fy(-6), 'Desk', 'zone-t', 'middle')
-    s += text(X(14), fy(-12), '29.5 in top', 'small', 'middle')
-    s += rect(2, 24, 30, 43.5, fy, 'pedestal')
-    # entry door gap
-    s += '<line class="door" x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>' % (X(166), fy(-HALF), X(194), fy(-HALF))
-    s += text(X(180), fy(-HALF) + 16, 'entry door', 'small', 'middle')
-    # below-floor + above-ceiling ghosts
+    H = H_PLAN + 40
+    pxin = 4.9
+    sy = 470 / 87.0
+    ix, iy = X(-90 / pxin), fy(43.5 + 50 / sy)
+    iw, ih = 1600 / pxin * S, 584 / sy * S
+    s = '<rect class="paper" x="0" y="0" width="%d" height="%d"/>' % (W, H)
+    s += '<image href="img/factory-floorplan.png" x="%.1f" y="%.1f" width="%.1f" height="%.1f" preserveAspectRatio="none"/>' % (ix, iy, iw, ih)
+    # ghosts: below the floor and above the ceiling
     s += rect(21, 39, -26, 26, fy, 'ghost-dc')
-    s += text(X(32), fy(HALF) - 6, 'lift bed overhead x 2–62 (dashed)', 'small', 'middle')
     s += rect(8, 13, 36, 41, fy, 'ghost-pv', rx=1)
     # new hardware
-    s += rect(4, 21.7, 37.15, 43.45, fy, 'n-dc')                       # RV5
-    s += rect(114, 135.5, 20, 43, fy, 'n-wa')                         # washer A
-    s += text(X(124.75), fy(31.5) + 4, 'A', 'big-t', 'middle')
-    s += rect(3, 26, -43, -20.4, fy, 'n-wb')                          # washer B
-    s += text(X(14.5), fy(-31.7) + 4, 'B', 'big-t', 'middle')
-    s += rect(26, 28, 41, 43.5, fy, 'n-dc', rx=0.5)                  # Epad on wall
-    s += rect(198, 204, -40, -34, fy, 'n-ac')                         # transfer switch
-    s += rect(205, 211, -40, -34, fy, 'n-ac')                         # surge protector / EMS
-    s += rect(262, 279.3, -22, -14.7, fy, 'n-alt')                    # Orions
-    # runs (plan projection)
-    s += poly([(270, -18), (250, -15.5), (60, -15.5), (40, -15.5), (37, -18)], fy, 'run alt dashed')
+    s += rect(4, 21.7, 37.15, 43.45, fy, 'n-dc')                       # RV5 in the desk base
+    s += rect(48, 72, 19, 43.3, fy, 'n-wa')                           # washer A
+    s += text(X(60), fy(31) + 5, 'A', 'big-t dark', 'middle')
+    s += rect(3, 26, -43.3, -20.4, fy, 'n-wb')                        # washer B
+    s += text(X(14.5), fy(-31.7) + 5, 'B', 'big-t dark', 'middle')
+    s += rect(26.5, 28.5, 41, 43.5, fy, 'n-dc', rx=0.5)              # Epad
+    s += rect(73, 79, -42, -36, fy, 'n-ac')                           # transfer switch (pantry base)
+    s += rect(79.5, 84.5, -42, -36, fy, 'n-ac')                       # EMS
+    s += rect(206, 223.3, -24, -16.7, fy, 'n-alt')                    # Orions under passenger seat
+    s += poly([(214, -20), (200, -15.5), (60, -15.5), (40, -15.5), (37, -18)], fy, 'run alt dashed')
     s += poly([(12, 41), (12, 39), (22, 20), (24, 20)], fy, 'run dc')
-    # pins
-    s += pin(1, 13, 40.3, fy, 0, 28)
+    s += poly([(76, -38), (60, -38), (30, -10), (16, 36), (16, 38)], fy, 'run ac dashed')
+    s += pin(1, 13, 40.3, fy, 0, 30)
     s += pin(2, 30, 0, fy, 0, 0, 'dc')
-    s += pin(4, 27, 42.2, fy, 22, 18)
-    s += pin(5, 10.5, 38.5, fy, -18, -22, 'pv')
-    s += pin(10, 270.6, -18.3, fy, 0, 28, 'alt')
-    s += pin(11, 201, -37, fy, -12, 30, 'ac')
-    s += pin(12, 208, -37, fy, 14, 30, 'ac')
-    s += pin('13A', 124.75, 31.5, fy, 0, -40, 'wash')
-    s += pin('13B', 14.5, -31.7, fy, 62, 4, 'wash')
-    s += ruler(32, H_PLAN - 44)
-    return svg(H_PLAN, s, 'Floor plan with new hardware')
+    s += pin(4, 27.5, 42.2, fy, 16, 24)
+    s += pin(5, 10.5, 38.5, fy, -20, -20, 'pv')
+    s += pin(10, 214.6, -20.3, fy, 0, 34, 'alt')
+    s += pin(11, 76, -39, fy, -14, 30, 'ac')
+    s += pin(12, 82, -39, fy, 14, 30, 'ac')
+    s += pin('13A', 60, 31, fy, 0, -44, 'wash')
+    s += pin('13B', 14.5, -31.7, fy, 34, 22, 'wash')
+    s += text(X(318), H - 16, 'factory floorplan, scaled to 26 ft overall · positions approximate', 'small dark', 'end')
+    s += ruler(32, H - 44).replace('class="tick-t"', 'class="tick-t dark"').replace('class="axle-t"', 'class="axle-t dark"').replace('class="dir"', 'class="dir dark"')
+    return svg(H, s, 'Factory floor plan with new hardware placed on it')
 
 
 # ---------------------------------------------------------------- VIEW 2: side section
@@ -190,20 +167,20 @@ def view_side():
     s += rect(-6, 22, 16, 18.5, fz, 'frame', rx=0)
     s += text(X(4), fz(16) + 12, 'hitch', 'small', 'middle')
     # stock cabin
-    s += rect(2, 62, 104, 113.5, fz, 'bedover')
+    s += rect(1, 72, 104, 113.5, fz, 'bedover')
     s += text(X(32), fz(113.5) - 4, 'lift bed (raised)', 'small', 'middle')
     s += rect(2, 26, 64.25, 65.5, fz, 'stock', rx=0)
     s += text(X(44), fz(65.5) + 4, 'desk top 29.5 in', 'small')
-    s += rect(137, 160, F, 100, fz, 'stock')
-    s += text(X(148.5), fz(70), 'fridge', 'small', 'middle')
-    s += rect(240, 258, 26, 45, fz, 'stock')
+    s += rect(84.7, 114, F, 100, fz, 'stock')
+    s += text(X(99.3), fz(70), 'fridge (curbside)', 'small', 'middle')
+    s += rect(204, 228, 26, 45, fz, 'stock')
     # new: battery box, RV5, washers, roof
     s += rect(21, 39, 12, 19.5, fz, 'n-dc')
     s += rect(4, 21.7, F + 1.5, F + 21.2, fz, 'n-dc')
-    s += rect(114.25, 135.25, F + 0.6, F + 33.7, fz, 'n-wa')
+    s += rect(48, 72, F + 0.6, F + 33.7, fz, 'n-wa')
     s += rect(3.5, 26.1, F + 0.6, F + 33.7, fz, 'n-wb')
-    s += rect(198, 211, F + 2, F + 10, fz, 'n-ac')
-    s += rect(262, 279.3, 30, 33.2, fz, 'n-alt')
+    s += rect(73, 84.5, F + 2, F + 10, fz, 'n-ac')
+    s += rect(206, 223.3, 30, 33.2, fz, 'n-alt')
     for gx in (12, 152):
         s += rect(gx, gx + 92.9, ROOF + 2.5, ROOF + 3.9, fz, 'n-pv', rx=0)
     s += rect(115.5, 144.5, ROOF, ROOF + 14.5, fz, 'n-ac', rx=4)
@@ -213,9 +190,8 @@ def view_side():
     z = ROOF + 0.8
     s += poly([(108, z + 1), (60, z), (10.5, z), (10.5, 117), (8, F + 25), (8, F + 21)], fz, 'run pv')
     s += poly([(12, F + 3), (12, F - 3), (22, 26), (24, 18.5)], fz, 'run dc')
-    s += poly([(270, 30), (250, 23), (60, 23), (40, 21), (37, 17.5)], fz, 'run alt')
-    s += poly([(212, 34), (201, F + 6)], fz, 'run ac')
-    s += poly([(198, F + 3), (198, F - 4), (60, F - 4), (16, F - 4), (16, F + 4)], fz, 'run ac')
+    s += poly([(214, 30), (200, 23), (60, 23), (40, 21), (37, 17.5)], fz, 'run alt')
+    s += poly([(76, F + 3), (76, F - 4), (16, F - 4), (16, F + 4)], fz, 'run ac')
     # pins
     s += pin(1, 13, F + 11, fz, 0, -30)
     s += pin(2, 30, 15.75, fz, 0, 36, 'dc')
@@ -223,9 +199,9 @@ def view_side():
     s += pin(7, 109.75, ROOF + 2, fz, -8, -40, 'pv')
     s += pin(8, 130, ROOF + 7, fz, 26, -30, 'ac')
     s += pin(9, 130, ROOF + 15.2, fz, -26, -26, 'dc')
-    s += pin(10, 270.6, 31.6, fz, 0, -34, 'alt')
-    s += pin(11, 204.5, F + 6, fz, 0, -34, 'ac')
-    s += pin('13A', 124.75, F + 17, fz, 0, 0, 'wash')
+    s += pin(10, 214.6, 31.6, fz, 0, -34, 'alt')
+    s += pin(11, 78.7, F + 6, fz, 0, -34, 'ac')
+    s += pin('13A', 60, F + 17, fz, 0, 0, 'wash')
     s += pin('13B', 14.8, F + 27, fz, 34, -10, 'wash')
     s += ruler(28, H_SIDE - 34)
     return svg(H_SIDE, s, 'Side section showing heights')
@@ -257,19 +233,19 @@ def view_under():
     s += rect(21, 39, -26, 26, fy, 'n-dc')
     for y0 in (-24.5, 0.6):
         s += rect(22.5, 37.5, y0, y0 + 23.9, fy, 'pack', rx=1)
-    s += rect(262, 279.3, -22, -14.7, fy, 'n-alt')
+    s += rect(206, 223.3, -24, -16.7, fy, 'n-alt')
     # runs
-    s += poly([(270, -18), (250, -15.5), (60, -15.5), (40, -15.5), (37, -18)], fy, 'run alt')
-    s += poly([(212, -30), (201, -37)], fy, 'run ac')
-    s += poly([(198, -37), (198, -38), (60, -38), (30, -10), (16, 36), (16, 38)], fy, 'run ac')
-    s += poly([(16, 44.5), (20, 30), (60, 30), (180, -30), (198, -36)], fy, 'run ac dashed')
+    s += poly([(214, -20), (200, -15.5), (60, -15.5), (40, -15.5), (37, -18)], fy, 'run alt')
+    s += poly([(212, -30), (150, -38), (76, -39)], fy, 'run ac dashed')
+    s += poly([(76, -39), (60, -38), (30, -10), (16, 36), (16, 38)], fy, 'run ac')
+    s += poly([(16, 44.5), (20, 30), (60, 30), (70, -30), (76, -36)], fy, 'run ac dashed')
     s += '<circle class="riser dc" cx="%.1f" cy="%.1f" r="5"/>' % (X(12), fy(40))
     s += pin(2, 30, 13, fy, 0, -60, 'dc')
-    s += pin(10, 270.6, -18.3, fy, 0, 30, 'alt')
+    s += pin(10, 214.6, -20.3, fy, 0, 30, 'alt')
     s += pin(3, 12, 40, fy, -20, 16, 'dc')
-    s += text(X(150), fy(-15.5) - 10, 'alternator 48 V run along the curbside rail · ' + ft('48V, Orions to batteries'), 'small run-t alt-t', 'middle')
-    s += text(X(110), fy(-38) + 14, 'transfer switch → RV5 · ' + ft('120V, transfer switch to RV5 AC in'), 'small run-t ac-t', 'middle')
-    s += text(X(110), fy(30) - 6, 'shore inlet → transfer switch (inlet spot unverified) · ' + ft('120V, shore inlet to transfer switch'), 'small run-t ac-t', 'middle')
+    s += text(X(150), fy(-15.5) - 10, 'alternator 48 V run along the curbside rail · about 16 ft', 'small run-t alt-t', 'middle')
+    s += text(X(60), fy(-38) + 14, 'transfer switch → RV5 · about 9 ft', 'small run-t ac-t', 'middle')
+    s += text(X(110), fy(30) - 6, 'shore inlet → transfer switch (inlet spot unverified)', 'small run-t ac-t', 'middle')
     s += ruler(32, H_PLAN - 44)
     return svg(H_PLAN, s, 'Underbody plan, looking down through the floor')
 
@@ -313,26 +289,26 @@ def view_roof():
 # ---------------------------------------------------------------- schedule
 SCHED = [
     # n, sys, part, where, position, displaces, mount/access, connects
-    ('1', 'dc', 'Bluetti RV5 hub', 'Inside the desk’s roadside pedestal, on the floor against the roadside wall, under the desktop.',
-     'x 4–22 in from rear wall · roadside wall · floor level', 'The roadside end of the desk base (pedestal storage).',
+    ('1', 'dc', 'Bluetti RV5 hub', 'In the base of the factory desk (“desk below”), roadside rear corner under the lift bed, on the floor against the roadside wall.',
+     'x 4–22 in from rear wall · roadside wall · floor level', 'Storage space in the desk base.',
      'Bolted to the floor through its mounting holes. Pedestal needs a vented front panel so the RV5 keeps 7.87 in of open air at its vents. Front panel removable for service.',
-     '48 V down through the floor to the packs (%s) · PV trunks from the roof gland straight above (%s each) · 120 V in from the transfer switch (%s) · 120 V out to the main panel (%s) · 12 V out to the coach 12 V panel.' % (
-         ft('48V, RV5 to batteries'), ft('PV trunk, combiner to RV5 (x2 runs)'), ft('120V, transfer switch to RV5 AC in'), ft('120V, RV5 AC out to main panel'))),
+     '48 V down through the floor to the packs (%s) · PV trunks from the roof gland straight above (%s each) · 120 V in from the transfer switch in the pantry base (about 9 ft) · 120 V out to the factory breaker panel (location to find) · 12 V out to the coach 12 V panel.' % (
+         ft('48V, RV5 to batteries'), ft('PV trunk, combiner to RV5 (x2 runs)'))),
     ('2', 'dc', '2 × B4810 in a sealed box', 'Under the tail, across the frame rails, between the hitch crossmember and the spare tire.',
      'x 21–39 in from rear wall (about 64 in behind the rear axle) · 52 × 18 × 7.5 in box · bottom about 12 in off the ground',
      'Nothing inside. Uses empty space behind the spare. Must clear the hitch receiver tube, the exhaust tip, and the dump valves.',
      'Hangers bolted to the coach builder’s frame extension (not welded). Lockable lid, baffled vent, low drain, skid plate. Packs fused inside the box at their terminals.',
-     '48 V up through the floor into the desk pedestal (%s) · alternator 48 V run from the cab (%s).' % (ft('48V, RV5 to batteries'), ft('48V, Orions to batteries'))),
-    ('3', 'dc', 'Main DC disconnect, PV breakers, pack fuse', 'Disconnect and both PV breakers inside the desk pedestal next to the RV5. The pack fuse goes in the battery box.',
-     'Desk pedestal, beside #1 · pack fuse in #2', 'Shares the pedestal with the RV5.',
+     '48 V up through the floor into the desk base (%s) · alternator 48 V run from the cab (about 16 ft).' % ft('48V, RV5 to batteries')),
+    ('3', 'dc', 'Main DC disconnect, PV breakers, pack fuse', 'Disconnect and both PV breakers inside the desk base next to the RV5. The pack fuse goes in the battery box.',
+     'Desk base, beside #1 · pack fuse in #2', 'Shares the desk base with the RV5.',
      'Reachable from inside the coach without crawling under. (The 3D model draws the disconnect on the box; this map moves it inside.)',
      'Sits between the packs and the RV5, and between each PV trunk and its RV5 input.'),
-    ('4', 'dc', 'Bluetti Epad (control screen)', 'On the roadside wall at the desk, just above the pedestal.',
+    ('4', 'dc', 'Bluetti Epad (control screen)', 'On the roadside wall at the desk, just above the desk base.',
      'x 26–28 in · roadside wall · eye level when seated', 'Wall space only.',
      'Surface mount. Ethernet to the RV5 directly below.', 'Data cable to #1 (under 3 ft).'),
-    ('5', 'pv', 'Roof cable gland', 'Rear roadside corner of the roof, directly above the desk pedestal.',
+    ('5', 'pv', 'Roof cable gland', 'Rear roadside corner of the roof, directly above the desk.',
      'x 8–13 in · 36–41 in roadside of centre', 'Nothing. New sealed penetration (or the factory solar side-port if it lands here).',
-     'Sealed gland with written roof-warranty coverage. The two PV trunks drop inside the rear roadside wall into the pedestal.',
+     'Sealed gland with written roof-warranty coverage. The two PV trunks drop inside the rear roadside wall into the desk base.',
      'Both PV trunks from #7 to #1.'),
     ('6', 'pv', '6 × Callsun 275 W panels', 'Roof, one crosswise row of six: panels 1–3 behind the AC, panels 4–6 ahead of it, running onto the cab-over roof.',
      'x 12–105 and 152–245 in · each 68.35 in across the roof', 'Roof space only. The existing fans and skylight sit under the panels (see fit check).',
@@ -349,22 +325,22 @@ SCHED = [
      'x 124–137 in · 22–33 in roadside of centre', 'Roof space only.', 'Flat mount, adhesive or bolted. Cable rides the PV gland or the AC chase.',
      '12 V from the RV5 12 V output.'),
     ('10', 'alt', '2 × Victron Orion-Tr 12/48', 'Under the passenger (curbside) cab seat, close to the starter battery.',
-     'x 262–279 in · curbside · under the seat base', 'Space under the passenger seat.',
-     'Screwed to the seat base. Ignition-switched. Fuse at the starter battery.',
-     '12 V from the starter battery (%s) · 48 V back to the packs along the curbside rail (%s, about 16 A, so a small cable).' % (ft('12V, starter battery to Orions'), ft('48V, Orions to batteries'))),
-    ('11', 'ac', 'Transfer switch', 'Inside the base of the front curbside bench, above the generator bay.',
-     'x 198–204 in · curbside', 'Part of the bench base.', 'Screwed to the floor inside the bench. Service through the bench lid.',
-     'Generator in (%s) · shore in through #12 · out to the RV5 AC input (%s).' % (ft('120V, generator to transfer switch'), ft('120V, transfer switch to RV5 AC in'))),
-    ('12', 'ac', 'Surge protector / EMS (hardwired)', 'Beside the transfer switch in the same bench base.',
-     'x 205–211 in · curbside', 'Part of the bench base.', 'Screwed to the floor next to #11.',
-     'Shore inlet in (%s; the inlet’s real spot is unverified) · out to #11.' % ft('120V, shore inlet to transfer switch')),
-    ('13A', 'wash', 'Splendide WDV2200XCD, location A', 'Bath side: replaces the drawer stack between the bath wall and the fridge.',
-     'x 113–137 in · roadside', 'The bath-side drawer stack.',
-     'Own cabinet with a folding counter on top. Vent straight out the roadside wall. Water from the bath manifold next door; drain drops into the grey tank, which sits almost directly below.',
+     'x 206–223 in · curbside · under the seat base', 'Space under the passenger seat. The cab seats swivel to face the table, so the swivel base must leave room (fit check).',
+     'Screwed to the seat base or the floor beside it. Ignition-switched. Fuse at the starter battery.',
+     '12 V from the starter battery (about 3 ft) · 48 V back to the packs along the curbside rail (about 16 ft, about 16 A, so a small cable).'),
+    ('11', 'ac', 'Transfer switch', 'In the base of the pantry, curbside, just forward of the lift bed. Candidate spot: move it next to the factory power center if that turns out to be nearby.',
+     'x 73–79 in · curbside · floor of the pantry', 'The bottom shelf of the pantry.', 'Screwed to the floor. Service through the pantry door.',
+     'Generator in (length depends on the generator bay, unverified) · shore in through #12 · out to the RV5 AC input (about 9 ft).'),
+    ('12', 'ac', 'Surge protector / EMS (hardwired)', 'Beside the transfer switch in the pantry base.',
+     'x 79–85 in · curbside', 'The bottom shelf of the pantry.', 'Screwed to the floor next to #11.',
+     'Shore inlet in (inlet location unverified) · out to #11.'),
+    ('13A', 'wash', 'Splendide WDV2200XCD, location A', 'Rear office, roadside: replaces the bath-side drawer stack at the forward end of the lift-bed area, backed against the shower wall (owner’s October 5 plan).',
+     'x 48–72 in · roadside, behind the shower', 'The bath-side drawer stack under the lift bed.',
+     'Own cabinet, kept separate from the desk. Vent straight out the roadside wall. Water from the shower plumbing on the other side of the wall; drain to the grey tank.',
      'Own 15 A circuit from the main panel.'),
-    ('13B', 'wash', 'Splendide WDV2200XCD, location B', 'Rear garage: curbside rear corner under the lift bed, beside the desk.',
+    ('13B', 'wash', 'Splendide WDV2200XCD, location B', 'Rear garage: curbside rear corner under the lift bed, across from the desk.',
      'x 3–26 in · curbside rear corner', 'Garage floor space on the curbside.',
-     'Vent out the rear wall. Longer water and drain runs (grey tank is about 7 ft forward). Adds more rear-axle load than A.',
+     'Vent out the rear wall. Sits right inside the curbside large cargo door, so it blocks that door and part of the garage. Longer water and drain runs than A, and more rear-axle load.',
      'Own 15 A circuit from the main panel.'),
 ]
 
@@ -372,9 +348,12 @@ CHECKS = [
     ('Roof fans and skylight under the panels', 'The panels sit 2.5 in off the roof, and the model puts two roof fans and the bath skylight under them. A MaxxFan Deluxe with rain dome is 23.2 × 16.6 in and stands 5.0 in tall closed and 9.1 in with the lid open (retailer spec, overall unit height). It cannot sit under a panel on 2.5 in brackets. See the roof fallback section.'),
     ('Roof length and AC position', 'The row of six spans 233 in from the first panel edge to the last (x 12 to 245). The model treats the roof as flat from the rear cap over the cab-over to about x 300. Measure the flat roof length, whether the cab-over roof is flat and walkable, and the AC opening’s distance from the rear cap.'),
     ('Tail box vs. hitch and spare', 'In the model the box starts right where the receiver tube ends. Measure the gap from the hitch crossmember to the spare, frame-extension height and bolt points, and exhaust-tip position.'),
-    ('Desk pedestal size', 'The RV5 is 17.7 × 19.7 × 6.3 in and wants 7.87 in of air at its vents. Measure the desk base on the roadside to confirm it can be opened up into a vented pedestal.'),
+    ('Desk base size', 'The RV5 is 17.7 × 19.7 × 6.3 in and wants 7.87 in of air at its vents. Measure the factory desk base in the roadside rear corner to confirm it can take the RV5 with a vented front.'),
+    ('Passenger seat swivel', 'The cab seats swivel to face the table. Check what’s under the passenger swivel base and whether two Orions (each about 7.3 × 5.1 × 3.1 in) fit without blocking the swivel. Fallback: the floor beside the seat base or the pantry base with the transfer switch.'),
+    ('Factory power center and generator bay', 'Find the factory breaker panel and converter, and the generator bay. The transfer switch goes in the pantry base unless the power center is close by.'),
     ('Shore inlet location', 'The model guesses the inlet is at the rear roadside. If it’s forward, the shore run to the transfer switch gets shorter.'),
-    ('Washer A width', 'Location A needs the bath-side drawer stack to be at least 24 in wide.'),
+    ('Cargo doors', 'The factory floorplan shows large cargo doors in the rear wall and on the curbside under the bed. Washer B sits inside the curbside door. The RV5 and desk are in the roadside rear corner, clear of the curbside door but next to the rear doors.'),
+    ('Washer A space', 'Location A needs the bath-side drawer stack under the lift bed to be at least 24 in wide, with clear height under the bed for the 33.1 in machine plus its top.'),
 ]
 
 
@@ -384,7 +363,7 @@ def axle_section():
     def sp(w, x):
         f = w * (x - 94) / WB
         return f, w - f
-    base = {'A': (-5.5, 704.1), 'B': (-96.9, 795.5)}
+    base = {'A': (-58.7, 757.3), 'B': (-96.9, 795.5)}
     heavy = [sp(107.7, 58.5), sp(107.7, 198.5)]
     hv = (sum(a for a, b in heavy), sum(b for a, b in heavy))
     common = [sp(290.5, 138), sp(40, -6), sp(200, 250), sp(350, 130)]
@@ -400,8 +379,8 @@ def axle_section():
 
 
 def page():
-    imgs = [('img/10_floorplan_ann.jpg', 'Floor plan render'), ('img/05_xray_ann.jpg', 'Power system X-ray'),
-            ('img/04b_tail_section_ann.jpg', 'Tail section')]
+    imgs = [('img/factory-floorplan.png', 'Factory 22NF floorplan (East to West)'), ('img/05_xray_ann.jpg', 'Power system X-ray (3D model, interior out of date)'),
+            ('img/04b_tail_section_ann.jpg', 'Tail section (3D model)')]
     rows = ''
     for n, sys, part, where, pos, disp, mount, conn in SCHED:
         rows += ('<tr><td><span class="chip %s">%s</span></td><td><strong>%s</strong><span class="where">%s</span></td>'
@@ -416,7 +395,7 @@ def page():
 
 def main():
     os.makedirs(os.path.join(OUT, 'img'), exist_ok=True)
-    for f in ('10_floorplan_ann.jpg', '05_xray_ann.jpg', '04b_tail_section_ann.jpg'):
+    for f in ('05_xray_ann.jpg', '04b_tail_section_ann.jpg'):
         shutil.copy(os.path.join(ROOT, 'book', 'img', f), os.path.join(OUT, 'img', f))
     open(os.path.join(OUT, 'index.html'), 'w').write(page())
     print('install map written', W, H_PLAN, H_SIDE)
