@@ -1,0 +1,6 @@
+renders/*_preview.png
+renders/*_preview.json
+renders/batch.log
+__pycache__/
+*.blend1
+model/*.blend1

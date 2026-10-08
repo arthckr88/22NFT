@@ -1,0 +1,191 @@
+{
+ "rows": [],
+ "wheelbase": 178.0,
+ "x_rear_axle": 94.0,
+ "rows_A": [
+  {
+   "item": "2 x B4810 batteries",
+   "lb": 202.0,
+   "x": 30.0,
+   "d_from_rear_axle": -64.0,
+   "front": -72.6,
+   "rear": 274.6
+  },
+  {
+   "item": "Battery box + mounts",
+   "lb": 25.0,
+   "x": 30.0,
+   "d_from_rear_axle": -64.0,
+   "front": -9.0,
+   "rear": 34.0
+  },
+  {
+   "item": "RV5 hub",
+   "lb": 30.9,
+   "x": 13.0,
+   "d_from_rear_axle": -81.0,
+   "front": -14.1,
+   "rear": 45.0
+  },
+  {
+   "item": "Solar, rear 3 panels",
+   "lb": 89.4,
+   "x": 58.5,
+   "d_from_rear_axle": -35.5,
+   "front": -17.8,
+   "rear": 107.2
+  },
+  {
+   "item": "Solar, front 3 panels",
+   "lb": 89.4,
+   "x": 198.5,
+   "d_from_rear_axle": 104.5,
+   "front": 52.5,
+   "rear": 36.9
+  },
+  {
+   "item": "Panel mounts, combiner, cable",
+   "lb": 60.0,
+   "x": 128.0,
+   "d_from_rear_axle": 34.0,
+   "front": 11.5,
+   "rear": 48.5
+  },
+  {
+   "item": "2 x Orion-Tr",
+   "lb": 7.9,
+   "x": 266.0,
+   "d_from_rear_axle": 172.0,
+   "front": 7.6,
+   "rear": 0.3
+  },
+  {
+   "item": "48V and AC cable runs",
+   "lb": 40.0,
+   "x": 140.0,
+   "d_from_rear_axle": 46.0,
+   "front": 10.3,
+   "rear": 29.7
+  },
+  {
+   "item": "Starlink Mini + mount",
+   "lb": 6.0,
+   "x": 130.0,
+   "d_from_rear_axle": 36.0,
+   "front": 1.2,
+   "rear": 4.8
+  },
+  {
+   "item": "Washer-dryer (A)",
+   "lb": 148.0,
+   "x": 124.0,
+   "d_from_rear_axle": 30.0,
+   "front": 24.9,
+   "rear": 123.1
+  }
+ ],
+ "total_A": {
+  "lb": 698.6,
+  "front": -5.5,
+  "rear": 704.1
+ },
+ "rows_B": [
+  {
+   "item": "2 x B4810 batteries",
+   "lb": 202.0,
+   "x": 30.0,
+   "d_from_rear_axle": -64.0,
+   "front": -72.6,
+   "rear": 274.6
+  },
+  {
+   "item": "Battery box + mounts",
+   "lb": 25.0,
+   "x": 30.0,
+   "d_from_rear_axle": -64.0,
+   "front": -9.0,
+   "rear": 34.0
+  },
+  {
+   "item": "RV5 hub",
+   "lb": 30.9,
+   "x": 13.0,
+   "d_from_rear_axle": -81.0,
+   "front": -14.1,
+   "rear": 45.0
+  },
+  {
+   "item": "Solar, rear 3 panels",
+   "lb": 89.4,
+   "x": 58.5,
+   "d_from_rear_axle": -35.5,
+   "front": -17.8,
+   "rear": 107.2
+  },
+  {
+   "item": "Solar, front 3 panels",
+   "lb": 89.4,
+   "x": 198.5,
+   "d_from_rear_axle": 104.5,
+   "front": 52.5,
+   "rear": 36.9
+  },
+  {
+   "item": "Panel mounts, combiner, cable",
+   "lb": 60.0,
+   "x": 128.0,
+   "d_from_rear_axle": 34.0,
+   "front": 11.5,
+   "rear": 48.5
+  },
+  {
+   "item": "2 x Orion-Tr",
+   "lb": 7.9,
+   "x": 266.0,
+   "d_from_rear_axle": 172.0,
+   "front": 7.6,
+   "rear": 0.3
+  },
+  {
+   "item": "48V and AC cable runs",
+   "lb": 40.0,
+   "x": 140.0,
+   "d_from_rear_axle": 46.0,
+   "front": 10.3,
+   "rear": 29.7
+  },
+  {
+   "item": "Starlink Mini + mount",
+   "lb": 6.0,
+   "x": 130.0,
+   "d_from_rear_axle": 36.0,
+   "front": 1.2,
+   "rear": 4.8
+  },
+  {
+   "item": "Washer-dryer (B)",
+   "lb": 148.0,
+   "x": 14.0,
+   "d_from_rear_axle": -80.0,
+   "front": -66.5,
+   "rear": 214.5
+  }
+ ],
+ "total_B": {
+  "lb": 698.6,
+  "front": -96.9,
+  "rear": 795.5
+ },
+ "recheck": {
+  "earlier": {
+   "d": 80,
+   "front": -91.2,
+   "rear": 294.2
+  },
+  "modelled": {
+   "d": 64,
+   "front": -73.0,
+   "rear": 276.0
+  }
+ }
+}

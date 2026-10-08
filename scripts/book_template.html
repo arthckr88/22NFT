@@ -1,0 +1,467 @@
+<title>Alita 22NFT Build Book</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Andrew Rose design system: black-first, bone type, hairlines, colour only from imagery.
+   Layout: one centred 1120px column; the hero and the 3D viewer run full width. Single dark look by choice. */
+:root {
+  --ink: #000000; --bone: #f3f1ec; --copy: #cfcbc2; --mute: #8a8a8a; --faint: #4a4a4a;
+  --panel: #0c0c0d; --line: rgba(243, 241, 236, 0.12); --line-soft: rgba(243, 241, 236, 0.07);
+  --pv: #ffaa3c; --dc: #5a96ff; --alt: #50dc96; --ac: #af8cff;
+  --f-display: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  --f-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { background: var(--ink); scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); }
+body { margin: 0; background: var(--ink); color: var(--bone); font: 300 15.5px/1.6 var(--f-body); -webkit-font-smoothing: antialiased; }
+a { color: var(--bone); text-decoration-color: var(--faint); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--bone); }
+:focus-visible { outline: 1px solid var(--bone); outline-offset: 3px; }
+.mono { font: 400 11px/1.4 var(--f-mono); letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); }
+.wrap { max-width: 1120px; margin: 0 auto; padding-inline: clamp(16px, 5vw, 56px); }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 300; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+p { margin: 0; max-width: 62ch; }
+
+/* top bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(0,0,0,0.88); border-bottom: 1px solid var(--line-soft); }
+.bar .wrap { display: flex; align-items: center; gap: 22px; height: 56px; overflow-x: auto; scrollbar-width: none; }
+.bar .wrap::-webkit-scrollbar { display: none; }
+.bar .id { font: 400 15px var(--f-display); letter-spacing: 0.04em; white-space: nowrap; margin-right: auto; }
+.bar a { font: 400 10.5px var(--f-mono); letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); text-decoration: none; white-space: nowrap; }
+.bar a:hover { color: var(--bone); }
+
+/* hero with letterbox bars and a lower third */
+.hero { position: relative; background: var(--ink); }
+.hero .frame { position: relative; aspect-ratio: 16 / 9; max-height: 82vh; width: 100%; overflow: hidden; margin-inline: auto; }
+.hero img { display: block; width: 100%; height: 100%; object-fit: cover; animation: settle 2.4s var(--ease) both; }
+@keyframes settle { from { opacity: 0.35; transform: scale(1.03); } to { opacity: 1; transform: none; } }
+.hero .lb { position: absolute; inset-inline: 0; height: 5.5%; background: var(--ink); }
+.hero .lb.t { top: 0; } .hero .lb.b { bottom: 0; }
+.hero .third { position: absolute; left: 0; right: 0; bottom: 5.5%; padding: 64px clamp(16px, 5vw, 56px) 28px; background: linear-gradient(180deg, transparent, rgba(0,0,0,0.78)); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 40px; }
+.hero h1 { font-weight: 200; font-size: clamp(40px, 7vw, 84px); line-height: 1; }
+.hero .third p { color: var(--copy); font-size: 16px; max-width: 46ch; }
+@media (max-width: 640px) { .hero .frame { aspect-ratio: 4 / 5; } .hero .third { padding-top: 40px; } }
+
+/* slab section header: label, rule, index */
+section { padding-block: clamp(48px, 7vh, 90px); border-top: 1px solid var(--line-soft); }
+.slab { display: flex; align-items: center; gap: 16px; margin-bottom: 28px; }
+.slab .rule { flex: 1; height: 1px; background: var(--line); }
+.head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 48px; align-items: end; margin-bottom: 36px; }
+.head h2 { font-size: clamp(26px, 3.4vw, 40px); line-height: 1.1; }
+.head p { color: var(--copy); }
+@media (max-width: 760px) { .head { grid-template-columns: 1fr; } }
+
+/* facts */
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 28px 32px; }
+.fact { border-left: 1px solid var(--line); padding-left: 16px; display: grid; gap: 6px; }
+.fact b { font: 300 30px/1.1 var(--f-display); font-variant-numeric: tabular-nums; }
+.fact span:last-child { color: var(--copy); font-size: 14px; }
+.lede { font-size: 18px; color: var(--copy); max-width: 62ch; }
+.verdict { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; margin-top: 44px; }
+.verdict h3 { font-size: 22px; margin-bottom: 12px; }
+.verdict ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; color: var(--copy); }
+.verdict li::marker { color: var(--faint); }
+
+/* gallery tiles: grayscale at rest, colour on reveal */
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); gap: 28px 20px; }
+.tile { margin: 0; display: grid; gap: 10px; }
+.tile-btn { padding: 0; border: 1px solid var(--line-soft); border-radius: 4px; background: var(--panel); overflow: hidden; cursor: zoom-in; aspect-ratio: 16 / 9; max-width: 100%; }
+.tile-btn img { display: block; width: 100%; height: 100%; object-fit: cover; transition: filter 0.4s ease, transform 0.8s var(--ease); }
+@media (hover: hover) {
+  .tile-btn img { filter: grayscale(0.8) brightness(0.72); }
+  .tile-btn:hover img, .tile-btn:focus-visible img { filter: none; transform: scale(1.02); }
+}
+.tile figcaption { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.tile .cap { font: 300 17px var(--f-display); color: var(--bone); text-align: right; }
+
+/* lightbox: film cut */
+.lightbox { position: fixed; inset: 0; z-index: 50; background: var(--ink); display: grid; grid-template-rows: auto minmax(0, 1fr) auto; padding: calc(env(safe-area-inset-top, 0px) + 12px) clamp(12px, 3vw, 32px) calc(env(safe-area-inset-bottom, 0px) + 16px); }
+.lightbox.cut img { animation: fadeup 0.5s var(--ease) both; }
+@keyframes fadeup { from { opacity: 0; } to { opacity: 1; } }
+.lb-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding-bottom: 10px; }
+.lb-img { min-height: 0; display: grid; place-items: center; }
+.lb-img img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.lb-bottom { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding-top: 12px; }
+.lb-bottom p { color: var(--copy); }
+.btn { font: 400 10.5px var(--f-mono); letter-spacing: 0.22em; text-transform: uppercase; color: var(--bone); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 10px 16px; min-height: 40px; cursor: pointer; }
+.btn:hover { border-color: var(--bone); }
+.btn[aria-pressed="true"] { background: var(--bone); color: var(--ink); border-color: var(--bone); }
+.btn:active { opacity: 0.6; }
+.btns { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* 3D viewer */
+.viewer { position: relative; border: 1px solid var(--line-soft); border-radius: 4px; overflow: hidden; background: #050506; aspect-ratio: 16 / 9; max-height: 72vh; width: 100%; }
+.viewer canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.viewer .status { position: absolute; left: 16px; bottom: 14px; }
+.viewer .hint { position: absolute; right: 16px; bottom: 14px; }
+@media (max-width: 640px) { .viewer { aspect-ratio: 4 / 5; } .viewer .hint { display: none; } }
+.layers { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; align-items: center; }
+.layers .mono { margin-right: 8px; }
+.sw { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; background: currentColor; }
+
+/* tables */
+.tbl { overflow-x: auto; border-top: 1px solid var(--line); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 12px 14px 12px 0; border-bottom: 1px solid var(--line-soft); }
+thead th { font: 400 10.5px var(--f-mono); letter-spacing: 0.22em; text-transform: uppercase; color: var(--mute); }
+tbody th { font-weight: 400; color: var(--bone); }
+td { color: var(--copy); }
+td.n { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+td.src { font-size: 12.5px; white-space: nowrap; }
+tr.total td { color: var(--bone); border-top: 1px solid var(--line); font-weight: 400; }
+.spec table { min-width: 760px; }
+.pill { display: inline-block; font: 500 9.5px var(--f-mono); letter-spacing: 0.18em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.pill-c { background: var(--bone); color: var(--ink); }
+.pill-r { border: 1px solid var(--copy); color: var(--copy); }
+.pill-e { border: 1px dashed var(--mute); color: var(--mute); }
+.pill-w1 { background: var(--bone); color: var(--ink); }
+.pill-w2 { border: 1px solid var(--copy); color: var(--copy); }
+.pill-w3 { border: 1px dashed var(--mute); color: var(--mute); }
+.swatch { display: inline-block; width: 18px; height: 3px; margin-right: 10px; vertical-align: 3px; }
+.sw-pv { background: var(--pv); } .sw-dc { background: var(--dc); } .sw-alt { background: var(--alt); } .sw-ac { background: var(--ac); }
+
+/* components */
+.comps { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 20px; }
+.comp { border: 1px solid var(--line); border-radius: 4px; padding: 20px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.comp h3 { font-size: 21px; }
+.comp dl { margin: 0; display: grid; gap: 10px; }
+.comp dl div { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 12px; }
+.comp dt { font: 400 10px/1.9 var(--f-mono); letter-spacing: 0.2em; text-transform: uppercase; color: var(--mute); }
+.comp dd { margin: 0; color: var(--copy); font-size: 14px; }
+
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 40px; }
+.two > * { min-width: 0; }
+.callout { border-left: 1px solid var(--line); padding-left: 16px; color: var(--copy); display: grid; gap: 8px; }
+.callout b { color: var(--bone); font-weight: 400; }
+
+.decs { margin: 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.dec { display: grid; grid-template-columns: minmax(0, 220px) minmax(0, 1fr); gap: 8px 32px; padding-block: 14px; border-bottom: 1px solid var(--line-soft); }
+.dec dt { font: 400 17px var(--f-display); }
+.dec dd { margin: 0; color: var(--copy); font-size: 14.5px; }
+@media (max-width: 640px) { .dec { grid-template-columns: 1fr; } }
+
+.walklist { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
+.walk { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; padding-block: 14px; border-bottom: 1px solid var(--line-soft); align-items: start; }
+.walk strong { font: 400 17px var(--f-display); display: block; margin-bottom: 2px; }
+.walk p { color: var(--copy); font-size: 14.5px; }
+@media (max-width: 520px) { .walk { grid-template-columns: 1fr; gap: 6px; } }
+
+footer { border-top: 1px solid var(--line-soft); padding-block: 40px 64px; color: var(--mute); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 12px 32px; justify-content: space-between; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<nav class="bar" aria-label="Sections">
+  <div class="wrap">
+    <span class="id">Alita 22NFT</span>
+    <a href="#audit">Audit</a><a href="#renders">Renders</a><a href="#model">3D</a><a href="#specs">Specs</a>
+    <a href="#components">Components</a><a href="#laundry">Laundry</a><a href="#weight">Weight</a>
+    <a href="#power">Power</a><a href="#decisions">Decisions</a><a href="#walkthrough">Walkthrough</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="frame">
+    <img src="img/01_exterior.jpg" alt="The finished Alita 22NFT, curbside three-quarter view, with the Abarth flat-towed behind." width="1920" height="1080">
+    <div class="lb t"></div><div class="lb b"></div>
+    <div class="third">
+      <div style="display:grid;gap:12px">
+        <span class="mono">Build book · 3D model R1 · October 7, 2026</span>
+        <h1>Alita 22NFT</h1>
+      </div>
+      <p>A solo, full-time rolling edit suite on the AWD Transit. 10.24 kWh under the tail, 1,650 W on the roof, a variable-speed heat pump and a vented washer-dryer.</p>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="audit">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Audit</span><span class="rule"></span><span class="mono">01</span></div>
+    <div class="head"><h2>Everything fits on paper. Three numbers decide it on the lot.</h2>
+      <p>Modelled from published specs where they exist and labelled estimates where they don't. The build adds about {{TA_LB}} lb, and nearly all of it lands on the rear axle.</p></div>
+    <div class="facts">
+      <div class="fact"><span class="mono">Roof needed</span><b>233 in</b><span>of about 234 in flat roof (estimate)</span></div>
+      <div class="fact"><span class="mono">Rear axle</span><b>{{TA_R}} lb</b><span>Laundry A · {{TB_R}} lb with B</span></div>
+      <div class="fact"><span class="mono">Departure</span><b>9.3°</b><span>at the box · 9.1° at the hitch</span></div>
+      <div class="fact"><span class="mono">Storage</span><b>10.24 kWh</b><span>2 × B4810 at 48V</span></div>
+    </div>
+    <div class="verdict">
+      <div><h3>Holds</h3><ul>
+        <li>Six panels crosswise: 186.8 in in one row (15.6 ft), confirmed by the panel spec. Split around a mid-roof AC they take about 233 in of roof.</li>
+        <li>Parallel wiring: 3 × 13.69 A = 41.1 A per RV5 input, under the 50 A limit.</li>
+        <li>The battery box does not set the departure angle; the hitch receiver still bottoms first.</li>
+        <li>RV5 sits inside the desk pedestal, directly above the packs, with the kneehole open.</li>
+      </ul></div>
+      <div><h3>Changed</h3><ul>
+        <li>Tail battery axle shift: the earlier {{RC_ER}} lb rear / {{RC_EF}} lb front assumed the packs 80 in behind the axle. The modelled spot is 64 in behind it: {{RC_MR}} rear / {{RC_MF}} front for the 203 lb of packs.</li>
+        <li>Whole build: {{TA_F}} lb front / {{TA_R}} lb rear with laundry A, {{TB_F}} / {{TB_R}} with laundry B.</li>
+        <li>Starlink modelled as the Mini (40–50 W) beside the AC.</li>
+      </ul></div>
+      <div><h3>Measure first</h3><ul>
+        <li>Flat roof length and where the 14×14 AC opening sits.</li>
+        <li>Tail space: frame height, spare position, receiver height.</li>
+        <li>Per-axle weight of the loaded coach.</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="renders">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Renders</span><span class="rule"></span><span class="mono">02</span></div>
+    <div class="head"><h2>Thirteen views, nine with labels and dimensions.</h2>
+      <p>Cycles, 1920 × 1080. Open any view for full size; annotated views switch between the clean render and the labelled one. Proportions follow published dimensions; positions marked estimate are modelled.</p></div>
+    <div class="grid">{{TILES}}</div>
+  </div>
+</section>
+
+<section id="model">
+  <div class="wrap">
+    <div class="slab"><span class="mono">3D model</span><span class="rule"></span><span class="mono">03</span></div>
+    <div class="head"><h2>Orbit the build.</h2><p>Drag to orbit, scroll or pinch to zoom, right-drag to pan. Switch layers off to see inside; laundry A and B are alternatives.</p></div>
+    <div class="viewer" id="viewer">
+      <canvas id="gl" aria-label="Interactive 3D model of the coach"></canvas>
+      <span class="status mono" id="vstatus">Loading model</span>
+      <span class="hint mono">Drag · zoom · pan</span>
+    </div>
+    <div class="layers" role="group" aria-label="Layers">
+      <span class="mono">Layers</span>
+      <button class="btn" type="button" id="L-shell" data-layer="shell" aria-pressed="true">Shell</button>
+      <button class="btn" type="button" id="L-interior" data-layer="interior" aria-pressed="true">Interior</button>
+      <button class="btn" type="button" id="L-solar" data-layer="solar" aria-pressed="true"><span class="sw" style="color:var(--pv)"></span>Solar</button>
+      <button class="btn" type="button" id="L-power" data-layer="power" aria-pressed="true"><span class="sw" style="color:var(--dc)"></span>Power</button>
+      <button class="btn" type="button" id="L-laundryA" data-layer="laundryA" aria-pressed="true">Laundry A</button>
+      <button class="btn" type="button" id="L-laundryB" data-layer="laundryB" aria-pressed="false">Laundry B</button>
+      <button class="btn" type="button" id="L-tow" data-layer="tow" aria-pressed="true">Tow car</button>
+      <button class="btn" type="button" id="L-reset">Reset view</button>
+    </div>
+  </div>
+</section>
+
+<section id="specs">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Specs</span><span class="rule"></span><span class="mono">04</span></div>
+    <div class="head"><h2>What's published, and what's modelled.</h2><p>Confirmed comes from the manufacturer or a spec sheet. Credible comes from a dealer, retailer or owner. Estimate is a modelled value to verify on a real unit.</p></div>
+    <div class="tbl spec"><table>
+      <thead><tr><th>Item</th><th>Value</th><th>Status</th><th>Source</th></tr></thead>
+      <tbody>{{SPEC_ROWS}}</tbody></table></div>
+  </div>
+</section>
+
+<section id="components">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Components</span><span class="rule"></span><span class="mono">05</span></div>
+    <div class="head"><h2>Where each unit goes, and why.</h2><p>Location, dimensions, clearance, weight, how you reach it for service, and what could go wrong.</p></div>
+    <div class="comps">{{COMPONENTS}}</div>
+  </div>
+</section>
+
+<section id="laundry">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Laundry</span><span class="rule"></span><span class="mono">06</span></div>
+    <div class="head"><h2>Option A or option B.</h2><p>The same vented Splendide WDV2200XCD in two places. A is simpler to plumb and keeps noise away from the desk and bed; B keeps the bath-side drawers.</p></div>
+    <div class="tbl"><table>
+      <thead><tr><th></th><th>A · bath side</th><th>B · rear garage</th></tr></thead>
+      <tbody>{{LAUNDRY}}</tbody></table></div>
+  </div>
+</section>
+
+<section id="weight">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Weight</span><span class="rule"></span><span class="mono">07</span></div>
+    <div class="head"><h2>Axle math.</h2><p>Front share = weight × (x − 94) ÷ 178, where x is inches from the rear wall and 94 in is the rear axle. Anything behind the rear axle lifts the front.</p></div>
+    <div class="two">
+      <div class="tbl"><table>
+        <thead><tr><th>Item · laundry A</th><th class="n">lb</th><th class="n">x in</th><th class="n">Front</th><th class="n">Rear</th></tr></thead>
+        <tbody>{{AXROWS_A}}<tr class="total"><td>Total</td><td class="n">{{TA_LB}}</td><td></td><td class="n">{{TA_F}}</td><td class="n">{{TA_R}}</td></tr></tbody></table></div>
+      <div style="display:grid;gap:24px;align-content:start">
+        <div class="callout"><span class="mono">With laundry B</span><b>Front {{TB_F}} lb · rear {{TB_R}} lb</b><span>The washer moves to 14 in from the rear wall, 80 in behind the rear axle.</span></div>
+        <div class="callout"><span class="mono">Earlier figure, rechecked</span><b>203 lb at 80 in behind the axle: {{RC_ER}} rear / {{RC_EF}} front</b><span>Correct arithmetic, but the modelled box sits 64 in behind the axle: {{RC_MR}} rear / {{RC_MF}} front. Rear-heavy either way.</span></div>
+        <div class="callout"><span class="mono">What decides it</span><b>Rear axle rated 7,275 lb</b><span>Weigh the loaded coach per axle. The tail placement stands if the rear has at least 800 lb of headroom with laundry B, or 700 lb with A.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="power">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Power</span><span class="rule"></span><span class="mono">08</span></div>
+    <div class="head"><h2>Cable runs, measured off the model.</h2><p>Lengths follow the routed paths in the model, rounded. Add 10–15% for drops and service loops when ordering.</p></div>
+    <div class="tbl"><table>
+      <thead><tr><th>Run</th><th class="n">Length</th></tr></thead>
+      <tbody>{{RUN_ROWS}}</tbody></table></div>
+  </div>
+</section>
+
+<section id="decisions">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Decisions</span><span class="rule"></span><span class="mono">09</span></div>
+    <div class="head"><h2>Calls made overnight.</h2><p>Where nothing was published or the plan was silent, these are the choices the model uses.</p></div>
+    <dl class="decs">{{DECISIONS}}</dl>
+  </div>
+</section>
+
+<section id="walkthrough">
+  <div class="wrap">
+    <div class="slab"><span class="mono">Walkthrough</span><span class="rule"></span><span class="mono">10</span></div>
+    <div class="head"><h2>Verify at walkthrough.</h2><p>Every estimate that changes the build, in the order to measure it. Bring a tape, a camera, and the per-axle scale ticket.</p></div>
+    <ol class="walklist">{{WALK}}</ol>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap"><span class="mono">Andrew Rose · 22NFT build · model R1</span><span class="mono">Scripts, .blend, renders and model delivered as files (GitHub push refused)</span></div></footer>
+
+<div class="lightbox" id="lb" hidden role="dialog" aria-modal="true" aria-labelledby="lb-title">
+  <div class="lb-top"><span class="mono" id="lb-idx"></span>
+    <div class="btns">
+      <button class="btn" type="button" id="lb-ann" aria-pressed="false">Annotated</button>
+      <button class="btn" type="button" id="lb-prev" aria-label="Previous view">Prev</button>
+      <button class="btn" type="button" id="lb-next" aria-label="Next view">Next</button>
+      <button class="btn" type="button" id="lb-close">Close</button>
+    </div></div>
+  <div class="lb-img"><img id="lb-img" alt=""></div>
+  <div class="lb-bottom"><h2 id="lb-title" style="font-size:24px"></h2><p id="lb-cap"></p></div>
+</div>
+
+<script>
+(function () {
+  var SHOTS = {{SHOTS_JS}};
+  var lb = document.getElementById('lb'), img = document.getElementById('lb-img');
+  var annBtn = document.getElementById('lb-ann'), cur = 0, ann = false, last = null;
+  function show(i) {
+    cur = (i + SHOTS.length) % SHOTS.length;
+    var s = SHOTS[cur];
+    if (!s.ann) ann = false;
+    annBtn.hidden = !s.ann;
+    annBtn.setAttribute('aria-pressed', ann ? 'true' : 'false');
+    lb.classList.remove('cut'); void lb.offsetWidth; lb.classList.add('cut');
+    img.src = ann && s.ann ? s.ann : s.src;
+    img.alt = s.title + '. ' + s.cap;
+    document.getElementById('lb-idx').textContent = s.idx + ' / ' + SHOTS.length;
+    document.getElementById('lb-title').textContent = s.title;
+    document.getElementById('lb-cap').textContent = s.cap;
+  }
+  function open(i) { last = document.activeElement; ann = !!SHOTS[i].ann; lb.hidden = false; document.body.style.overflow = 'hidden'; show(i); document.getElementById('lb-close').focus(); }
+  function close() { lb.hidden = true; document.body.style.overflow = ''; if (last) last.focus(); }
+  document.querySelectorAll('.tile-btn').forEach(function (b) { b.addEventListener('click', function () { open(+b.dataset.i); }); });
+  document.getElementById('lb-close').addEventListener('click', close);
+  document.getElementById('lb-prev').addEventListener('click', function () { show(cur - 1); });
+  document.getElementById('lb-next').addEventListener('click', function () { show(cur + 1); });
+  annBtn.addEventListener('click', function () { ann = !ann; show(cur); });
+  lb.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowRight') show(cur + 1);
+    if (e.key === 'ArrowLeft') show(cur - 1);
+  });
+})();
+</script>
+
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+} }
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const box = document.getElementById('viewer');
+const canvas = document.getElementById('gl');
+const status = document.getElementById('vstatus');
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+} catch (e) {
+  status.textContent = 'This browser could not start 3D. The renders above show every view.';
+  throw e;
+}
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.05;
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x050506);
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+const camera = new THREE.PerspectiveCamera(35, 16 / 9, 0.05, 200);
+const controls = new OrbitControls(camera, canvas);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.maxPolarAngle = Math.PI * 0.495;
+scene.add(new THREE.HemisphereLight(0xf3f1ec, 0x202024, 0.7));
+const sun = new THREE.DirectionalLight(0xffffff, 1.6);
+sun.position.set(6, 10, 8);
+scene.add(sun);
+const grid = new THREE.GridHelper(40, 80, 0x2a2a2c, 0x161618);
+scene.add(grid);
+
+const layers = { shell: [], interior: [], solar: [], power: [], laundryA: [], laundryB: [], tow: [] };
+let home = null;
+
+function size() {
+  const r = box.getBoundingClientRect();
+  renderer.setSize(r.width, r.height, false);
+  camera.aspect = r.width / Math.max(1, r.height);
+  camera.updateProjectionMatrix();
+}
+new ResizeObserver(size).observe(box);
+size();
+
+function layerOf(o) {
+  for (let n = o; n; n = n.parent) {
+    const m = /^([A-Za-z]+)__/.exec(n.name || '');
+    if (m && layers[m[1]]) return m[1];
+  }
+  return null;
+}
+
+new GLTFLoader().load('model/22nft.gltf.json', (g) => {
+  const root = g.scene;
+  root.traverse((o) => {
+    if (o.isMesh) {
+      const l = layerOf(o);
+      if (l) layers[l].push(o);
+      if (o.material && o.material.transparent) o.material.depthWrite = false;
+    }
+  });
+  const b = new THREE.Box3().setFromObject(root);
+  const c = b.getCenter(new THREE.Vector3());
+  root.position.sub(new THREE.Vector3(c.x, b.min.y, c.z));
+  scene.add(root);
+  const L = b.getSize(new THREE.Vector3()).length();
+  home = { pos: new THREE.Vector3(L * 0.55, L * 0.32, L * 0.55), target: new THREE.Vector3(0, 1.3, 0) };
+  reset();
+  layers.laundryB.forEach((m) => (m.visible = false));
+  status.textContent = 'Model R1 · ' + Object.values(layers).reduce((a, v) => a + v.length, 0) + ' parts';
+}, undefined, () => { status.textContent = 'The model file did not load. The renders above show every view.'; });
+
+function reset() {
+  if (!home) return;
+  camera.position.copy(home.pos);
+  controls.target.copy(home.target);
+  controls.update();
+}
+document.querySelectorAll('[data-layer]').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const on = btn.getAttribute('aria-pressed') !== 'true';
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    layers[btn.dataset.layer].forEach((m) => (m.visible = on));
+  });
+});
+document.getElementById('L-reset').addEventListener('click', reset);
+
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+renderer.setAnimationLoop(() => {
+  controls.update();
+  renderer.render(scene, camera);
+});
+</script>

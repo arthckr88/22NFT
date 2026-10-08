@@ -1,0 +1,57 @@
+{
+ "shot": "08_laundry_A",
+ "anchors": {
+  "washer": [
+   850.9,
+   610.8,
+   1.194
+  ],
+  "counter": [
+   949.5,
+   131.7,
+   1.18
+  ],
+  "vent": [
+   1080.6,
+   192.8,
+   1.472
+  ],
+  "bath": [
+   512.4,
+   370.2,
+   1.065
+  ],
+  "fridge": [
+   1470.7,
+   120.5,
+   0.675
+  ],
+  "dinette": [
+   2811.3,
+   945.2,
+   0.484
+  ]
+ },
+ "res": [
+  1920,
+  1080
+ ],
+ "ortho_scale_in": null,
+ "runs_in": {
+  "PV_panel1": 107.08051558766653,
+  "PV_panel2": 75.91967203045489,
+  "PV_panel3": 45.17339132023966,
+  "PV_panel4": 84.24833470217169,
+  "PV_panel5": 115.51356876473092,
+  "PV_panel6": 146.7969636510041,
+  "PV trunk, combiner to RV5 (x2 runs)": 173.20863408464132,
+  "48V, RV5 to batteries": 36.6698222497392,
+  "12V, starter battery to Orions": 39.23338025694604,
+  "48V, Orions to batteries": 236.68038377644442,
+  "120V, generator to transfer switch": 15.297058540778355,
+  "120V, transfer switch to RV5 AC in": 242.4371092411524,
+  "120V, shore inlet to transfer switch": 214.40043864030585,
+  "120V, RV5 AC out to main panel": 177.6831912368986
+ },
+ "seconds": 1
+}
