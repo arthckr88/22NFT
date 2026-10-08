@@ -116,17 +116,17 @@ def view_plan():
     # ghosts: below the floor and above the ceiling
     s += rect(21, 39, -26, 26, fy, 'ghost-dc')
     s += rect(8, 13, 36, 41, fy, 'ghost-pv', rx=1)
-    # the factory desk under the lift bed, roadside, rear wall to the shower: how it splits
+    # the factory desk stays whole, roadside, rear wall to the shower
     s += rect(1, 72.4, 13, 43.5, fy, 'desk-out', rx=1)
-    s += rect(22.5, 47.5, 13, 43.5, fy, 'knee', rx=0)
-    s += text(X(35), fy(9) + 4, 'kneehole 25 in', 'small dark', 'middle')
-    s += text(X(35), fy(4) + 4, 'desktop stays', 'small dark', 'middle')
+    s += text(X(46), fy(9) + 4, 'factory desk stays whole, x 1–72', 'small dark', 'middle')
+    # cargo door openings read off the factory floorplan (approximate)
+    s += '<line class="dooropen" x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>' % (X(20.4), fy(-43.5), X(53.5), fy(-43.5))
+    s += '<line class="dooropen" x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>' % (X(0), fy(-31.5), X(0), fy(25))
     # new hardware
     s += rect(4, 21.7, 37.15, 43.45, fy, 'n-dc')                       # RV5 in the desk base
-    s += rect(48, 72, 19, 43.3, fy, 'n-wa')                           # washer A
-    s += text(X(60), fy(31) + 5, 'A', 'big-t dark', 'middle')
-    s += rect(3, 26, -43.3, -20.4, fy, 'n-wb')                        # washer B
-    s += text(X(14.5), fy(-31.7) + 5, 'B', 'big-t dark', 'middle')
+    s += rect(1, 24.5, -43.5, -20.875, fy, 'n-wa')                     # washer: 23.5 W (x) x 22.625 D (y)
+    s += rect(20.4, 24.5, -43.5, -39.5, fy, 'clash', rx=0)            # overlap with the side door opening
+    s += rect(-1, 1, -31.5, -20.875, fy, 'clash', rx=0)               # overlap with the rear door opening
     s += rect(26.5, 28.5, 41, 43.5, fy, 'n-dc', rx=0.5)              # Epad
     s += rect(73, 79, -42, -36, fy, 'n-ac')                           # transfer switch (pantry base)
     s += rect(79.5, 84.5, -42, -36, fy, 'n-ac')                       # EMS
@@ -141,8 +141,7 @@ def view_plan():
     s += pin(10, 214.6, -20.3, fy, 0, 34, 'alt')
     s += pin(11, 76, -39, fy, -14, 30, 'ac')
     s += pin(12, 82, -39, fy, 14, 30, 'ac')
-    s += pin('13A', 60, 31, fy, 0, -44, 'wash')
-    s += pin('13B', 14.5, -31.7, fy, 34, 22, 'wash')
+    s += pin(13, 12.75, -32.2, fy, 0, 0, 'wash')
     s += text(X(318), H - 16, 'factory floorplan, scaled to 26 ft overall · positions approximate', 'small dark', 'end')
     s += ruler(32, H - 44).replace('class="tick-t"', 'class="tick-t dark"').replace('class="axle-t"', 'class="axle-t dark"').replace('class="dir"', 'class="dir dark"')
     return svg(H, s, 'Factory floor plan with new hardware placed on it')
@@ -177,13 +176,14 @@ def view_side():
     s += rect(2, 26, 64.25, 65.5, fz, 'stock', rx=0)
     s += text(X(44), fz(65.5) + 4, 'desk top 29.5 in', 'small')
     s += rect(84.7, 114, F, 100, fz, 'stock')
-    s += text(X(99.3), fz(70), 'fridge (curbside)', 'small', 'middle')
+    s += text(X(99.3), fz(60), 'fridge (curbside)', 'small', 'middle')
     s += rect(204, 228, 26, 45, fz, 'stock')
     # new: battery box, RV5, washers, roof
     s += rect(21, 39, 12, 19.5, fz, 'n-dc')
     s += rect(4, 21.7, F + 1.5, F + 21.2, fz, 'n-dc')
-    s += rect(48, 72, F + 0.6, F + 33.7, fz, 'n-wa')
-    s += rect(3.5, 26.1, F + 0.6, F + 33.7, fz, 'n-wb')
+    s += rect(1, 24.5, F + 0.6, F + 0.6 + 33.125, fz, 'n-wa')
+    s += '<line class="bedline" x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>' % (X(1), fz(F + 38), X(72), fz(F + 38))
+    s += text(X(2), fz(F + 38) - 5, 'lowered bed underside 38 in (modelled) · washer top 33.7 in', 'small')
     s += rect(73, 84.5, F + 2, F + 10, fz, 'n-ac')
     s += rect(206, 223.3, 30, 33.2, fz, 'n-alt')
     for gx in (12, 152):
@@ -206,8 +206,7 @@ def view_side():
     s += pin(9, 130, ROOF + 15.2, fz, -26, -26, 'dc')
     s += pin(10, 214.6, 31.6, fz, 0, -34, 'alt')
     s += pin(11, 78.7, F + 6, fz, 0, -34, 'ac')
-    s += pin('13A', 60, F + 17, fz, 0, 0, 'wash')
-    s += pin('13B', 14.8, F + 27, fz, 34, -10, 'wash')
+    s += pin(13, 22, F + 8, fz, 40, 0, 'wash')
     s += ruler(28, H_SIDE - 34)
     return svg(H_SIDE, s, 'Side section showing heights')
 
@@ -295,7 +294,7 @@ def view_roof():
 SCHED = [
     # n, sys, part, where, position, displaces, mount/access, connects
     ('1', 'dc', 'Bluetti RV5 hub', 'In the rear-end pedestal of the factory desk (“desk below”), roadside rear corner under the lift bed, on the floor against the roadside wall.',
-     'x 1–22 in from rear wall · roadside wall · floor level', 'The rear-end desk pedestal’s storage. With the washer at A, the desk keeps no drawer stack.',
+     'x 1–22 in from rear wall · roadside wall · floor level', 'The rear-end desk pedestal’s storage. The rest of the desk is untouched.',
      'Bolted to the floor through its mounting holes. Pedestal needs a vented front panel so the RV5 keeps 7.87 in of open air at its vents. Front panel removable for service.',
      '48 V down through the floor to the packs (%s) · PV trunks from the roof gland straight above (%s each) · 120 V in from the transfer switch in the pantry base (about 9 ft) · 120 V out to the factory breaker panel (location to find) · 12 V out to the coach 12 V panel.' % (
          ft('48V, RV5 to batteries'), ft('PV trunk, combiner to RV5 (x2 runs)'))),
@@ -339,14 +338,10 @@ SCHED = [
     ('12', 'ac', 'Surge protector / EMS (hardwired)', 'Beside the transfer switch in the pantry base.',
      'x 79–85 in · curbside', 'The bottom shelf of the pantry.', 'Screwed to the floor next to #11.',
      'Shore inlet in (inlet location unverified) · out to #11.'),
-    ('13A', 'wash', 'Splendide WDV2200XCD, location A', 'The bath end of the factory desk: replaces the desk’s bath-side drawer stack, backed against the shower wall. The desktop and kneehole stay (owner’s October 5 plan).',
-     'x 48–72 in · roadside, desk’s forward end', 'The desk’s bath-side drawer stack. The desk splits into RV5 pedestal (x 1–22), kneehole (x 22–48), washer cabinet (x 48–72).',
-     'Own cabinet, kept separate from the desk. Vent straight out the roadside wall. Water from the shower plumbing on the other side of the wall; drain to the grey tank.',
-     'Own 15 A circuit from the main panel.'),
-    ('13B', 'wash', 'Splendide WDV2200XCD, location B', 'Rear garage: curbside rear corner under the lift bed, across from the desk.',
-     'x 3–26 in · curbside rear corner', 'Garage floor space on the curbside.',
-     'Vent out the rear wall. Sits right inside the curbside large cargo door, so it blocks that door and part of the garage. Longer water and drain runs than A, and more rear-axle load.',
-     'Own 15 A circuit from the main panel.'),
+    ('13', 'wash', 'Splendide WDV2200XCD (vented)', 'Rear garage, curbside rear corner under the lift bed, across the aisle from the desk. Back against the curbside wall, side against the rear wall, door facing into the garage.',
+     'x 1–24.5 in · y 20.9–43.5 in curbside of centre · footprint 23½ W × 22⅝ D × 33⅛ H in (plus about 0.6 in plinth)', 'Garage floor in the curbside rear corner.',
+     'Bracket to the floor. Fits under the lowered bed only if the bed\u2019s underside sits at least 33.7 in above the floor; the model assumes 38 in, which isn\u2019t published. Vent out the curbside wall behind it, which is solid wall from x 1 to 20. Leave about 20 in clear in front for the door and loading.',
+     'Own 15 A circuit from the main panel. Water and drain run forward along the curbside to the galley and pantry plumbing.'),
 ]
 
 CHECKS = [
@@ -357,8 +352,8 @@ CHECKS = [
     ('Passenger seat swivel', 'The cab seats swivel to face the table. Check what’s under the passenger swivel base and whether two Orions (each about 7.3 × 5.1 × 3.1 in) fit without blocking the swivel. Fallback: the floor beside the seat base or the pantry base with the transfer switch.'),
     ('Factory power center and generator bay', 'Find the factory breaker panel and converter, and the generator bay. The transfer switch goes in the pantry base unless the power center is close by.'),
     ('Shore inlet location', 'The model guesses the inlet is at the rear roadside. If it’s forward, the shore run to the transfer switch gets shorter.'),
-    ('Cargo doors', 'The factory floorplan shows large cargo doors in the rear wall and on the curbside under the bed. Washer B sits inside the curbside door. The RV5 and desk are in the roadside rear corner, clear of the curbside door but next to the rear doors.'),
-    ('Washer A space', 'Location A needs the bath-side drawer stack under the lift bed to be at least 24 in wide, with clear height under the bed for the 33.1 in machine plus its top.'),
+    ('Cargo doors and the washer', 'Read off the factory floorplan: the curbside cargo door opening runs about x 20\u201354 (33 in) and the rear doors cover roughly y 25 roadside to 31.5 curbside. Both doors swing outward, so they still open. The washer\u2019s 23\u00bd in length overlaps the side opening by about 4 in, leaving about 29 in clear, and its 22\u215d in depth overlaps the rear opening by about 11 in. Measure both openings.'),
+    ('Washer height under the bed', 'The machine is 33\u215b in tall, about 33.7 in with its plinth. It fits only if the lift bed\u2019s underside, fully lowered, is at least 33.7 in off the garage floor, including any lift rails or frame. That height isn\u2019t published. If it measures lower, the washer does not fit at B.'),
 ]
 
 
@@ -368,18 +363,19 @@ def axle_section():
     def sp(w, x):
         f = w * (x - 94) / WB
         return f, w - f
-    base = {'A': (-58.7, 757.3), 'B': (-96.9, 795.5)}
-    heavy = [sp(107.7, 58.5), sp(107.7, 198.5)]
-    hv = (sum(a for a, b in heavy), sum(b for a, b in heavy))
-    common = [sp(290.5, 138), sp(40, -6), sp(200, 250), sp(350, 130)]
+    build = [(202.0, 30), (25.0, 30), (30.9, 13), (89.4, 58.5), (89.4, 198.5), (60.0, 128),
+             (7.9, 214.6), (40.0, 140), (6.0, 130), (148.0, 12.75)]          # washer at B only
+    heavy = [(107.7, 58.5), (107.7, 198.5)]
+    trip = [(290.5, 138), (40, -6), (200, 250)]
     rows = ''
-    for wash in ('A', 'B'):
-        for pan, extra in (('29.8 lb', (0, 0)), ('65.7 lb', hv)):
-            f = base[wash][0] + extra[0] + sum(c[0] for c in common)
-            r = base[wash][1] + extra[1] + sum(c[1] for c in common)
-            rows += ('<tr><td>Washer %s · panels %s each</td><td class="mono">%+.0f lb</td><td class="mono">%+.0f lb</td>'
+    for pan, extra in (('29.8 lb', []), ('65.7 lb', heavy)):
+        for gname, gx in (('midship', 130), ('in the rear garage', 40)):
+            items = build + extra + trip + [(350, gx)]
+            f = sum(sp(w, x)[0] for w, x in items)
+            r = sum(sp(w, x)[1] for w, x in items)
+            rows += ('<tr><td>Panels %s each · gear %s</td><td class="mono">%+.0f lb</td><td class="mono">%+.0f lb</td>'
                      '<td class="mono"><strong>%s lb</strong></td><td class="mono">%s lb</td></tr>' % (
-                         wash, pan, f, r, format(round(7275 - r), ','), format(round(4630 - f), ',')))
+                         pan, gname, f, r, format(round(7275 - r), ','), format(round(4630 - f), ',')))
     return rows
 
 
