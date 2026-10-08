@@ -127,19 +127,19 @@ def view_plan():
     s += rect(48.9, 72.4, -43.5, -20.875, fy, 'n-wa')                  # washer: curbside corner, bed's forward end, against the pantry
     s += rect(48.9, 53.5, -43.5, -40, fy, 'clash', rx=0)               # overlap with the side cargo door opening
     s += rect(26.5, 28.5, 41, 43.5, fy, 'n-dc', rx=0.5)              # Epad
-    s += rect(73, 79, -42, -36, fy, 'n-ac')                           # transfer switch (pantry base)
-    s += rect(79.5, 84.5, -42, -36, fy, 'n-ac')                       # EMS
+    s += rect(1, 24, 13.5, 43.5, fy, 'pedestal')                       # rear desk pedestal: all power gear here
+    s += rect(18, 24, 14, 20, fy, 'n-ac')                              # transfer switch on the pedestal side panel
+    s += rect(18, 24, 21, 27, fy, 'n-ac')                              # EMS beside it
     s += rect(206, 223.3, -24, -16.7, fy, 'n-alt')                    # Orions under passenger seat
     s += poly([(214, -20), (200, -15.5), (60, -15.5), (40, -15.5), (37, -18)], fy, 'run alt dashed')
     s += poly([(12, 41), (12, 39), (22, 20), (24, 20)], fy, 'run dc')
-    s += poly([(76, -38), (60, -38), (30, -10), (16, 36), (16, 38)], fy, 'run ac dashed')
     s += pin(1, 13, 40.3, fy, 0, 30)
     s += pin(2, 30, 0, fy, 0, 0, 'dc')
     s += pin(4, 27.5, 42.2, fy, 16, 24)
     s += pin(5, 10.5, 38.5, fy, -20, -20, 'pv')
     s += pin(10, 214.6, -20.3, fy, 0, 34, 'alt')
-    s += pin(11, 76, -39, fy, -14, 30, 'ac')
-    s += pin(12, 82, -39, fy, 14, 30, 'ac')
+    s += pin(11, 21, 17, fy, 30, 6, 'ac')
+    s += pin(12, 21, 24, fy, 30, -10, 'ac')
     s += pin(13, 60.65, -32.2, fy, 0, 0, 'wash')
     s += text(X(318), H - 16, 'factory floorplan, scaled to 26 ft overall · positions approximate', 'small dark', 'end')
     s += ruler(32, H - 44).replace('class="tick-t"', 'class="tick-t dark"').replace('class="axle-t"', 'class="axle-t dark"').replace('class="dir"', 'class="dir dark"')
@@ -183,7 +183,7 @@ def view_side():
     s += rect(48.9, 72.4, F + 0.6, F + 0.6 + 33.125, fz, 'n-wa')
     s += '<line class="bedline" x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>' % (X(1), fz(F + 38), X(72.4), fz(F + 38))
     s += text(X(2), fz(F + 38) - 5, 'lowered bed underside 38 in (modelled) · washer top 33.7 in', 'small')
-    s += rect(73, 84.5, F + 2, F + 10, fz, 'n-ac')
+    s += rect(18, 24, F + 2, F + 10, fz, 'n-ac')
     s += rect(206, 223.3, 30, 33.2, fz, 'n-alt')
     for gx in (12, 152):
         s += rect(gx, gx + 92.9, ROOF + 2.5, ROOF + 3.9, fz, 'n-pv', rx=0)
@@ -195,7 +195,7 @@ def view_side():
     s += poly([(108, z + 1), (60, z), (10.5, z), (10.5, 117), (8, F + 25), (8, F + 21)], fz, 'run pv')
     s += poly([(12, F + 3), (12, F - 3), (22, 26), (24, 18.5)], fz, 'run dc')
     s += poly([(214, 30), (200, 23), (60, 23), (40, 21), (37, 17.5)], fz, 'run alt')
-    s += poly([(76, F + 3), (76, F - 4), (16, F - 4), (16, F + 4)], fz, 'run ac')
+    s += poly([(212, F - 4), (21, F - 4), (21, F + 2)], fz, 'run ac')
     # pins
     s += pin(1, 13, F + 11, fz, 0, -30)
     s += pin(2, 30, 15.75, fz, 0, 36, 'dc')
@@ -204,7 +204,7 @@ def view_side():
     s += pin(8, 130, ROOF + 7, fz, 26, -30, 'ac')
     s += pin(9, 130, ROOF + 15.2, fz, -26, -26, 'dc')
     s += pin(10, 214.6, 31.6, fz, 0, -34, 'alt')
-    s += pin(11, 78.7, F + 6, fz, 0, -34, 'ac')
+    s += pin(11, 21, F + 6, fz, 30, -26, 'ac')
     s += pin(13, 60.65, F + 17, fz, 0, 0, 'wash')
     s += ruler(28, H_SIDE - 34)
     return svg(H_SIDE, s, 'Side section showing heights')
@@ -239,16 +239,15 @@ def view_under():
     s += rect(206, 223.3, -24, -16.7, fy, 'n-alt')
     # runs
     s += poly([(214, -20), (200, -15.5), (60, -15.5), (40, -15.5), (37, -18)], fy, 'run alt')
-    s += poly([(212, -30), (150, -38), (76, -39)], fy, 'run ac dashed')
-    s += poly([(76, -39), (60, -38), (30, -10), (16, 36), (16, 38)], fy, 'run ac')
-    s += poly([(16, 44.5), (20, 30), (60, 30), (70, -30), (76, -36)], fy, 'run ac dashed')
+    s += poly([(212, -30), (212, 30), (30, 30), (21, 20)], fy, 'run ac')
+    s += poly([(16, 44.5), (18, 34), (21, 24)], fy, 'run ac dashed')
     s += '<circle class="riser dc" cx="%.1f" cy="%.1f" r="5"/>' % (X(12), fy(40))
     s += pin(2, 30, 13, fy, 0, -60, 'dc')
     s += pin(10, 214.6, -20.3, fy, 0, 30, 'alt')
     s += pin(3, 12, 40, fy, -20, 16, 'dc')
     s += text(X(150), fy(-15.5) - 10, 'alternator 48 V run along the curbside rail · about 16 ft', 'small run-t alt-t', 'middle')
-    s += text(X(60), fy(-38) + 14, 'transfer switch → RV5 · about 9 ft', 'small run-t ac-t', 'middle')
-    s += text(X(110), fy(30) - 6, 'shore inlet → transfer switch (inlet spot unverified)', 'small run-t ac-t', 'middle')
+    s += text(X(145), fy(30) + 14, 'generator → transfer switch, under the floor along the roadside rail · about 18 ft (generator bay unverified)', 'small run-t ac-t', 'middle')
+    s += text(X(26), fy(46.5) - 4, 'shore inlet (spot unverified)', 'small run-t ac-t')
     s += ruler(32, H_PLAN - 44)
     return svg(H_PLAN, s, 'Underbody plan, looking down through the floor')
 
@@ -295,7 +294,7 @@ SCHED = [
     ('1', 'dc', 'Bluetti RV5 hub', 'In the rear-end pedestal of the factory desk (“desk below”), roadside rear corner under the lift bed, on the floor against the roadside wall.',
      'x 1–22 in from rear wall · roadside wall · floor level', 'The rear-end desk pedestal’s storage. The rest of the desk is untouched.',
      'Bolted to the floor through its mounting holes. Pedestal needs a vented front panel so the RV5 keeps 7.87 in of open air at its vents. Front panel removable for service.',
-     '48 V down through the floor to the packs (%s) · PV trunks from the roof gland straight above (%s each) · 120 V in from the transfer switch in the pantry base (about 9 ft) · 120 V out to the factory breaker panel (location to find) · 12 V out to the coach 12 V panel.' % (
+     '48 V down through the floor to the packs (%s) · PV trunks from the roof gland straight above (%s each) · 120 V in from the transfer switch beside it in the pedestal (under 2 ft) · 120 V out to the factory breaker panel (location to find) · 12 V out to the coach 12 V panel.' % (
          ft('48V, RV5 to batteries'), ft('PV trunk, combiner to RV5 (x2 runs)'))),
     ('2', 'dc', '2 × B4810 in a sealed box', 'Under the tail, across the frame rails, between the hitch crossmember and the spare tire.',
      'x 21–39 in from rear wall (about 64 in behind the rear axle) · 52 × 18 × 7.5 in box · bottom about 12 in off the ground',
@@ -331,12 +330,13 @@ SCHED = [
      'x 206–223 in · curbside · under the seat base', 'Space under the passenger seat. The cab seats swivel to face the table, so the swivel base must leave room (fit check).',
      'Screwed to the seat base or the floor beside it. Ignition-switched. Fuse at the starter battery.',
      '12 V from the starter battery (about 3 ft) · 48 V back to the packs along the curbside rail (about 16 ft, about 16 A, so a small cable).'),
-    ('11', 'ac', 'Transfer switch', 'In the base of the pantry, curbside, just forward of the lift bed. Candidate spot: move it next to the factory power center if that turns out to be nearby.',
-     'x 73–79 in · curbside · floor of the pantry', 'The bottom shelf of the pantry.', 'Screwed to the floor. Service through the pantry door.',
-     'Generator in (length depends on the generator bay, unverified) · shore in through #12 · out to the RV5 AC input (about 9 ft).'),
-    ('12', 'ac', 'Surge protector / EMS (hardwired)', 'Beside the transfer switch in the pantry base.',
-     'x 79–85 in · curbside', 'The bottom shelf of the pantry.', 'Screwed to the floor next to #11.',
-     'Shore inlet in (inlet location unverified) · out to #11.'),
+    ('11', 'ac', 'Transfer switch', 'In the rear desk pedestal with the RV5, mounted on the pedestal\u2019s inside side panel. All power gear sits in one place.',
+     'x 18–24 in · 14–20 in roadside of centre · inside the desk pedestal', 'Pedestal space only.',
+     'Screwed to the pedestal side panel, at least 7.87 in from the RV5 so the hub keeps its airflow. Service through the pedestal front.',
+     'Generator in, under the floor along the roadside rail, rising into the pedestal (about 18 ft; generator bay unverified) · shore in through #12 · out to the RV5 AC input (under 2 ft).'),
+    ('12', 'ac', 'Surge protector / EMS (hardwired)', 'Beside the transfer switch in the desk pedestal.',
+     'x 18–24 in · 21–27 in roadside of centre · inside the desk pedestal', 'Pedestal space only.', 'Screwed to the same side panel, below or beside #11.',
+     'Shore inlet in (inlet spot unverified; the model has it at the rear roadside, a few feet away) · out to #11.'),
     ('13', 'wash', 'Splendide WDV2200XCD (vented)', 'Curbside corner at the forward end of the lift bed, backed against the curbside wall with its side against the pantry wall.',
      'x 48.9–72.4 in · y 20.9–43.5 in curbside of centre · footprint 23½ W × 22⅝ D × 33⅛ H in (plus about 0.6 in plinth) · centre about 33 in behind the rear axle', 'Garage floor in that corner, under the forward end of the bed.',
      'Bracket to the floor. Fits under the lowered bed only if the bed\u2019s underside sits at least 33.7 in above the floor (modelled 38 in, unpublished). Vent out the curbside wall. Its rear 4\u00bd in overlaps the forward end of the curbside cargo door opening (x 20\u201354), leaving about 29 in of the opening clear.',
@@ -347,9 +347,9 @@ CHECKS = [
     ('Roof fans and skylight under the panels', 'The panels sit 2.5 in off the roof, and the model puts two roof fans and the bath skylight under them. A MaxxFan Deluxe with rain dome is 23.2 × 16.6 in and stands 5.0 in tall closed and 9.1 in with the lid open (retailer spec, overall unit height). It cannot sit under a panel on 2.5 in brackets. See the roof fallback section.'),
     ('Roof length and AC position', 'The row of six spans 233 in from the first panel edge to the last (x 12 to 245). The model treats the roof as flat from the rear cap over the cab-over to about x 300. Measure the flat roof length, whether the cab-over roof is flat and walkable, and the AC opening’s distance from the rear cap.'),
     ('Tail box vs. hitch and spare', 'In the model the box starts right where the receiver tube ends. Measure the gap from the hitch crossmember to the spare, frame-extension height and bolt points, and exhaust-tip position.'),
-    ('Desk base size', 'The RV5 is 17.7 × 19.7 × 6.3 in and wants 7.87 in of air at its vents. Measure the factory desk base in the roadside rear corner to confirm it can take the RV5 with a vented front.'),
-    ('Passenger seat swivel', 'The cab seats swivel to face the table. Check what’s under the passenger swivel base and whether two Orions (each about 7.3 × 5.1 × 3.1 in) fit without blocking the swivel. Fallback: the floor beside the seat base or the pantry base with the transfer switch.'),
-    ('Factory power center and generator bay', 'Find the factory breaker panel and converter, and the generator bay. The transfer switch goes in the pantry base unless the power center is close by.'),
+    ('Desk pedestal size', 'The rear desk pedestal holds the RV5 (17.7 × 19.7 × 6.3 in, needs 7.87 in of air at its vents), the disconnect and PV breakers, the transfer switch and the surge protector. Modelled as x 1\u201324 by about 30 in deep under the desktop. Measure it, and size the transfer switch and surge protector models to fit.'),
+    ('Passenger seat swivel', 'The cab seats swivel to face the table. Check what’s under the passenger swivel base and whether two Orions (each about 7.3 × 5.1 × 3.1 in) fit without blocking the swivel. Fallback: the floor beside the seat base.'),
+    ('Factory power center and generator bay', 'Find the factory breaker panel and converter, the generator bay and the shore inlet. The 120 V feeds come in under the floor to the desk pedestal; their lengths depend on where those are.'),
     ('Shore inlet location', 'The model guesses the inlet is at the rear roadside. If it’s forward, the shore run to the transfer switch gets shorter.'),
     ('Cargo doors', 'The factory floorplan shows large cargo doors in the rear wall and on the curbside under the bed. The curbside door swings outward, so it still opens; the washer takes about 4\u00bd in off the forward end of its roughly 33 in opening. Measure the opening.'),
     ('Washer corner', 'Measure the lift bed\u2019s underside fully lowered at the forward curbside corner (needs at least 33.7 in), the floor space from the pantry wall back (needs 23\u00bd in) and out from the curbside wall (needs 22\u215d in), where the bath and galley supply lines run, and where the grey tank inlet is.'),
