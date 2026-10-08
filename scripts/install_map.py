@@ -124,9 +124,7 @@ def view_plan():
     s += '<line class="dooropen" x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>' % (X(0), fy(-31.5), X(0), fy(25))
     # new hardware
     s += rect(4, 21.7, 37.15, 43.45, fy, 'n-dc')                       # RV5 in the desk base
-    s += rect(1, 24.5, -43.5, -20.875, fy, 'n-wa')                     # washer: 23.5 W (x) x 22.625 D (y)
-    s += rect(20.4, 24.5, -43.5, -39.5, fy, 'clash', rx=0)            # overlap with the side door opening
-    s += rect(-1, 1, -31.5, -20.875, fy, 'clash', rx=0)               # overlap with the rear door opening
+    s += rect(150, 173.5, 20.875, 43.5, fy, 'n-wa')                    # washer: 23.5 along the wall x 22.625 deep
     s += rect(26.5, 28.5, 41, 43.5, fy, 'n-dc', rx=0.5)              # Epad
     s += rect(73, 79, -42, -36, fy, 'n-ac')                           # transfer switch (pantry base)
     s += rect(79.5, 84.5, -42, -36, fy, 'n-ac')                       # EMS
@@ -141,7 +139,7 @@ def view_plan():
     s += pin(10, 214.6, -20.3, fy, 0, 34, 'alt')
     s += pin(11, 76, -39, fy, -14, 30, 'ac')
     s += pin(12, 82, -39, fy, 14, 30, 'ac')
-    s += pin(13, 12.75, -32.2, fy, 0, 0, 'wash')
+    s += pin(13, 161.75, 32.2, fy, 0, 0, 'wash')
     s += text(X(318), H - 16, 'factory floorplan, scaled to 26 ft overall · positions approximate', 'small dark', 'end')
     s += ruler(32, H - 44).replace('class="tick-t"', 'class="tick-t dark"').replace('class="axle-t"', 'class="axle-t dark"').replace('class="dir"', 'class="dir dark"')
     return svg(H, s, 'Factory floor plan with new hardware placed on it')
@@ -181,9 +179,7 @@ def view_side():
     # new: battery box, RV5, washers, roof
     s += rect(21, 39, 12, 19.5, fz, 'n-dc')
     s += rect(4, 21.7, F + 1.5, F + 21.2, fz, 'n-dc')
-    s += rect(1, 24.5, F + 0.6, F + 0.6 + 33.125, fz, 'n-wa')
-    s += '<line class="bedline" x1="%.1f" y1="%.1f" x2="%.1f" y2="%.1f"/>' % (X(1), fz(F + 38), X(72), fz(F + 38))
-    s += text(X(2), fz(F + 38) - 5, 'lowered bed underside 38 in (modelled) · washer top 33.7 in', 'small')
+    s += rect(150, 173.5, F + 0.6, F + 0.6 + 33.125, fz, 'n-wa')
     s += rect(73, 84.5, F + 2, F + 10, fz, 'n-ac')
     s += rect(206, 223.3, 30, 33.2, fz, 'n-alt')
     for gx in (12, 152):
@@ -206,7 +202,7 @@ def view_side():
     s += pin(9, 130, ROOF + 15.2, fz, -26, -26, 'dc')
     s += pin(10, 214.6, 31.6, fz, 0, -34, 'alt')
     s += pin(11, 78.7, F + 6, fz, 0, -34, 'ac')
-    s += pin(13, 22, F + 8, fz, 40, 0, 'wash')
+    s += pin(13, 161.75, F + 17, fz, 0, 0, 'wash')
     s += ruler(28, H_SIDE - 34)
     return svg(H_SIDE, s, 'Side section showing heights')
 
@@ -338,10 +334,10 @@ SCHED = [
     ('12', 'ac', 'Surge protector / EMS (hardwired)', 'Beside the transfer switch in the pantry base.',
      'x 79–85 in · curbside', 'The bottom shelf of the pantry.', 'Screwed to the floor next to #11.',
      'Shore inlet in (inlet location unverified) · out to #11.'),
-    ('13', 'wash', 'Splendide WDV2200XCD (vented)', 'Rear garage, curbside rear corner under the lift bed, across the aisle from the desk. Back against the curbside wall, side against the rear wall, door facing into the garage.',
-     'x 1–24.5 in · y 20.9–43.5 in curbside of centre · footprint 23½ W × 22⅝ D × 33⅛ H in (plus about 0.6 in plinth)', 'Garage floor in the curbside rear corner.',
-     'Bracket to the floor. Fits under the lowered bed only if the bed\u2019s underside sits at least 33.7 in above the floor; the model assumes 38 in, which isn\u2019t published. Vent out the curbside wall behind it, which is solid wall from x 1 to 20. Leave about 20 in clear in front for the door and loading.',
-     'Own 15 A circuit from the main panel. Water and drain run forward along the curbside to the galley and pantry plumbing.'),
+    ('13', 'wash', 'Splendide WDV2200XCD (vented)', 'Driver side, directly forward of the bath, against the lav wall, under the overhead cabinets beside the swivel-seat table.',
+     'x 150–173.5 in · back against the roadside wall · footprint 23½ W × 22⅝ D × 33⅛ H in (plus about 0.6 in plinth) · centre about 69 in ahead of the rear axle', 'About 24 in of wall space next to the table. Space available, scaled from the floorplan: about 54 in of wall (x 149–203) by about 27 in deep, open up to the overhead cabinets.',
+     'Bracket to the floor. Vent straight out the roadside wall. Leave about 20 in clear in front for the door and loading.',
+     'Hot, cold and drain from the lav on the other side of the wall: the standpipe tees into the bath\u2019s drain to the grey tank, so every run is a few feet. Own 15 A circuit from the main panel.'),
 ]
 
 CHECKS = [
@@ -352,8 +348,8 @@ CHECKS = [
     ('Passenger seat swivel', 'The cab seats swivel to face the table. Check what’s under the passenger swivel base and whether two Orions (each about 7.3 × 5.1 × 3.1 in) fit without blocking the swivel. Fallback: the floor beside the seat base or the pantry base with the transfer switch.'),
     ('Factory power center and generator bay', 'Find the factory breaker panel and converter, and the generator bay. The transfer switch goes in the pantry base unless the power center is close by.'),
     ('Shore inlet location', 'The model guesses the inlet is at the rear roadside. If it’s forward, the shore run to the transfer switch gets shorter.'),
-    ('Cargo doors and the washer', 'Read off the factory floorplan: the curbside cargo door opening runs about x 20\u201354 (33 in) and the rear doors cover roughly y 25 roadside to 31.5 curbside. Both doors swing outward, so they still open. The washer\u2019s 23\u00bd in length overlaps the side opening by about 4 in, leaving about 29 in clear, and its 22\u215d in depth overlaps the rear opening by about 11 in. Measure both openings.'),
-    ('Washer height under the bed', 'The machine is 33\u215b in tall, about 33.7 in with its plinth. It fits only if the lift bed\u2019s underside, fully lowered, is at least 33.7 in off the garage floor, including any lift rails or frame. That height isn\u2019t published. If it measures lower, the washer does not fit at B.'),
+    ('Cargo doors', 'The factory floorplan shows large cargo doors in the rear wall and on the curbside under the bed. Nothing new goes in front of them; the RV5 and desk are in the roadside rear corner.'),
+    ('Washer wall forward of the bath', 'Confirm what\u2019s in the driver-side wall zone at x 149\u2013203: open floor, a cabinet, the table mount, or the furnace or water heater, which often sit there. Find where the lav\u2019s hot, cold and drain lines run in that wall, and confirm no slide-out is involved. The washer needs 23\u00bd \u00d7 22\u215d in of floor and 34 in of height.'),
 ]
 
 
@@ -364,7 +360,7 @@ def axle_section():
         f = w * (x - 94) / WB
         return f, w - f
     build = [(202.0, 30), (25.0, 30), (30.9, 13), (89.4, 58.5), (89.4, 198.5), (60.0, 128),
-             (7.9, 214.6), (40.0, 140), (6.0, 130), (148.0, 12.75)]          # washer at B only
+             (7.9, 214.6), (40.0, 140), (6.0, 130), (148.0, 161.75)]         # washer forward of the bath
     heavy = [(107.7, 58.5), (107.7, 198.5)]
     trip = [(290.5, 138), (40, -6), (200, 250)]
     rows = ''
